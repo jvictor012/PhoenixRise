@@ -1,8 +1,9 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 from database import executar_comandos
-
+import bcrypt
 
 app = Flask(__name__)
+app.secret_key = 'chave_muito_secreta'
 
 @app.route('/')
 def principal():
@@ -17,10 +18,11 @@ def cadastro_submit():
         data_nascimento = request.form.get('data_nascimento')
         email = request.form.get('email')
         senha = request.form.get('senha')
+        senha_hash = bcrypt.hashpw(senha.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
         esporte = request.form.get('esporte')
 
         query = '''INSERT INTO usuarios(nome, nome_usuario, data_nascimento, email, senha_hash) VALUES(%s, %s, %s, %s, %s)'''
-        valores = (nome, nome_usuario, data_nascimento, email, senha)
+        valores = (nome, nome_usuario, data_nascimento, email, senha_hash)
         
         id_usuario = executar_comandos(query, valores, retornar_id=True)
         print("ID do usuário cadastrado:", id_usuario)
@@ -40,16 +42,38 @@ def cadastro_submit():
     
     return render_template('cadastro.html')
 
-
-
-
 @app.route('/login', methods=['GET', 'POST'])
 def login_submit():
-    email = request.form.get('email')
-    senha = request.form.get('senha')
-    
-    print(f"Login concluído")
-    return  render_template('index.html')
+    if request.method == 'POST':
+        email = request.form.get('email')
+        senha = request.form.get('senha')
+        '''Gerando a query  para fazer o login'''
+        query = "SELECT senha_hash, nome_usuario FROM usuarios WHERE email = %s"
+        valores = (email,)
+
+        resultado = executar_comandos(query, valores,fetchone=True, retornar_id=False)            
+        
+
+        if resultado:
+            password = resultado[0]
+            nome = resultado[1]
+            if bcrypt.checkpw(senha.encode('utf-8'), password.encode('utf-8')):
+                return redirect(url_for('onboarding', nome=nome))
+            
+            mensagem = "Erro! Digite os campos novamente!"
+            return render_template('login.html',mensagem = mensagem)
+        
+        else:
+            mensagem = "Email não cadastrado! Tente novamente!"
+            return render_template('login.html',mensagem = mensagem)    
+    return  render_template('login.html')
+
+
+@app.route('/onboarding', methods = ['GET', 'POST'])
+def onboarding():
+    nome = request.args.get('nome')
+    return render_template('home.html', nome=nome)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
