@@ -1,8 +1,177 @@
-body {
-  background: #fff;
-  color: black;
-  text-align: center;
+/* ==========================
+   CSS LOGIN FITNESS - PHOENIX RISE
+========================== */
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
 }
+
+/* Corpo da página */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  animation: bgAnim 10s ease infinite;
+}
+
+/* Animação de fundo suave */
+@keyframes bgAnim {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Logo */
+img {
+  width: 150px;
+  margin-bottom: 20px;
+  transition: transform 0.3s;
+}
+
+img:hover {
+  transform: scale(1.1);
+}
+
+/* Título */
+h1 {
+  font-size: 3em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+  letter-spacing: 2px;
+  animation: titleAnim 1.5s ease-out;
+}
+
+@keyframes titleAnim {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Mensagem de boas-vindas */
+p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+/* Formulário */
+form {
+  background-color: rgba(0,0,0,0.5);
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+  width: 100%;
+  max-width: 400px;
+  transition: transform 0.3s;
+}
+
+form:hover {
+  transform: scale(1.02);
+}
+
+/* Labels */
+label {
+  display: block;
+  text-align: left;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* Inputs */
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  background: rgba(255,255,255,0.8);
+  color: #333;
+  transition: 0.3s;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+  background: #fff;
+  box-shadow: 0 0 10px #ff5722;
+}
+
+/* Botão */
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff5722;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+button:hover {
+  background-color: #e64a19;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+
+/* Link de cadastro */
+a {
+  color: #ffd700;
+  text-decoration: underline;
+  margin-top: 15px;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: #fff;
+}
+
+/* Mensagem do backend */
+.mensagem {
+  margin-top: 10px;
+  color: #ffd700;
+  font-weight: bold;
+}
+
+/* ==========================
+   RESPONSIVIDADE
+========================== */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2.2em;
+  }
+
+  form {
+    padding: 20px;
+  }
+
+  input[type="email"],
+  input[type="password"],
+  button {
+    padding: 10px;
+  }
+
+  img {
+    width: 120px;
+  }
+}
+
+
 
 /*@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 

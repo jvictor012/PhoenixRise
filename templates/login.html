@@ -5,13 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Phoenix Rise</title>
     <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='exemplo1.css') }}"
+      rel="stylesheet" href="{{ url_for('static', filename='exemplo1.css') }}"
     />
+
+    <style>
+      body {
+        background-image: url("{{ url_for('static', filename='imagens/fundo_semfenix.png') }}");
+        background-size: cover;      /* Ajusta para cobrir toda a tela */
+        background-position: center; /* Centraliza a imagem */
+        background-repeat: no-repeat;/* Não repete a imagem */
+        }
+    </style>
+
   </head>
   <body>
     <h1>Phoenix Rise</h1>
-    <img src="imagens/logo_fenix.png" alt="logo-phoenix-Rise" width="200" />
+    <img src="/static/imagens/fenix_2500.png" alt="TheGhost" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-white object-cover">
 
     <p>Bem-vindo(a) de volta à sua jornada pelo bem-estar!</p>
 
