@@ -1,0 +1,164 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+/* Corpo da página centralizado com fundo */
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centraliza verticalmente */
+  align-items: center; /* centraliza horizontalmente */
+  min-height: 100vh; /* altura mínima para centralização vertical */
+  padding: 20px;
+  position: relative; /* para posicionamento de elementos fixos */
+  background-image: url('imagens/fundo_semfenix.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  transition: color 0.3s; /* apenas cor do texto */
+}
+
+/* Classe inicial para tema claro */
+body.light {
+  color: inherit;
+}
+
+/* Formulário compacto e centralizado */
+form {
+  padding: 15px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  backdrop-filter: blur(10px); /* desfoca o fundo atrás do form */
+  border: 1px solid rgba(255,255,255,0.2); /* borda sutil para efeito de vidro */
+  background-color: rgba(255,255,255,0.6); /* cor inicial clara */
+  color: #121212; /* texto dentro do form */
+}
+
+/* Formulário modo escuro */
+body.dark form {
+  background-color: rgba(30,30,30,0.8);
+  box-shadow: 0 0 15px rgba(155, 89, 182, 0.6);
+  color: #e0e0e0;
+}
+
+/* Labels dentro do formulário */
+form label {
+  display: block;
+  margin-bottom: 3px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+/* Inputs dentro do formulário */
+form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 12px;
+  border-radius: 5px;
+  transition: 0.3s;
+  background-color: inherit; /* herda cor do form */
+  color: inherit;
+  border: 2px solid rgba(0,0,0,0.2);
+}
+
+input::placeholder {
+  color: #888;
+}
+
+input:focus {
+  border-color: #9b59b6;
+  outline: none;
+  box-shadow: 0 0 5px #9b59b6;
+}
+
+/* Botão dentro do formulário - agora herda cor do formulário */
+form button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  background-color: inherit; /* herda cor do form */
+  color: inherit; /* herda cor do texto do form */
+}
+
+/* Botão hover */
+form button:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 0 10px #9b59b6;
+}
+
+/* Link de login */
+a {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #d3a0e7;
+  text-shadow: 1px 1px 2px #000;
+}
+
+/* Mensagem */
+.mensagem {
+  text-align: center;
+  margin-bottom: 15px;
+  color: #e74c3c;
+}
+
+/* Título principal */
+h1 {
+  color: #9b59b6;
+  margin-bottom: 30px;
+  font-size: 2.5em;
+  text-shadow: 2px 2px 5px #000;
+  text-align: center;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+  form {
+    padding: 15px;
+  }
+  h1 {
+    font-size: 1.8em;
+  }
+}
+
+/* Botão de mudar tema fixo */
+#toggle-theme {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: auto;
+  padding: 5px 10px;
+  font-size: 0.9em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #9b59b6;
+  color: #fff;
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  transition: 0.3s;
+  z-index: 1000;
+}
+
+#toggle-theme:hover {
+  background-color: #7d3ea6;
+  box-shadow: 0 0 8px #9b59b6;
+}
