@@ -1,129 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Phoenix Rise</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    body {
-      display: flex;
-      min-height: 100vh;
-      background-image: url("{{ url_for('static', filename='imagens/fundo_semfenix.png') }}");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      color: #fff;
-    }
-
-    .content {
-      display: flex;
-      flex: 1;
-      justify-content: space-between;
-      align-items: center;
-      padding: 50px;
-    }
-
-    .text-section {
-      max-width: 500px;
-    }
-
-    .text-section h1 {
-      font-size: 4rem;
-      color: #ffdd57;
-      margin-bottom: 20px;
-    }
-
-    .text-section p {
-      font-size: 1.3rem;
-      margin-bottom: 30px;
-      color: #fff;
-    }
-
-    .text-section input {
-      width: 100%;
-      padding: 15px;
-      margin-bottom: 20px;
-      border-radius: 10px;
-      border: 1px solid #ffdd57;
-      background: rgba(255,255,255,0.05);
-      color: #fff;
-      font-size: 1rem;
-      outline: none;
-      transition: 0.3s;
-    }
-
-    .text-section input:focus {
-      background: rgba(255,255,255,0.15);
-    }
-
-    .text-section button {
-      padding: 15px;
-      border-radius: 10px;
-      border: none;
-      background: #ffdd57;
-      color: #000;
-      font-weight: 700;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    .text-section button:hover {
-      background: #e6c847;
-    }
-
-    .image-section img {
-      width: 100%;
-      max-width: 500px;
-      border-radius: 20px;
-      object-fit: cover;
-    }
-
-    @media(max-width: 768px) {
-      body {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .content {
-        flex-direction: column;
-        padding: 20px;
-      }
-
-      .image-section img {
-        max-width: 300px;
-        margin-top: 30px;
-      }
-
-      .text-section h1 {
-        font-size: 3rem;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="content">
-    <div class="text-section">
-      <h1>Phoenix Rise</h1>
-      <p>Seu guia para treinar, explorar e se conectar.</p>
-      <input type="email" placeholder="Digite seu email">
-      <input type="password" placeholder="Digite sua senha">
-      <button>Entrar</button>
-    </div>
-    <div class="image-section">
-      <img src="{{ url_for('static', filename='imagens/sua_imagem.png') }}" alt="Imagem Hero">
-    </div>
-  </div>
-</body>
-</html>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phoenix Rise</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='exemplo1.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Página Principal</h1>
+    <footer>
+      <div class="links">
+        <a href="/login">Fazer login</a> <br>
+        <a href="/cadastro">Fazer cadastro</a>
+      </div>
+    </footer>
+  </body>
+  </html>

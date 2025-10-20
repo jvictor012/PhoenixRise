@@ -4,9 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Phoenix Rise</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Jaro&display=swap" rel="stylesheet">
-
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='exemplo1.css') }}"
@@ -14,37 +11,28 @@
   </head>
   <body>
     <h1>Phoenix Rise</h1>
-   <img src="{{ url_for('static', filename='imagens/logo_fenix.png') }}" 
-     alt="logo-phoenix-Rise" width="200" />
 
+    <img src="imagens/logo_fenix.png" alt="logo-phoenix-Rise" width="200">
 
     <p>Bem-vindo(a) de volta à sua jornada pelo bem-estar!</p>
 
-    <form action="{{ url_for('login_submit') }}" method="post">
-      <label for="email">Email:</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        placeholder="Digite seu email"
-        required
-      />
-      <br /><br />
+    <form action="login.php" method="post">
+      <label for=""email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+      <br><br>
 
       <label for="senha">senha:</label>
-      <input
-        type="password"
-        id="senha"
-        name="senha"
-        placeholder="Digite sua senha"
-        required
-      />
-      <br /><br />
+      <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+      <br><br>
 
-      <button type="submit">Entrar</button>
+      <button type=""submit">Entrar</button>
+
+
+
     </form>
-    {{ mensagem }}
-    <p>Ainda não tem uma conta?</p>
+
+
+    <P>ainda não tem uma conta?</P>
 
     <a href="/cadastro">Fazer Cadastro</a>
   </body>
