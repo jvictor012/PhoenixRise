@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from database import executar_comandos
+from map import mapa
 import bcrypt
 
 app = Flask(__name__)
@@ -58,7 +59,7 @@ def login_submit():
             password = resultado[0]
             nome = resultado[1]
             if bcrypt.checkpw(senha.encode('utf-8'), password.encode('utf-8')):
-                return redirect(url_for('onboarding', nome=nome))
+                return render_template('home.html', nome=nome)
             
             mensagem = "Erro! Digite os campos novamente!"
             return render_template('login.html',mensagem = mensagem)
@@ -69,10 +70,11 @@ def login_submit():
     return  render_template('login.html')
 
 
-@app.route('/onboarding', methods = ['GET', 'POST'])
-def onboarding():
-    nome = request.args.get('nome')
-    return render_template('home.html', nome=nome)
+@app.route('/home', methods = ['GET'])
+def home():
+    mapa_html = mapa._repr_html_() 
+    nome = session.get('nome', 'Visitante')
+    return render_template('home.html', nome=nome, mapa_html = mapa_html)
 
 
 if __name__ == '__main__':

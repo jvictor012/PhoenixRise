@@ -5,28 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Phoenix Rise - cadastro</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Jaro&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    
-
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jaro&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
 
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='exemplo1.css') }}"
-     
     />
-     
+
     <link
-    rel="stylesheet"
-    href="{{ url_for('static', filename='cadastro.css') }}"
+      rel="stylesheet"
+      href="{{ url_for('static', filename='cadastro.css') }}"
     />
-
-
   </head>
   <body>
-   
-
-    <button id="toggle-theme">Mudar Tema</button> 
+    <button id="toggle-theme">Mudar Tema</button>
 
     <h1>Cadastro</h1>
     <form action="{{ url_for('cadastro_submit') }}" method="post">
@@ -72,13 +71,13 @@
 
       <label for="senha">Senha:</label>
       <input
-       type="password"
-       id="senha"
-       name="senha"
-       placeholder="Digite a sua senha"
-       required
-      autocomplete="new-password"
-         />
+        type="password"
+        id="senha"
+        name="senha"
+        placeholder="Digite a sua senha"
+        required
+        autocomplete="new-password"
+      />
 
       <br /><br />
 
@@ -99,20 +98,19 @@
 
     <a href="/login">Fazer Login</a>
 
- <script>
-const body = document.body;
-const toggleBtn = document.getElementById('toggle-theme'); // corrigido
+    <script>
+      const body = document.body;
+      const toggleBtn = document.getElementById("toggle-theme"); // corrigido
 
-toggleBtn.addEventListener('click', () => {
-  if(body.classList.contains('dark')){
-    body.classList.remove('dark');
-    body.classList.add('light');
-  } else {
-    body.classList.remove('light');
-    body.classList.add('dark');
-  }
-});
-</script>
-
+      toggleBtn.addEventListener("click", () => {
+        if (body.classList.contains("dark")) {
+          body.classList.remove("dark");
+          body.classList.add("light");
+        } else {
+          body.classList.remove("light");
+          body.classList.add("dark");
+        }
+      });
+    </script>
   </body>
 </html>
