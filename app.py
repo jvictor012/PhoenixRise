@@ -34,7 +34,6 @@ def cadastro_submit():
         query1 = '''INSERT INTO usuario_esporte(id_usuario, id_esporte) VALUES(%s, %s)'''
         valores1 = (id_usuario, esporte)
         executar_comandos(query1, valores1, retornar_id=False)
-
         # Exemplo de segunda query com o ID
         # query2 = "INSERT INTO esportes(esporte, id_usuario) VALUES (%s, %s)"
         # executar_query(query2, (esporte, id_usuario))
@@ -70,12 +69,15 @@ def login_submit():
             return render_template('login.html',mensagem = mensagem)    
     return  render_template('login.html')
 
-
-@app.route('/home', methods = ['GET'])
+@app.route('/home',methods=['GET'])
 def home():
+    return render_template('home.html')
+
+@app.route('/mapa', methods=['GET'])
+def mapa_view():
     mapa_html = mapa._repr_html_() 
     nome = session.get('nome', 'Visitante')
-    return render_template('home.html', nome=nome, mapa_html = mapa_html)
+    return render_template('mapa.html', nome=nome, mapa_html = mapa_html)
 
 
 if __name__ == '__main__':
