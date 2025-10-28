@@ -1,0 +1,2 @@
+O ARQUIVO requirements.txt TEM TODAS AS BIBLIOTECAS NECESSÁRIAS, PARA BAIXÁ-LAS DE UMA VEZ, EXECUTE NO TERMINAL:
+pip install -r requirements.txt
