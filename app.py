@@ -19,10 +19,6 @@ class User(UserMixin):
         self.email = email
         self.senha = senha
 
-'''usuarios = {
-    "naosei@email.com": User(id=1, nome='naosei', email='naosei@email.com', senha='1234'),
-    "naosei2@email.com": User(id=2, nome='naosei2', email='naosei2@email.com', senha='abcd')
-}'''
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -36,8 +32,7 @@ def load_user(user_id):
 
     return None
 
-# Rotas
-#rota de 
+# Rotas 
 @app.route('/')
 def principal():
     return render_template('index.html')
@@ -136,11 +131,12 @@ def login_submit():
     return  render_template('login.html')
 
 @app.route('/home',methods=['GET'])
-@login_required #Só abre se o usuário estiver autenticado
+@login_required #Só abre se o usuário estiver autenticado, se quiser acessar comente "@login_required".
 def inicio():
     return render_template('home.html')
 
 @app.route('/mapa/academia')
+@login_required
 def mapa_view_academia():
     mapa_html = gerar_mapa('academia')
     #nome = session.get('nome', 'Visitante')
@@ -155,6 +151,7 @@ def logout():
     return redirect(url_for('login_submit'))
 
 @app.route('/mapa/lojas')
+@login_required
 def mapa_view_loja():
     mapa_html = gerar_mapa('lojas')
     nome = session.get('nome', 'Visitante')
