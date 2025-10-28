@@ -49,7 +49,7 @@ def login_submit():
         email = request.form.get('email')
         senha = request.form.get('senha')
         '''Gerando a query  para fazer o login'''
-        query = "SELECT senha_hash, nome_usuario FROM usuarios WHERE email = %s"
+        query = "SELECT senha_hash, id FROM usuarios WHERE email = %s"
         valores = (email,)
 
         resultado = executar_comandos(query, valores,fetchone=True, retornar_id=False)            
@@ -57,7 +57,7 @@ def login_submit():
 
         if resultado:
             password = resultado[0]
-            nome = resultado[1]
+            session['usuario_id'] = resultado[1]
             if bcrypt.checkpw(senha.encode('utf-8'), password.encode('utf-8')):
                 return redirect(url_for('inicio'))
             
@@ -65,9 +65,23 @@ def login_submit():
             return render_template('login.html',mensagem = mensagem)
         
         else:
-            mensagem = "Email não cadastrado! Tente novamente!"
+            mensagem = "Login Inválido!"
             return render_template('login.html',mensagem = mensagem)    
     return  render_template('login.html')
+
+@app.route('/perfil', methods=['GET', 'POST'])
+def perfil():
+    usuario_id = session['usuario_id']
+    query = '''SELECT nome_usuario FROM usuarios WHERE id = %s'''
+    value = (usuario_id,)
+    resultado = executar_comandos(query, value, fetchone=True)
+    if resultado:
+        nome_usuario = resultado[0]
+    else:
+        nome_usuario = 'Usuário não encontrado!'
+
+    return render_template('perfil.html', nome_usuario = nome_usuario)
+
 
 @app.route('/home',methods=['GET'])
 def inicio():
