@@ -45,33 +45,52 @@ def principal():
 @app.route('/cadastro', methods=['GET', 'POST'])
 def cadastro_submit():
     if request.method == "POST":
-        nome = request.form.get('nome')
-        nome_usuario = request.form.get('nome_usuario')
-        data_nascimento = request.form.get('data_nascimento')
-        email = request.form.get('email')
-        senha = request.form.get('senha')
-        esporte = request.form.get('esporte')
+        try:
+            nome = request.form.get('nome')
+            nome_usuario = request.form.get('nome_usuario')
+            data_nascimento = request.form.get('data_nascimento')
+            email = request.form.get('email')
+            senha = request.form.get('senha')
+            esporte = request.form.get('esporte')
 
-        senha_hash = bcrypt.hashpw(senha.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
+            if not all([nome, nome_usuario, data_nascimento, email, senha, esporte]):
+                raise ValueError('Preencha todos os campos.')
+            
+            from datetime import datetime
+            data_valida = datetime.strptime(data_nascimento, '%Y-%m-%d').date()
 
+            if data_valida.year <1900 or data_valida.year > datetime.now().year:
+                raise ValueError('Data de nascimento inválida.')
+            
+            senha_hash = bcrypt.hashpw(senha.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
 
-        query = '''INSERT INTO usuarios(nome, nome_usuario, data_nascimento, email, senha_hash) VALUES(%s, %s, %s, %s, %s)'''
-        valores = (nome, nome_usuario, data_nascimento, email, senha_hash)
+            query_check = 'SELECT id FROM usuarios WHERE email = %s'
+            resultado = executar_comandos(query_check, (email,), fetchone=True)
+
+            if resultado: 
+                raise ValueError('Este email já está cadastrado. Tente outro')
+            
+            query = '''INSERT INTO usuarios(nome, nome_usuario, data_nascimento, email, senha_hash) VALUES(%s, %s, %s, %s, %s)'''
+            valores = (nome, nome_usuario, data_nascimento, email, senha_hash)
         
-        id_usuario = executar_comandos(query, valores, retornar_id=True)
-        print("ID do usuário cadastrado:", id_usuario)
+            id_usuario = executar_comandos(query, valores, retornar_id=True)
+            print("ID do usuário cadastrado:", id_usuario)
 
 
-        query1 = '''INSERT INTO usuario_esporte(id_usuario, id_esporte) VALUES(%s, %s)'''
-        valores1 = (id_usuario, esporte)
-        executar_comandos(query1, valores1, retornar_id=False)
+            query1 = '''INSERT INTO usuario_esporte(id_usuario, id_esporte) VALUES(%s, %s)'''
+            valores1 = (id_usuario, esporte)
+            executar_comandos(query1, valores1, retornar_id=False)
+            mensagem = "Cadastro efetuado com sucesso!"
 
         # Exemplo de segunda query com o ID
         # query2 = "INSERT INTO esportes(esporte, id_usuario) VALUES (%s, %s)"
         # executar_query(query2, (esporte, id_usuario))
 
-        mensagem = "Cadastro efetuado com sucesso!"
-        return render_template('login.html', mensagem = mensagem)
+            return render_template('login.html', mensagem = mensagem)
+        
+        except Exception as e:
+            mensagem = f'Erro ao cadastrar:{str(e)}.'
+            return render_template ('cadastro.html', mensagem = mensagem)
     
     return render_template('cadastro.html')
 
