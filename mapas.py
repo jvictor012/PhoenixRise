@@ -15,8 +15,16 @@ coordenadas_lojas = [
     [-5.665122192856129, -37.79933227345832],
     [-5.653764880171134, -37.799500951946094]
 ]
-mapa = folium.Map(location=[-5.6615146308316975, -37.797283767920206], zoom_start=13)
-for nome, coord in zip(academias, coordenadas_academias):
-    folium.Marker(location=coord, popup=nome).add_to(mapa)
-for nome, coord in zip(lojas, coordenadas_lojas):
-    folium.Marker(location=coord,popup=nome,icon=folium.Icon(color='green')).add_to(mapa)
+def gerar_mapa(opcao):
+    mapa_local = folium.Map(location=[-5.6615146308316975, -37.797283767920206], zoom_start=13)
+    if opcao == 'academia':
+        for nome, coord in zip(academias, coordenadas_academias):
+            folium.Marker(location=coord, popup=nome).add_to(mapa_local)
+    elif opcao == 'lojas':
+        for nome, coord in zip(lojas, coordenadas_lojas):
+            folium.Marker(location=coord, popup=nome, icon=folium.Icon(color='green')).add_to(mapa_local)
+    return mapa_local._repr_html_()
+
+
+
+

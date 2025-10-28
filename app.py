@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from database import executar_comandos
-from map import mapa
+from mapas import gerar_mapa
 import bcrypt
 
 app = Flask(__name__)
@@ -59,7 +59,7 @@ def login_submit():
             password = resultado[0]
             nome = resultado[1]
             if bcrypt.checkpw(senha.encode('utf-8'), password.encode('utf-8')):
-                return redirect(url_for('home'))
+                return redirect(url_for('inicio'))
             
             mensagem = "Erro! Digite os campos novamente!"
             return render_template('login.html',mensagem = mensagem)
@@ -70,15 +70,20 @@ def login_submit():
     return  render_template('login.html')
 
 @app.route('/home',methods=['GET'])
-def home():
+def inicio():
     return render_template('home.html')
 
-@app.route('/mapa', methods=['GET'])
-def mapa_view():
-    mapa_html = mapa._repr_html_() 
+@app.route('/mapa/academia')
+def mapa_view_academia():
+    mapa_html = gerar_mapa('academia')
     nome = session.get('nome', 'Visitante')
-    return render_template('mapa.html', nome=nome, mapa_html = mapa_html)
+    return render_template('mapa.html', nome=nome, mapa_html=mapa_html)
 
+@app.route('/mapa/lojas')
+def mapa_view_loja():
+    mapa_html = gerar_mapa('lojas')
+    nome = session.get('nome', 'Visitante')
+    return render_template('mapa.html', nome=nome, mapa_html=mapa_html)
 
 if __name__ == '__main__':
     app.run(debug=True)
