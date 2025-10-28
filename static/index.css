@@ -1,0 +1,41 @@
+/* Reset básico do body e html */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* garante que o body ocupe toda a altura da tela */
+}
+
+section {
+  height: 100vh; /* ocupa 100% da altura da janela */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column; /* alinha os textos verticalmente */
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-size: 2rem;
+  font-family: BM Hanna;
+  text-shadow: 2px 2px 8px black;
+}
+
+.secao1 {
+  background-image: url('/static/imagens/tela_fundo.png');
+  color: orange;
+}
+
+
+.secao1 img {
+  width: 200px;  /* bom tamanho para uma logo */
+  height: auto;  /* mantém proporção */
+  margin-bottom: 10px; /* espaço entre logo e texto */
+}
+
+
+
+.secao2 {
+  background-color: black;
+  color: white; /* melhora contraste */
+}
+
