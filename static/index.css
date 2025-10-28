@@ -1,14 +1,22 @@
 /* ======= ESTILO GERAL ======= */
+@font-face {
+  font-family: 'BM Hanna';
+  src: url('/static/fonte/BMHANNAPro.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'BM Hanna', sans-serif;
 }
 
 body, html {
   height: 100%;
   background-color: #000;
+  /* overflow: hidden; REMOVIDO para permitir rolagem */
 }
 
 /* ======= SEÇÃO PRINCIPAL ======= */
@@ -17,77 +25,152 @@ body, html {
   width: 100%;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: white;
-  text-align: center;
-}
-
-.secao1 {
   background-image: url('/static/imagens/tela_fundo.png');
-  color: orange;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  color: white;
 }
 
+/* ======= LOGO ======= */
 .secao1 img {
-  width: 200px;  
-  height: auto;  /* mantém proporção */
-  margin-bottom: 10px; /* espaço entre logo e texto */
+  width: 300px;
+  height: auto;
+  margin-bottom: 5px;
+  z-index: 2;
+  margin-top: -5px;
 }
 
+.secao1 img:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 20px #ff751f;
+  transition: all 0.3s ease;
+}
 
-/* ======= TÍTULOS COM GRADIENTE ======= */
+/* ======= TÍTULOS ======= */
 h1 {
-  font-size: 80px;
+  font-size: 125px;
   font-weight: 700;
+  line-height: 1.1;
   background: linear-gradient(90deg, #ff751f, #b20837);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 20px;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 39px;
   font-weight: 500;
   background: linear-gradient(90deg, #ff751f, #b20837);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 40px;
+  margin-bottom: 15px;
 }
 
 /* ======= BOTÃO ENTRAR ======= */
 .btn-entrar {
   position: absolute;
-  top: 30px;
+  top: 25px;
   right: 40px;
-
   text-decoration: none;
   color: black;
   background: linear-gradient(90deg, #ff751f, #b20837);
-  padding: 10px 30px;
-  border-radius: 25px;
+  padding: 16px 50px;
+  border-radius: 35px;
   font-weight: bold;
+  font-size: 20px; 
   transition: transform 0.3s, box-shadow 0.3s;
-  z-index: 3; /* garante que o botão fique por cima do fundo */
+  z-index: 3;
+  box-shadow: 0 0 10px rgba(255, 117, 31, 0.4);
 }
 
 .btn-entrar:hover {
-  transform: scale(1.05);
-  background-color: #000;
-  box-shadow: 0 0 15px #ff751f;
+  transform: scale(1.07);
+  box-shadow: 0 0 20px #ff751f;
 }
+
+/* ======= SEÇÃO 2 ======= */
+.secao2 {
+  background-color: #000;
+  width: 100%;
+  min-height: 100vh; /* garante altura da tela inteira */
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.secao2 h1 {
+  font-size: 115px;
+  font-weight: 700;
+  line-height: 1.1;
+  background: linear-gradient(90deg, #ff751f, #b20837);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 70px;
+  margin-bottom: 40px;
+}
+
+.conteudo-secao2 {
+  display: flex;
+  justify-content: left; /* centraliza horizontalmente a seção */
+  align-items: flex-start; /* alinha pelo topo */
+  gap: 40px; /* espaço entre texto e imagens */
+  margin-top: 50px;
+  flex-wrap: wrap;
+}
+
+.conteudo-secao2 .texto {
+  background-color: #111;
+  padding: 20px;
+  border-left: 4px solid orange; /* borda laranja à esquerda */
+  border-radius: 10px;
+  max-width: 400px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: white;
+}
+
+.conteudo-secao2 .imagens {
+  display: grid;
+  grid-template-columns: 150px; /* coluna única */
+  grid-auto-rows: 100px;
+  gap: 10px;
+}
+
+.conteudo-secao2 .imagens img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+
+
 
 
 /* ======= RESPONSIVIDADE ======= */
 @media (max-width: 768px) {
-  h1 {
-    font-size: 48px;
+  .secao1 img {
+    width: 90px;
+    margin-bottom: 20px;
   }
+
+  h1 {
+    font-size: 52px;
+  }
+
   h2 {
     font-size: 18px;
   }
-  .logo {
-    width: 80px;
+
+  .btn-entrar {
+    top: 20px;
+    right: 25px;
+    padding: 12px 32px;
+    font-size: 16px;
   }
 }
-
-
