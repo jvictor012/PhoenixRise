@@ -6,6 +6,7 @@ import bcrypt
 app = Flask(__name__)
 app.secret_key = 'chave_muito_secreta'
 
+#rota de 
 @app.route('/')
 def principal():
     return render_template('index.html')
@@ -59,7 +60,7 @@ def login_submit():
             password = resultado[0]
             nome = resultado[1]
             if bcrypt.checkpw(senha.encode('utf-8'), password.encode('utf-8')):
-                return render_template('home.html', nome=nome)
+                return redirect(url_for('home'))
             
             mensagem = "Erro! Digite os campos novamente!"
             return render_template('login.html',mensagem = mensagem)
