@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <title>Mapa</title>
+  <head>
+    <title>Mapa</title>
 
-        <style>
-            
-        </style>
-
-    </head>
-    <body>
-        <h1>Mapa academias e Lojas</h1>
-        {{ mapa_html|safe }}
-    </body>
+    <style></style>
+  </head>
+  <body>
+    <header>
+      <a href="{ url_for('home') }">Homepage</a>
+      <a href="{{ url_for('mapa_view') }}">Academias</a>
+      <a href="{{ url_for('mapa_view') }}">Lojas</a>
+      <a href="{{ url_for('home') }}">Perfil</a>
+      <a href="{{ url_for('login_submit') }}">Sair</a>
+    </header>
+    <h1>Mapa academias e Lojas</h1>
+    {{ mapa_html|safe }}
+  </body>
 </html>
