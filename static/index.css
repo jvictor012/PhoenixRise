@@ -1,23 +1,26 @@
-/* Reset básico do body e html */
-html, body {
+/* ======= ESTILO GERAL ======= */
+* {
   margin: 0;
   padding: 0;
-  height: 100%; /* garante que o body ocupe toda a altura da tela */
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-section {
-  height: 100vh; /* ocupa 100% da altura da janela */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+body, html {
+  height: 100%;
+  background-color: #000;
+}
+
+/* ======= SEÇÃO PRINCIPAL ======= */
+.secao1 {
+  position: relative;
+  width: 100%;
+  height: 100vh;
   display: flex;
-  flex-direction: column; /* alinha os textos verticalmente */
-  align-items: center;
   justify-content: center;
-  color: black;
-  font-size: 2rem;
-  font-family: BM Hanna;
-  text-shadow: 2px 2px 8px black;
+  align-items: center;
+  color: white;
+  text-align: center;
 }
 
 .secao1 {
@@ -25,17 +28,66 @@ section {
   color: orange;
 }
 
-
 .secao1 img {
-  width: 200px;  /* bom tamanho para uma logo */
+  width: 200px;  
   height: auto;  /* mantém proporção */
   margin-bottom: 10px; /* espaço entre logo e texto */
 }
 
 
-
-.secao2 {
-  background-color: black;
-  color: white; /* melhora contraste */
+/* ======= TÍTULOS COM GRADIENTE ======= */
+h1 {
+  font-size: 80px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #ff751f, #b20837);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
 }
+
+h2 {
+  font-size: 24px;
+  font-weight: 500;
+  background: linear-gradient(90deg, #ff751f, #b20837);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 40px;
+}
+
+/* ======= BOTÃO ENTRAR ======= */
+.btn-entrar {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+
+  text-decoration: none;
+  color: black;
+  background: linear-gradient(90deg, #ff751f, #b20837);
+  padding: 10px 30px;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: transform 0.3s, box-shadow 0.3s;
+  z-index: 3; /* garante que o botão fique por cima do fundo */
+}
+
+.btn-entrar:hover {
+  transform: scale(1.05);
+  background-color: #000;
+  box-shadow: 0 0 15px #ff751f;
+}
+
+
+/* ======= RESPONSIVIDADE ======= */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 48px;
+  }
+  h2 {
+    font-size: 18px;
+  }
+  .logo {
+    width: 80px;
+  }
+}
+
 
