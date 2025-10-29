@@ -17,7 +17,7 @@ coordenadas_lojas = [
     [-5.653764880171134, -37.799500951946094]
 ]
 def gerar_mapa(opcao):
-    mapa_local = folium.Map(location=[-5.6615146308316975, -37.797283767920206], zoom_start=13)
+    mapa_local = folium.Map(location=[-5.6615146308316975, -37.797283767920206], zoom_start=13, width='1280px', height='800px')
     LocateControl(auto_start=True, drawmarker=True, markerStyle = dict(classname="leaflet-control-locate-marker")).add_to(mapa_local)
     Terminator().add_to(mapa_local)
     if opcao == 'academia':

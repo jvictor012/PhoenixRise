@@ -2,7 +2,7 @@
 <html lang="pt-br">
   <head>
     <title>Mapa</title>
-
+    <link href="style_mapa.css" rel="stylesheet">
     <style></style>
   </head>
   <body>
@@ -13,7 +13,14 @@
       <a href="{{ url_for('inicio') }}">Perfil</a>
       <a href="{{ url_for('login_submit') }}">Sair</a>
     </header>
-    <h1>Mapa academias e Lojas</h1>
-    {{ mapa_html|safe }}
+    <div class="mapa">
+      <h1>{{ titulo }}</h1>
+      {{ mapa_html|safe }}
+    </div>
+  
+    <div class="barra_lateral">
+      {{ mensagem }}
+    </div>
+
   </body>
 </html>

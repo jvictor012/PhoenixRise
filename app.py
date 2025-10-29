@@ -129,14 +129,18 @@ def perfil():
 def mapa_view_academia():
     mapa_html = gerar_mapa('academia')
     nome = session.get('nome', 'Visitante')
-    return render_template('mapa.html', nome=nome, mapa_html=mapa_html)
+    titulo = 'Mapa das academias da região'
+    mensagem = 'Academias da região'
+    return render_template('mapa.html', nome=nome, mapa_html=mapa_html, titulo = titulo, mensagem = mensagem)
 
 @app.route('/mapa/lojas')
 #@login_required
 def mapa_view_loja():
     mapa_html = gerar_mapa('lojas')
     nome = session.get('nome', 'Visitante')
-    return render_template('mapa.html', nome=nome, mapa_html=mapa_html)
+    mensagem = 'Lojas da região'
+    titulo = 'Mapa das lojas da região'
+    return render_template('mapa.html', nome=nome, mapa_html=mapa_html,titulo=titulo, mensagem = mensagem)
 
 @app.route('/login_fake')
 def login_fake():
