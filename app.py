@@ -13,7 +13,7 @@ login_manager.init_app(app)
 login_manager.login_view = 'login_submit'
 
 class User(UserMixin):
-    def __init__(self, id, nome, email, senha):
+    def __init__(self, id, nome, email, senha=None):
         self.id = id
         self.nome = nome
         self.email = email
@@ -21,8 +21,7 @@ class User(UserMixin):
 
 @login_manager.user_loader
 def load_user(user_id):
-    query = "SELECT id, nome_usuario, email FROM usuarios WHERE id = %s"
-    valores = user_id
+    valores = (user_id,)
     resultado = executar_comandos(query, valores, fetchone = True, retornar_id = False)
 
     if resultado:
@@ -75,18 +74,15 @@ def login_submit():
         senha = request.form.get('senha')
 
         #Gerando a query  para fazer o login
-        query = "SELECT senha_hash, id FROM usuarios WHERE email = %s"
+        query = "SELECT id, nome_usuario, senha_hash FROM usuarios WHERE email = %s"
         valores = (email,)
         resultado = executar_comandos(query, valores,fetchone=True, retornar_id=False)            
 
         if resultado:
             id_usuario, nome_usuario, senha_hash = resultado
-
             if bcrypt.checkpw(senha.encode('utf-8'), senha_hash.encode('utf-8')):
                 user = User(id_usuario, nome_usuario, email)
-                login_user = user
-
-                session['nome'] = nome_usuario
+                login_user(user) #troquei o session pra fzr autenticação como o flask-login
 
                 return redirect(url_for('home'))
             else:
@@ -114,7 +110,7 @@ def inicio():
 @app.route('/perfil', methods=['GET', 'POST'])
 #@login_required
 def perfil():
-    usuario_id = session['usuario_id']
+    usuario_id = current_user.id
     query = '''SELECT nome_usuario FROM usuarios WHERE id = %s'''
     value = (usuario_id,)
     resultado = executar_comandos(query, value, fetchone=True)
