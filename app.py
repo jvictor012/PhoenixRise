@@ -110,16 +110,19 @@ def inicio():
 @app.route('/perfil', methods=['GET', 'POST'])
 #@login_required
 def perfil():
-    usuario_id = current_user.id
-    query = '''SELECT nome_usuario FROM usuarios WHERE id = %s'''
-    value = (usuario_id,)
-    resultado = executar_comandos(query, value, fetchone=True)
-    if resultado:
-        nome_usuario = resultado[0]
-    else:
-        nome_usuario = 'Usuário não encontrado!'
-
-    return render_template('perfil.html', nome_usuario = nome_usuario)
+    #usuario_id = current_user.id
+    #query = '''SELECT nome_usuario FROM usuarios WHERE id = %s'''
+    #value = (usuario_id,)
+    #resultado = executar_comandos(query, value, fetchone=True)
+    #if resultado:
+    #    nome_usuario = resultado[0]
+    #else:
+    #    nome_usuario = 'Usuário não encontrado!
+ 
+#TESTE PARA VIZUALIZAR A PAGINA DE PERFIL SEM BUGAR USANDO FLASK-LOGIN!!!!
+    usuario_id = 1  
+    nome_usuario = 'Usuário de Teste'
+    return render_template('perfil.html', nome_usuario=nome_usuario)
 
 @app.route('/mapa/academia')
 #@login_required
@@ -134,6 +137,14 @@ def mapa_view_loja():
     mapa_html = gerar_mapa('lojas')
     nome = session.get('nome', 'Visitante')
     return render_template('mapa.html', nome=nome, mapa_html=mapa_html)
+
+@app.route('/login_fake')
+def login_fake():
+    from flask_login import login_user
+    user_fake = User(id=999, nome_usuario='Dev Teste', email='teste@fake.com')
+    login_user(user_fake)
+    return redirect(url_for('inicio'))
+
 
 if __name__ == '__main__':
     app.run(debug=True)
