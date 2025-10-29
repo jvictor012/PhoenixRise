@@ -1,4 +1,5 @@
 import folium
+from folium.plugins import LocateControl, Terminator
 
 academias = ['Academia Top Fitness', 'Foco Academia', 'Academia Prime Core','Soufit', 'Academia Perfomance']
 coordenadas_academias = [
@@ -17,6 +18,8 @@ coordenadas_lojas = [
 ]
 def gerar_mapa(opcao):
     mapa_local = folium.Map(location=[-5.6615146308316975, -37.797283767920206], zoom_start=13)
+    LocateControl(auto_start=True, drawmarker=True, markerStyle = dict(classname="leaflet-control-locate-marker")).add_to(mapa_local)
+    Terminator().add_to(mapa_local)
     if opcao == 'academia':
         for nome, coord in zip(academias, coordenadas_academias):
             folium.Marker(
