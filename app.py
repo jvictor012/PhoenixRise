@@ -105,7 +105,7 @@ def logout():
 
 @app.route('/home',methods=['GET'])
 #@login_required
-def inicio():
+def home():
     return render_template('home.html')
 
 @app.route('/perfil', methods=['GET', 'POST'])
