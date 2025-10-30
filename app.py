@@ -21,6 +21,7 @@ class User(UserMixin):
 
 @login_manager.user_loader
 def load_user(user_id):
+    query = "SELECT id, nome_usuario, email FROM usuarios WHERE id = %s"
     valores = (user_id,)
     resultado = executar_comandos(query, valores, fetchone = True, retornar_id = False)
 
