@@ -45,11 +45,6 @@ html {
   margin-top: -5px;
 }
 
-.secao1 img:hover {
-  transform: scale(1.07);
-  box-shadow: 0 0 20px #ff751f;
-  transition: all 0.3s ease;
-}
 
 /* ======= TÍTULOS ======= */
 h1 {
@@ -112,41 +107,56 @@ h2 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-top: 70px;
-  margin-bottom: 40px;
+  margin-bottom: 6%;
+  margin-left: 60px;
 }
+
 
 .conteudo-secao2 {
   display: flex;
   justify-content: left; /* centraliza horizontalmente a seção */
   align-items: flex-start; /* alinha pelo topo */
-  gap: 40px; /* espaço entre texto e imagens */
-  margin-top: 50px;
+  gap: 80px; /* espaço entre texto e imagens */
+  margin-top: 60px;
   flex-wrap: wrap;
+  margin-left: 140px;
 }
 
 .conteudo-secao2 .texto {
-  background-color: #111;
-  padding: 20px;
-  border-left: 4px solid orange; /* borda laranja à esquerda */
-  border-radius: 10px;
-  max-width: 400px;
-  font-size: 18px;
+  background-color: #242222;
+  padding: 43px;
+  border-radius: 15px;
+  max-width: 40%;
+  font-size: 38px;
   line-height: 1.5;
+  border-left: 6px solid #ff751f;
   color: white;
 }
 
+.conteudo-secao2 .texto:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 20px #ff751f;
+  transition: 0.3s; /* deixa a animação suave */
+}
+
+
+
 .conteudo-secao2 .imagens {
-  display: grid;
-  grid-template-columns: 150px; /* coluna única */
-  grid-auto-rows: 100px;
-  gap: 10px;
+  display: flex;                /* mantém a imagem alinhada */
+  justify-content: center;      /* centraliza (opcional) */
+  align-items: center;
 }
 
 .conteudo-secao2 .imagens img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px;
+  width: 900px;                 /* 🔹 define a largura da imagem */
+  height: auto;                 /* mantém a proporção */
+  border-radius: 15px;          /* cantos arredondados */
+  object-fit: cover;            /* corta a imagem se ultrapassar o contêiner */
+  transition: transform 0.3s;
+}
+
+.conteudo-secao2 .imagens img:hover {
+  transform: scale(1.05);       /* pequeno zoom ao passar o mouse */
 }
 
 /* ======= RESPONSIVIDADE ======= */

@@ -1,53 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Phoenix Rise</title>
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='exemplo1.css') }}"
-    />
-  </head>
+<html lang="pt-BR">
+
+<!--META DADOS E RESPONSIVIDADE-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phoenix Rise</title>
+  <meta name="author" content="Ana Luiza Saldanha e Nicolly Moura">
+  <meta name="description" content="Site Inicial sobre a equipe e o jogo.">
+  <meta property="og:title" content="Royal Elixir">
+  <link rel="stylesheet" href="login.css">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+
+
+<!--ESTRUTUTRA DO LOGIN-->
+<body>
+
+  <!--MENU-->
+  <div id="menu"></div>
+<script>
+  fetch('menu.html')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('menu').innerHTML = html;
+    });
+</script>
+
+  <!--LOGO-->
+  <div class="topo">
+  <img src="C:\Users\salda\OneDrive\Área de Trabalho\website\PR_PASTA\Nova pasta\LOGO_PR-removebg-preview.png" alt="LOGO PHOENIX RISE" class="logo">
+</div>
+
+
+  <h1 class="degrade">LOGIN</h1>
+  <div class='fundo_do_login'>
+      <form action="login" method="post">
+        <label for="email">Email</label>
+        <br><br>
+        <input type="email" id="email" name="email" placeholder="Digite seu email" required />
+        <br><br>
+        <label for="senha">Senha</label>
+        <br><br>
+        <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required />
+        <p>Esqueceu a senha? <a href="linkdapaginareculperarsenha">Reculperar Senha</a></p>
+        <br><br>
+        <button type="submit">Acessar</button>
+        <p>Não tem conta? <a href="/cadastro">Cadastre-se</a></p>
+        </form>
+</div>
+
+
+
+  <!--BOTAO DE VOLTAR PARA PAGINA HOME-->
+  <a href="minhapagina.html" class="botao-voltar">
+  <i class="fa fa-arrow-left"></i>
+</a>
 
   
-  <body>
-    <h1>Phoenix Rise</h1>
 
-    <img
-      src="{{ url_for('static', filename='imagens/logo_fenix.png') }}"
-      alt="logo-phoenix-Rise"
-      width="200"
-    />
+</body>
 
-    <p>Bem-vindo(a) de volta à sua jornada pelo bem-estar!</p>
-
-    <form action="login" method="post">
-      <label for="email">Email:</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        placeholder="Digite seu email"
-        required
-      />
-      <br /><br />
-
-      <label for="senha">senha:</label>
-      <input
-        type="password"
-        id="senha"
-        name="senha"
-        placeholder="Digite sua senha"
-        required
-      />
-      <br /><br />
-
-      <button type="Submit">Entrar</button>
-    </form>
-
-    <p>ainda não tem uma conta?</p>
-
-    <a href="/cadastro">Fazer Cadastro</a>
-  </body>
 </html>

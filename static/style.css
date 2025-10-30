@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'BM Hanna';
+    src: url('/static/fonte/BMHANNAPro.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+.rodape {
+    background-color: #242222;           /* fundo branco */
+    text-align: center;               /* centraliza o texto */
+    padding: 20px 0;                  /* espaço interno */
+    font-family: 'BM Hanna', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    border-top: 5px solid #000;       /* linha preta em cima */
+    border-top-right-radius: 15px;    /* canto arredondado direito */
+  }
+  
+  .rodape span {
+    background: linear-gradient(90deg, #ff751f, #b20837);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .rodape .ano {
+    background: none;
+    color: #b20837; /* mantém o “2025” vermelho sólido */
+  }
+  
