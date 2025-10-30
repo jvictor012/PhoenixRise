@@ -7,7 +7,7 @@ import bcrypt
 app = Flask(__name__)
 app.secret_key = 'chave_muito_secreta'
 
-# Configuração Flask-login
+'''# Configuração Flask-login
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login_submit'
@@ -22,14 +22,14 @@ class User(UserMixin):
 @login_manager.user_loader
 def load_user(user_id):
     valores = (user_id,)
-    resultado = executar_comandos(query, valores, fetchone = True, retornar_id = False)
+    resultado = executar_comandos(query, valores, fetchone = True, r    etornar_id = False)
 
     if resultado:
         id, nome_usuario, email = resultado
         return User(id, nome_usuario, email)
 
     return None
-
+'''
 #Rotas
 @app.route('/')
 def principal():
