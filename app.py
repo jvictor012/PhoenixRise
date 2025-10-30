@@ -105,7 +105,7 @@ def logout():
 
 @app.route('/home',methods=['GET'])
 #@login_required
-def home():
+def inicio():
     return render_template('home.html')
 
 @app.route('/perfil', methods=['GET', 'POST'])
@@ -142,14 +142,6 @@ def mapa_view_loja():
     mensagem = 'Lojas da região'
     titulo = 'Mapa das lojas da região'
     return render_template('mapa.html', nome=nome, mapa_html=mapa_html,titulo=titulo, mensagem = mensagem)
-
-@app.route('/login_fake')
-def login_fake():
-    from flask_login import login_user
-    user_fake = User(id=999, nome_usuario='Dev Teste', email='teste@fake.com')
-    login_user(user_fake)
-    return redirect(url_for('inicio'))
-
 
 if __name__ == '__main__':
     app.run(debug=True)
