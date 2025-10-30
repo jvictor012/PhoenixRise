@@ -1,7 +1,7 @@
 /* ======= ESTILO GERAL ======= */
 @font-face {
-  font-family: 'BM Hanna';
-  src: url('/static/fonte/BMHANNAPro.ttf') format('truetype');
+  font-family: "BM Hanna";
+  src: url("/static/fonte/BMHANNAPro.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -10,10 +10,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'BM Hanna', sans-serif;
+  font-family: "BM Hanna", sans-serif;
 }
 
-body, html {
+body,
+html {
   height: 100%;
   background-color: #000;
   overflow-x: hidden;
@@ -28,7 +29,7 @@ body, html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url('/static/imagens/tela_fundo.png');
+  background-image: url("/static/imagens/tela_fundo.png");
   background-size: cover;
   background-position: center;
   text-align: center;
@@ -77,7 +78,7 @@ h2 {
   padding: 16px 50px;
   border-radius: 35px;
   font-weight: bold;
-  font-size: 20px; 
+  font-size: 20px;
   transition: transform 0.3s, box-shadow 0.3s;
   z-index: 3;
   box-shadow: 0 0 10px rgba(255, 117, 31, 0.4);
@@ -178,6 +179,7 @@ h2 {
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
+<<<<<<< HEAD
 /* posições */
 .imagens img:nth-child(1) { top: 0; right: 0; }
 .imagens img:nth-child(2) { top: 140px; left: 40px; }
@@ -192,6 +194,8 @@ h2 {
 
 
 
+=======
+>>>>>>> 9e28faf6ab7d37a0d59a268983858e2fca31bbdc
 /* ======= RESPONSIVIDADE ======= */
 @media (max-width: 768px) {
   .secao1 img {
