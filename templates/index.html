@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Phoenix Rise</title>
+
+    <!-- CSS externo -->
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='index.css') }}"
@@ -12,44 +14,55 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='style.css') }}"
     />
-    
   </head>
-  <body>
+
+  <!-- classe identifica a página inicial -->
+  <body class="pagina-inicial">
     <section class="secao1">
       <div class="overlay">
         <a href="{{ url_for('login_submit') }}" class="btn-entrar">Entrar</a>
-        <img src="/static/imagens/logo_semfundo.png" alt="fenix" />
-
+        <img src="/static/imagens/logo_semfundo.png" alt="Fênix" />
         <h1>Phoenix Rise</h1>
-        <h2>Onde pessoas, esportes e lugares.<br />se encontram!</h2>
+        <h2>Onde pessoas, esportes e lugares<br />se encontram!</h2>
       </div>
     </section>
 
     <section class="secao2">
       <div class="overlay">
-        
         <h1>Conheça o Phoenix Rise</h1>
 
         <div class="conteudo-secao2">
-    <div class="texto">
-      <p>
-        <strong>Phoenix Rise</strong> é o seu buscador completo de informações sobre esportes e academia.
-        Encontre lojas, locais, pessoas com mesmos intereçes e tudo o que você precisa para se manter ativo e informado.
-      </p>
-    </div>
+          <div class="texto">
+            <p>
+              <strong>Phoenix Rise</strong> é o seu buscador completo de
+              informações sobre esportes e academia. Encontre lojas, locais,
+              pessoas com mesmos interesses e tudo o que você precisa para se
+              manter ativo e informado.
+            </p>
+          </div>
 
-    <div class="imagens">
-      <img src="/static/imagens/tela_de_imagens.png" alt="texte">
-      
-    </div>
+          <div class="imagens-container">
+            <div class="imagens">
+              <img src="/static/imagens/img1.png" alt="img1">
+              <img src="/static/imagens/img2.png" alt="img2">
+              <img src="/static/imagens/img3.png" alt="img3">
+            </div>
 
+            <div class="imagens">
+              <img src="/static/imagens/img4.png" alt="img4">
+              <img src="/static/imagens/img5.png" alt="img5">
+              <img src="/static/imagens/img6.png" alt="img6">
+            </div>
+          </div>
+
+
+        </div>
       </div>
-
     </section>
 
     <footer class="rodape">
       <p><span>Phoenix Rise - 2025</span></p>
     </footer>
-    
   </body>
 </html>
+
