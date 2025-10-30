@@ -1,29 +1,29 @@
-@font-face {
-    font-family: 'BM Hanna';
-    src: url('/static/fonte/BMHANNAPro.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-  }
-  
+/* ====================== */
+/* ======= RODAPÉ ======= */
+/* ====================== */
+
 .rodape {
-    background-color: #242222;           /* fundo branco */
-    text-align: center;               /* centraliza o texto */
-    padding: 20px 0;                  /* espaço interno */
-    font-family: 'BM Hanna', sans-serif;
-    font-size: 22px;
-    font-weight: 700;
-    border-top: 5px solid #000;       /* linha preta em cima */
-    border-top-right-radius: 15px;    /* canto arredondado direito */
-  }
-  
-  .rodape span {
-    background: linear-gradient(90deg, #ff751f, #b20837);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  
-  .rodape .ano {
-    background: none;
-    color: #b20837; /* mantém o “2025” vermelho sólido */
-  }
-  
+  background-color: #242222;        /* fundo escuro */
+  text-align: center;               /* centraliza o texto */
+  padding: 20px 0;                  /* espaço interno */
+  font-family: 'BM Hanna', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  border-top: 5px solid #000;       /* linha padrão (preta) */
+  border-top-right-radius: 15px;    /* canto arredondado direito */
+}
+
+/* Gradiente no texto do rodapé */
+.rodape span {
+  background: linear-gradient(90deg, #ff751f, #b20837);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+
+/* Linha laranja apenas na página inicial */
+body.pagina-inicial .rodape {
+  border-top: 3px solid #ff751f !important;
+}
+

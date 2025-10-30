@@ -17,8 +17,8 @@ body,
 html {
   height: 100%;
   background-color: #000;
-  /* overflow: hidden; REMOVIDO para permitir rolagem */
-}
+  overflow-x: hidden;
+  
 
 /* ======= SEÇÃO PRINCIPAL ======= */
 .secao1 {
@@ -91,7 +91,9 @@ h2 {
 
 /* ======= SEÇÃO 2 ======= */
 .secao2 {
-  background-color: #000;
+  background-image: url('/static/imagens/fundo_s2.png');
+  background-size: cover;
+  background-position: center;
   width: 100%;
   min-height: 100vh; /* garante altura da tela inteira */
   display: flex;
@@ -100,16 +102,28 @@ h2 {
 }
 
 .secao2 h1 {
+  width: 100vw; /* ocupa toda a largura da tela */
+  border-top: 3px solid #ff751f;    /* linha superior laranja */
+  border-bottom: 3px solid #ff751f; /* linha inferior laranja */
+  
   font-size: 115px;
   font-weight: 700;
   line-height: 1.1;
+  text-align: left; /* texto alinhado à esquerda */
+  
   background: linear-gradient(90deg, #ff751f, #b20837);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-top: 70px;
-  margin-bottom: 6%;
-  margin-left: 60px;
+
+  margin: 70px 0 6% 0; /* espaçamento acima e abaixo */
+  padding: 10px 0 10px 60px; /* espaço à esquerda para o texto */
+  
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%); /* garante que as linhas fiquem centralizadas na tela */
+  box-sizing: border-box;
 }
+
 
 
 .conteudo-secao2 {
@@ -130,6 +144,7 @@ h2 {
   font-size: 38px;
   line-height: 1.5;
   border-left: 6px solid #ff751f;
+  border-right: 6px solid #ff751f;
   color: white;
 }
 
@@ -140,25 +155,47 @@ h2 {
 }
 
 
-
-.conteudo-secao2 .imagens {
-  display: flex;                /* mantém a imagem alinhada */
-  justify-content: center;      /* centraliza (opcional) */
-  align-items: center;
+.imagens-container {
+  display: flex;
+  justify-content: flex-end; /* manda pro lado direito */
+  gap: 10px; /* distância entre as duas colunas */
+  margin-right: 150px;
 }
 
-.conteudo-secao2 .imagens img {
-  width: 900px;                 /* 🔹 define a largura da imagem */
-  height: auto;                 /* mantém a proporção */
-  border-radius: 15px;          /* cantos arredondados */
-  object-fit: cover;            /* corta a imagem se ultrapassar o contêiner */
-  transition: transform 0.3s;
+/* cada pilha */
+.imagens {
+  position: relative;
+  width: 350px;
+  height: 700px;
 }
 
-.conteudo-secao2 .imagens img:hover {
-  transform: scale(1.05);       /* pequeno zoom ao passar o mouse */
+/* imagens dentro da pilha */
+.imagens img {
+  position: absolute;
+  width: 350px;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
+<<<<<<< HEAD
+/* posições */
+.imagens img:nth-child(1) { top: 0; right: 0; }
+.imagens img:nth-child(2) { top: 140px; left: 40px; }
+.imagens img:nth-child(3) { top: 290px; right: 20px; }
+
+/* efeito hover */
+.imagens img:hover {
+  transform: scale(1.07);
+  z-index: 2;
+}
+
+
+
+
+=======
+>>>>>>> 9e28faf6ab7d37a0d59a268983858e2fca31bbdc
 /* ======= RESPONSIVIDADE ======= */
 @media (max-width: 768px) {
   .secao1 img {
