@@ -166,7 +166,7 @@ def logout():
 
 
 @app.route("/home", methods=["GET"])
-@login_required
+#@login_required
 def inicio():
     # exemplo: usar current_user em vez de session
     nome = current_user.nome if current_user.is_authenticated else "Visitante"
@@ -183,7 +183,7 @@ def perfil():
 
 
 @app.route("/mapa/academia")
-@login_required
+#@login_required
 def mapa_view_academia():
     mapa_html = gerar_mapa("academia")
     nome = current_user.nome if current_user.is_authenticated else "Visitante"
@@ -195,7 +195,7 @@ def mapa_view_academia():
 
 
 @app.route("/mapa/lojas")
-@login_required
+#@login_required
 def mapa_view_loja():
     mapa_html = gerar_mapa("lojas")
     nome = current_user.nome if current_user.is_authenticated else "Visitante"
@@ -206,13 +206,13 @@ def mapa_view_loja():
     )
 
 
-@app.route("/login_fake")
-def login_fake():
-    # rota de teste: cria e loga um user fake
-    user_fake = User(id=999, nome="Dev Teste", email="teste@fake.com")
-    login_user(user_fake)
-    flash("Logado como usuário fake (apenas para teste).", "info")
-    return redirect(url_for("inicio"))
+#@app.route("/login_fake")
+#def login_fake():
+#    # rota de teste: cria e loga um user fake
+#    user_fake = User(id=999, nome="Dev Teste", email="teste@fake.com")
+#    login_user(user_fake)
+#    flash("Logado como usuário fake (apenas para teste).", "info")
+#    return redirect(url_for("inicio"))
 
 
 if __name__ == "__main__":

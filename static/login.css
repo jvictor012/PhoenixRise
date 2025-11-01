@@ -1,0 +1,163 @@
+@media (max-width: 600px) {
+  .fundo_do_login {
+    max-width: 95vw; /*para ocupar quase toda tela no celular */
+    padding: 15px;
+  }
+  .logo {
+    width: 150px;
+    left: 50%; /*centraliza horizontalmente */
+    transform: translateX(-50%);
+  }
+  .degrade,
+  .topo {
+    margin-top: 18px;
+  }
+}
+
+body {
+  background-image: url("/static/imagens/tela_fundo.png");
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  height: 100%;
+}
+
+button {
+  height: 50%;
+  width: 50%;
+  background-color: #000000;
+  color: #ff5500;
+  padding: 1%;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+}
+
+input[type="text"],
+input[type="email"] {
+  border-radius: 20px; /* ou o valor desejado */
+  padding: 10px;
+  border: 2px solid #000000;
+}
+
+input[type="text"],
+input[type="password"] {
+  border-radius: 20px; /* ou o valor desejado */
+  padding: 10px;
+  border: 2px solid #000000;
+}
+
+.degrade {
+  background: linear-gradient(to right, #b50600, #ffaa00, #e5ff00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 4em;
+  font-weight: 700;
+}
+
+.fundo_do_login {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 32px;
+  border-radius: 25px;
+  box-shadow: 0 4px 20px rgb(0, 0, 0);
+  background: linear-gradient(135deg, #af0034 20%, #ff9100 100%);
+}
+.fundo_do_login label {
+  color: #000000; /* preto */
+  display: block; /* garante que fique acima da caixa */
+  margin-bottom: 2px; /* espaço entre o label e a caixa */
+  font-weight: bold;
+}
+
+.fundo_do_login form {
+  display: flex;
+  flex-direction: column;
+}
+
+.fundo_do_login label,
+.fundo_do_login input,
+.fundo_do_login button {
+  margin-bottom: 0.5px;
+  font-size: 1.2em;
+}
+
+.fundo_do_login button {
+  background-color: #030000;
+  color: #ff7b00;
+  border: none;
+  padding: 5px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bolder;
+  margin: 0 auto;
+  display: block;
+}
+
+.fundo_do_login button:hover {
+  background-color: #7d0017;
+  color: #ffa8c8;
+}
+
+.botao-voltar {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 4px 4px;
+  text-decoration: none;
+  border: none;
+  border-radius: 55px;
+  cursor: pointer;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 7%;
+  transition: background-color 0.2s;
+  position: fixed;
+  top: 5px;
+  left: 5px;
+  font-size: 90%;
+  z-index: 999;
+}
+
+.botao-voltar i {
+  font-size: 2em; /* tamanho da seta */
+  color: #e53129; /* cor da seta */
+  transition: color 0.3s;
+  margin: 20px;
+}
+
+.botao-voltar:hover i {
+  color: #ffaa00;
+}
+
+/*posicionar a logo */
+.topo {
+  position: absolute;
+  width: 100%;
+  display: contents;
+}
+
+.logo {
+  position: relative;
+  left: 70%; /* distância da borda esquerda, n mexer plmds*/
+  width: 300px;
+  height: auto;
+}
+
+.degrade,
+.topo {
+  text-align: center;
+}
+
+a {
+  color: #ffffff;
+  text-align: center;
+}
+p {
+  color: #000000;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+}

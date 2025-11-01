@@ -55,7 +55,9 @@
         id="data_nascimento"
         name="data_nascimento"
         placeholder="Digite o seu nome de usuário"
-        required min = "1900-01-01" max="2025-12-31"
+        required
+        min="1900-01-01"
+        max="2025-12-31"
       />
       <br /><br />
 
@@ -80,15 +82,19 @@
       />
 
       <br /><br />
-
-      <label for="Esporte">Esporte:</label>
-      <input
-        type="text"
-        id="esporte"
-        name="esporte"
-        placeholder="Digite o seu esporte favorito"
-        required
-      />
+      <p>Esporte mais praticado:</p>
+      <select id="esporte" name="esporte" required>
+        <option value="">Esporte</option>
+        <option value="1">Artes Marciais</option>
+        <option value="2">Basquete</option>
+        <option value="3">Corrida</option>
+        <option value="4">Futsal</option>
+        <option value="5">Futebol</option>
+        <option value="6">Ginástica</option>
+        <option value="7">Hidroginástica</option>
+        <option value="8">Handebol</option>
+        <option value="9">Natação</option>
+      </select>
       <br /><br />
 
       {{ mensagem }}
