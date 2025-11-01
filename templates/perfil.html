@@ -4,82 +4,92 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="/static/navbar.css" rel="stylesheet" />
+    <link href="/static/perfil.css" rel="stylesheet" />
     <title>Perfil de {{ nome_usuario }}</title>
   </head>
   <body>
-    <header>
-      <div class="logo">
-        <img
-          src="/static/imagens/logo_semfundo.png"
-          alt="LOGO PHOENIX RISE"
-          class="logo"
-        />
-        <h1 class="degrade">Phoenix Rise</h1>
-      </div>
-      <a href="{{ url_for('inicio') }}">FEED</a>
-      <a href="{{ url_for('mapa_view_academia') }}">HOME</a>
-      <a href="{{ url_for('mapa_view_loja') }}">LOJAS</a>
-      <a href="{{ url_for('perfil') }}">PERFIL</a>
-    </header>
-    <p>Oi, {{ nome_usuario }}</p>
 
-    <form action="perfil">
-      <label class="opcao">
-        <input type="checkbox" name="interesses" value="futebol" />
-        <img
-          src="https://images.unsplash.com/photo-1660926655155-8b1f8f9079f5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Ym9sYSUyMGRlJTIwZnV0ZWJvbHxlbnwwfHwwfHx8MA%3D%3D&fm=jpg&q=60&w=3000"
-        />
-        <p>FUTEBOL</p>
-      </label>
-      <label class="opcao">
-        <input type="checkbox" name="interesses" value="handebol" />
-        <img
-          src="https://static.todamateria.com.br/upload/ha/nd/handebol-cke.jpg"
-        />
-        <p>HANDEBOL</p>
-      </label>
-      <label class="opcao">
-        <input type="checkbox" name="interesses" value="Artes Marciais" />
-        <img
-          src="https://jornalzonasul.com.br/wp-content/uploads/2016/03/Foto-74.jpg"
-        />
-        <p>ARTES MARCIAIS</p>
-      </label>
-      <label class="opcao">
-        <input type="checkbox" name="interesses" value="Basquete" />
-        <img
-          src="https://s2.static.brasilescola.uol.com.br/be/2022/08/basquete-feminino.jpg"
-        />
-        <p>BASQUETE</p>
-      </label>
-      <label class="opcao">
-        <input type="checkbox" name="interesses" value="Corrida" />
-        <img
-          src="https://img.nsctotal.com.br/wp-content/uploads/2024/06/pessoas-correndo.jpg"
-        />
-        <p>CORRIDA</p>
-      </label>
-      <label class="opcao">
-        <input type="checkbox" name="interesses" value="Ginástica" />
-        <img
-          src="https://blog.ciaathletica.com.br/wp-content/uploads/2023/08/Cia-Athletica-Ginastica-de-relaxamento-Autores-Grupo-S2-Marketing-Divulgacao-Cia.jpg"
-        />
-        <p>GINÁSTICA</p>
-      </label>
-      <label class="opcao">
-        <input type="checkbox" name="interesses" value="Hidroginástica" />
-        <img
-          src="https://www.oxerbrasil.com.br/wp-content/uploads/2022/09/natacao-misto-fotos-oxer-12-1024x576.jpg.webp"
-        />
-        <p>HIDROGINÁSTICA</p>
-      </label>
-      <label class="opcao">
-        <input type="checkbox" name="interesses" value="Natação" />
-        <img
-          src="https://diariodonordeste.verdesmares.com.br/image/contentid/policy:1.3139049:1632325398/shutterstock_793317166_Easy-Resize.com.jpg?f=16x9&h=574&w=1020&$p$f$h$w=5f51913"
-        />
-        <p>NATAÇÃO</p>
-      </label>
+
+    
+    <div class="background">
+      <header>
+        <div class="logo">
+          <img
+            src="/static/imagens/logo_semfundo.png"
+            alt="LOGO PHOENIX RISE"
+            class="logo"
+          />
+          <h1 class="degrade">Phoenix Rise</h1>
+        </div>
+        <a href="{{ url_for('inicio') }}">FEED</a>
+        <a href="{{ url_for('mapa_view_academia') }}">HOME</a>
+        <a href="{{ url_for('mapa_view_loja') }}">LOJAS</a>
+        <a href="{{ url_for('perfil') }}">PERFIL</a>
+      </header>
+      <div class="text">
+        <p>Oi, {{ nome_usuario }}</p>
+      </div>
+      
+      <form action="perfil">
+        <div class="opcoes">
+          <label class="opcao">
+            <input type="checkbox" name="interesses" value="futebol" />
+            <img
+              src="https://images.unsplash.com/photo-1660926655155-8b1f8f9079f5?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Ym9sYSUyMGRlJTIwZnV0ZWJvbHxlbnwwfHwwfHx8MA%3D%3D&fm=jpg&q=60&w=3000"
+            />
+            <p>FUTEBOL</p>
+          </label>
+          <label class="opcao">
+            <input type="checkbox" name="interesses" value="handebol" />
+            <img
+              src="https://static.todamateria.com.br/upload/ha/nd/handebol-cke.jpg"
+            />
+            <p>HANDEBOL</p>
+          </label>
+          <label class="opcao">
+            <input type="checkbox" name="interesses" value="Artes Marciais" />
+            <img
+              src="https://jornalzonasul.com.br/wp-content/uploads/2016/03/Foto-74.jpg"
+            />
+            <p>ARTES MARCIAIS</p>
+          </label>
+          <label class="opcao">
+            <input type="checkbox" name="interesses" value="Basquete" />
+            <img
+              src="https://s2.static.brasilescola.uol.com.br/be/2022/08/basquete-feminino.jpg"
+            />
+            <p>BASQUETE</p>
+          </label>
+          <label class="opcao">
+            <input type="checkbox" name="interesses" value="Corrida" />
+            <img
+              src="https://img.nsctotal.com.br/wp-content/uploads/2024/06/pessoas-correndo.jpg"
+            />
+            <p>CORRIDA</p>
+          </label>
+          <label class="opcao">
+            <input type="checkbox" name="interesses" value="Ginástica" />
+            <img
+              src="https://blog.ciaathletica.com.br/wp-content/uploads/2023/08/Cia-Athletica-Ginastica-de-relaxamento-Autores-Grupo-S2-Marketing-Divulgacao-Cia.jpg"
+            />
+            <p>GINÁSTICA</p>
+          </label>
+          <label class="opcao">
+            <input type="checkbox" name="interesses" value="Hidroginástica" />
+            <img
+              src="https://www.oxerbrasil.com.br/wp-content/uploads/2022/09/natacao-misto-fotos-oxer-12-1024x576.jpg.webp"
+            />
+            <p>HIDROGINÁSTICA</p>
+          </label>
+          <label class="opcao">
+            <input type="checkbox" name="interesses" value="Natação" />
+            <img
+              src="https://diariodonordeste.verdesmares.com.br/image/contentid/policy:1.3139049:1632325398/shutterstock_793317166_Easy-Resize.com.jpg?f=16x9&h=574&w=1020&$p$f$h$w=5f51913"
+            />
+            <p>NATAÇÃO</p>
+          </label>
+        </div>
+      </div>
     </form>
   </body>
 </html>
