@@ -182,10 +182,11 @@ def perfil():
     return render_template("perfil.html", nome_usuario=nome_usuario)
 
 
-@app.route("/mapa/academia")
+@app.route("/mapa")
 #@login_required
-def mapa_view_academia():
-    mapa_html = gerar_mapa("academia")
+def mapa_view():
+    opcao = request.args.get('select_mapa')
+    mapa_html = gerar_mapa(opcao)
     nome = current_user.nome if current_user.is_authenticated else "Visitante"
     titulo = "Mapa das academias da região"
     mensagem = "Academias da região"

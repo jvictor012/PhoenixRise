@@ -1,5 +1,6 @@
 import folium
 from folium.plugins import LocateControl, Terminator
+from flask import request
 
 academias = ['Academia Top Fitness', 'Foco Academia', 'Academia Prime Core','Soufit', 'Academia Perfomance']
 coordenadas_academias = [
@@ -17,18 +18,36 @@ coordenadas_lojas = [
     [-5.653764880171134, -37.799500951946094]
 ]
 def gerar_mapa(opcao):
-    mapa_local = folium.Map(location=[-5.6615146308316975, -37.797283767920206], zoom_start=13, width='1280px', height='800px')
+    mapa_local = folium.Map(
+        location=[-5.6615146308316975, -37.797283767920206],
+        zoom_start=10,
+        width='100vw',
+        height='100vw'
+    )
     LocateControl(auto_start=True, drawmarker=True, markerStyle = dict(classname="leaflet-control-locate-marker")).add_to(mapa_local)
     Terminator().add_to(mapa_local)
-    if opcao == 'academia':
+    if opcao in (None, '', '0'):
         for nome, coord in zip(academias, coordenadas_academias):
             folium.Marker(
                 location=coord,
                 popup=nome,
                 icon=folium.Icon(icon='dumbbell', prefix='fa', color='orange')  
             ).add_to(mapa_local)
-   
-    if opcao == 'lojas':
+        for nome, coord in zip(lojas, coordenadas_lojas):
+            folium.Marker(
+                location=coord,
+                popup=nome,
+                icon=folium.Icon(icon='shopping-cart', prefix='fa', color='pink')  
+            ).add_to(mapa_local)
+        
+    if opcao == '1':
+        for nome, coord in zip(academias, coordenadas_academias):
+            folium.Marker(
+                location=coord,
+                popup=nome,
+                icon=folium.Icon(icon='dumbbell', prefix='fa', color='orange')  
+            ).add_to(mapa_local)
+    elif opcao == '4':
         for nome, coord in zip(lojas, coordenadas_lojas):
             folium.Marker(
                 location=coord,

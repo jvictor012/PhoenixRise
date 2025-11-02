@@ -2,7 +2,7 @@
 <html lang="pt-br">
   <head>
     <title>Mapa</title>
-    <link href="style_mapa.css" rel="stylesheet" />
+    <link href="/static/style_mapa.css" rel="stylesheet" />
     <link href="/static/navbar.css" rel="stylesheet" />
     <style></style>
   </head>
@@ -17,15 +17,36 @@
         <h1 class="degrade">Phoenix Rise</h1>
       </div>
       <a href="{{ url_for('inicio') }}">FEED</a>
-      <a href="{{ url_for('mapa_view_academia') }}">ACADEMIAS</a>
-      <a href="{{ url_for('mapa_view_loja') }}">LOJAS</a>
+      <a href="{{ url_for('mapa_view') }}">MAPA</a>
       <a href="{{ url_for('perfil') }}">PERFIL</a>
     </header>
-    <div class="mapa">
-      <h1>{{ titulo }}</h1>
-      {{ mapa_html|safe }}
-    </div>
+    <div class="geral">
+      <div class="mapa">
+        <form action="/mapa" method="get">
+          <button type="submit">Enviar</button>
+          <select id="select_mapa" name="select_mapa" required>
+            <option value="0">Geral</option>
+            <option value="1">Academias</option>
+            <option value="2">Quadras esportivas</option>
+            <option value="3">Crossfits</option>
+            <option value="4">Lojas</option>
+          </select>
+        </form>
+        {{ mapa_html|safe }}
+      </div>
 
-    <div class="barra_lateral">{{ mensagem }}</div>
+      <div class="sidebar">
+        <div class="titulo_academia">
+          <h1>{{ titulo_academia }}</h1>
+        </div>
+        <div class="mapa_academia">{{ mapa_especifico|safe }}</div>
+        <div class="descricao_academia">
+          <p>{{ descricao_academia }}</p>
+        </div>
+        <div class="button">
+          <button>Verificar</button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
