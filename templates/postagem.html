@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faça sua postagem</title>
+  </head>
+  <body>
+    <form action="/fazer_postagem" method="POST" enctype="multipart/form-data">
+      <label for="post_label">Insira sua imagem:</label>
+      <input type="file" id="post_label" name="post_label" required />
+
+      <label for="descricao">Insira uma descrição para sua imagem:</label>
+      <input type="text" id="descricao" name="descricao" required />
+
+      <button type="submit">Postar</button>
+    </form>
+  </body>
+</html>
