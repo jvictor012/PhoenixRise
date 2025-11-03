@@ -35,21 +35,20 @@
           placeholder="Digite sua senha"
           required
         />
-        <p>
-          Esqueceu a senha?
-          <a href="linkdapaginareculperarsenha">Reculperar Senha</a>
-        </p>
+        
         <br /><br />
         <button type="submit">Acessar</button>
-        <p>Não tem conta? <a href="/cadastro">Cadastre-se</a></p>
+        <p>Não tem conta? <a href="{{ url_for('cadastro_submit') }}">Cadastre-se</a></p>
+
       </form>
     </div>
 
-    <div class="error">{{mensagem}}</div>
+  
 
     <!--BOTAO DE VOLTAR PARA PAGINA HOME-->
-    <a href="minhapagina.html" class="botao-voltar">
-      <i class="fa fa-arrow-left"></i>
-    </a>
+    <a href="{{ url_for('principal') }}" class="botao-voltar">
+  <i class="fa fa-arrow-left"></i>
+</a>
+
   </body>
 </html>

@@ -91,7 +91,7 @@ h2 {
   top: 25px;
   right: 40px;
   text-decoration: none;
-  color: black;
+  color: beige;
   background: linear-gradient(90deg, #ff751f, #b20837);
   padding: 10px 30px;
   border-radius: 35px;
@@ -263,7 +263,7 @@ h2 {
 
 /* Logo e fontes fluídas */
 .secao1 img {
-  width: clamp(30%, 35vw, 50%);
+  width: clamp(15%, 35vw, 30%);
 }
 
 h1 {
