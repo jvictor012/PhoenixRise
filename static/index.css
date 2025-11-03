@@ -1,9 +1,12 @@
 /* ======= ESTILO GERAL ======= */
 @font-face {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  src: url("/static/fonte/BMHANNAPro.ttf") format("truetype");
+  font-family: "BM Hanna";
+  src: url('/static/fonte/BMHANNAPro.ttf') format('truetype');
   font-weight: 900;
+  font-style: normal;
 }
+
+
 
 * {
   margin: 0;
@@ -91,10 +94,10 @@ h2 {
   text-decoration: none;
   color: black;
   background: linear-gradient(90deg, #ff751f, #b20837);
-  padding: 16px 50px;
+  padding: 10px 30px;
   border-radius: 35px;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 17px;
   transition: transform 0.3s, box-shadow 0.3s;
   z-index: 3;
   box-shadow: 0 0 10px rgba(255, 117, 31, 0.4);
