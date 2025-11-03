@@ -11,6 +11,7 @@ from flask_login import (
 from database import executar_comandos
 from mapas import gerar_mapa
 import bcrypt
+from cloudinary_service import cloudinary
 
 app = Flask(__name__)
 app.secret_key = "chave_muito_secreta"  # em produção, usar variável de ambiente
@@ -194,18 +195,21 @@ def mapa_view():
         "mapa.html", nome=nome, mapa_html=mapa_html, titulo=titulo, mensagem=mensagem
     )
 
+@app.route('/fazer_postagem', methods=['GET', 'POST'])
+def fazer_postagem():
+    if request.method == 'POST':
+        imagem = request.files['post_label']
+        descricao = request.form['descricao']
 
-@app.route("/mapa/lojas")
-#@login_required
-def mapa_view_loja():
-    mapa_html = gerar_mapa("lojas")
-    nome = current_user.nome if current_user.is_authenticated else "Visitante"
-    titulo = "Mapa das lojas da região"
-    mensagem = "Lojas da região"
-    return render_template(
-        "mapa.html", nome=nome, mapa_html=mapa_html, titulo=titulo, mensagem=mensagem
-    )
+        resultado = cloudinary.uploader.upload(imagem)
+        url_imagem = resultado['secure_url']
 
+        query = '''INSERT INTO posts(descricao, url_image) VALUES(%s, %s)'''
+        valores = (descricao, url_imagem)
+        executar_comandos(query, valores)
+
+        return render_template('postagem.html')
+    return render_template('postagem.html')
 
 #@app.route("/login_fake")
 #def login_fake():

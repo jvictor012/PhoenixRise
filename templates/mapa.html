@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
+<head>
+    <meta charset="UTF-8">
     <title>Mapa</title>
+<<<<<<< HEAD
     <link href="/static/style_mapa.css" rel="stylesheet" />
     <link href="/static/navbar.css" rel="stylesheet" />
     <style></style>
@@ -35,19 +37,87 @@
         </form>
         {{ mapa_html|safe }}
       </div>
+=======
+>>>>>>> b5ed082ff39360a42aa8a4c8f1567053a5dadc63
 
-      <div class="sidebar">
-        <div class="titulo_academia">
-          <h1>{{ titulo_academia }}</h1>
-        </div>
-        <div class="mapa_academia">{{ mapa_especifico|safe }}</div>
-        <div class="descricao_academia">
-          <p>{{ descricao_academia }}</p>
-        </div>
-        <div class="button">
-          <button>Verificar</button>
-        </div>
-      </div>
+    <link rel="stylesheet" href="/static/style_mapa.css">
+    <link rel="stylesheet" href="/static/navbar.css">
+
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            height: calc(100vh - 80px);
+        }
+
+        .sidebar {
+            width: 240px;
+            background: #111;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .sidebar button {
+            padding: 10px;
+            border: none;
+            background: #ff6600;
+            color: white;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .sidebar button:hover {
+            background: #cc5200;
+        }
+
+        .mapa-area {
+            flex: 1;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="/static/imagens/logo_semfundo.png" class="logo" alt="LOGO PHOENIX RISE">
+        <h1 class="degrade">Phoenix Rise</h1>
     </div>
-  </body>
+    <a href="{{ url_for('inicio') }}">FEED</a>
+    <a href="{{ url_for('mapa_view') }}">MAPA</a>
+    <a href="{{ url_for('perfil') }}">PERFIL</a>
+</header>
+
+<div class="container">
+
+    <div class="sidebar">
+        <h2>Locais</h2>
+
+        <form action="/mapa" method="get">
+            <button type="submit" name="select_mapa" value="0">Todos</button>
+            <button type="submit" name="select_mapa" value="1">Academias</button>
+            <button type="submit" name="select_mapa" value="2">Quadras</button>
+            <button type="submit" name="select_mapa" value="3">Crossfit</button>
+            <button type="submit" name="select_mapa" value="4">Lojas</button>
+        </form>
+    </div>
+
+    <div class="mapa-area">
+        {{ mapa_html|safe }}
+    </div>
+
+</div>
+
+</body>
 </html>
