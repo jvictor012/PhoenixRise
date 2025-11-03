@@ -258,25 +258,79 @@ h2 {
 }
 
 /* ======= RESPONSIVO ======= */
-@media (max-width: 900px) {
+
+/* ======= RESPONSIVO SIMPLIFICADO ======= */
+
+/* Logo e fontes fluídas */
+.secao1 img {
+  width: clamp(30%, 35vw, 50%);
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 7rem);
+  margin: clamp(1rem, 3vw, 2rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3vw, 3rem);
+  margin-bottom: 1rem;
+}
+
+/* Botão entrar */
+.btn-entrar {
+  top: clamp(15px, 3vw, 25px);
+  right: clamp(15px, 3vw, 40px);
+  padding: clamp(5px, 1vw, 10px) clamp(15px, 2vw, 30px);
+  font-size: clamp(13px, 1vw, 17px);
+}
+
+/* Seção 2 */
+.secao2 {
+  padding: clamp(2rem, 5vw, 4rem);
+}
+
+/* Título lateral */
+.titulo_secao2 h1 {
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  margin-left: clamp(0rem, 2vw, 2rem);
+  padding-left: clamp(1rem, 2vw, 1.5rem);
+}
+
+/* Containers e cards */
+.containers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(1rem, 2vw, 3rem);
+}
+
+.card {
+  flex: 1 1 clamp(250px, 30%, 300px);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.card .icone {
+  width: clamp(50px, 10vw, 90px);
+  height: clamp(50px, 10vw, 90px);
+}
+
+.card .icone img {
+  width: clamp(40px, 8vw, 70px);
+  height: clamp(30px, 6vw, 55px);
+}
+
+.card h3 {
+  font-size: clamp(1.3rem, 2.5vw, 2rem);
+}
+
+.card p {
+  font-size: clamp(1rem, 2vw, 1.6rem);
+}
+
+/* Ajuste do texto da seção 2 para telas pequenas */
+@media (max-width: 600px) {
   .titulo_secao2 h1 {
-    font-size: 3rem;
-    margin-left: 0;
     text-align: center;
     border: none;
   }
-
-  .secao2 {
-    align-items: center;
-    padding: 3rem 2rem;
-  }
-
-  .card {
-    flex: 1 1 100%;
-  }
-
-  .containers {
-    gap: 2rem;
-  }
 }
-
