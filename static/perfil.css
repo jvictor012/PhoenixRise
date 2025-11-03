@@ -1,75 +1,219 @@
-/* Reset básico */
+/* ================= Reset básico ================= */
 body,
 html {
   margin: 0;
   width: 100vw;
+  height: 100%; 
   font-family: Arial, sans-serif;
 }
 
-/* Div de fundo */
+/* ================= Background ================= */
 .background {
-  background-image: url("/static/imagens/tela_fundo.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
-
-.text {
-  color: aliceblue;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-size: 2rem;
-}
-
-/* Conteúdo sobre a imagem */
-.conteudo {
-  position: relative;
-  z-index: 2;
-  width: 100vw;
-  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+}
+
+/* ================= Header ================= */
+header {
+  background-color: #000;
+  display: flex;
   align-items: center;
-  text-align: center;
+  justify-content: space-between;
+  padding: 10px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.6);
+  height: 60px;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #ff751f, #b20837);
+  pointer-events: none;
+}
+
+a {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  background-image: linear-gradient(90deg, #ff751f, #b20837);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+  margin-left: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  box-shadow: 0 0 0 2px black;
+  border-radius: 5px;
+}
+
+/* ================= Logo ================= */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.degrade {
+  background-image: linear-gradient(90deg, #ff751f, #b20837);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.logo img {
+  height: 50px;
+  width: 50px;
+}
+
+/* ================= Seções ================= */
+.secao-formulario {
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black; /* fundo preto */
+}
+
+.secao-interesses {
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black; /* fundo preto */
+}
+
+/* ================= Foto do usuário ================= */
+.foto-usuario-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.foto-usuario {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #ff751f;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* ================= Formulário ================= */
+form {
+  padding: 20px 0;
+  max-width: 900px;
+  margin: 0 auto 40px auto;
+}
+
+.form-campos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.form-campos label {
+  font-weight: bold;
+  margin-bottom: 20px; /* aumenta o espaço entre label e input */
   color: white;
-  padding: 0 20px;
+  font-size: 16px;
 }
 
-.conteudo h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+/* Inputs com gradiente dentro e cantos arredondados */
+.perfil-campo {
+  padding: 10px;
+  border-radius: 15px; /* cantos mais arredondados */
+  border: 1px solid white;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  background: linear-gradient(90deg, #ff751f, #b20837);
+  color: black;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2); /* sombra leve para destaque */
 }
 
-.conteudo p {
-  font-size: 1.5rem;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+.perfil-campo::placeholder {
+  color: rgba(255, 255, 255, 0.7);
 }
 
+.perfil-campo:focus {
+  outline: none;
+  border-color: #ff751f;
+  box-shadow: 0 0 8px rgba(255, 117, 31, 0.5); /* brilho no foco */
+}
+
+/* ================= Separador entre campos ================= */
+.form-campos > div {
+  padding-bottom: 15px;       /* Espaço interno antes da linha */
+  border-bottom: 2px solid white; /* Linha branca mais grossa */
+  margin-bottom: 15px;        /* Espaço extra abaixo da linha */
+}
+
+
+/* ================= Grid de opções de interesses ================= */
 .opcoes {
-  width: 100vw;
-  height: 100%;
   display: grid;
-  flex-wrap: wrap;
-  gap: 2rem;
-  align-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  margin: 20px auto; 
+  max-width: 1000px; 
   justify-content: center;
-}
-
-.opcao p {
-  color: aliceblue;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-size: 2rem;
 }
 
 .opcao {
-  width: 50%;
-  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.opcao:hover {
+  transform: scale(1.05);
 }
 
 .opcao img {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 2/3; 
+  object-fit: cover;
   border-radius: 15px;
+  border: 2px solid #fff;
+}
+
+.opcao p {
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: white;
+  text-align: center;
+}
+
+/* ================= Responsivo ================= */
+@media (max-width: 600px) {
+  .conteudo h1 {
+    font-size: 2rem;
+  }
+
+  .conteudo p {
+    font-size: 1rem;
+  }
+
+  .form-campos label {
+    font-size: 14px;
+  }
 }
