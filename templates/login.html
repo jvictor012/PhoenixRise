@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <!--META DADOS E RESPONSIVIDADE-->
   <head>
+    <!-- META DADOS E RESPONSIVIDADE -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Phoenix Rise</title>
@@ -9,46 +9,40 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='login.css') }}"
     />
+    <!-- Ícones Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
   </head>
 
-  <!--ESTRUTUTRA DO LOGIN-->
   <body>
-    <h1 class="degrade">LOGIN</h1>
-    <div class="fundo_do_login">
+  <a href="{{ url_for('principal') }}" class="botao-voltar">
+    <i class="fa fa-arrow-left"></i>
+  </a>
+
+  <div class="container">
+
+    <!-- LADO ESQUERDO -->
+    <div class="left">
+      <h1>LOGIN</h1>
       <form action="login" method="post">
         <label for="email">Email</label>
-        <br /><br />
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Digite seu email"
-          required
-        />
-        <br /><br />
-        <label for="senha">Senha</label>
-        <br /><br />
-        <input
-          type="password"
-          id="senha"
-          name="senha"
-          placeholder="Digite sua senha"
-          required
-        />
-        
-        <br /><br />
-        <button type="submit">Acessar</button>
-        <p>Não tem conta? <a href="{{ url_for('cadastro_submit') }}">Cadastre-se</a></p>
+        <input type="email" id="email" name="email" placeholder="Digite seu email" required />
 
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required />
+
+        <button type="submit">ENTRAR</button>
+        <p>Não tem conta? <a href="{{ url_for('cadastro_submit') }}">Cadastre-se</a></p>
       </form>
     </div>
 
-  
-
-    <!--BOTAO DE VOLTAR PARA PAGINA HOME-->
-    <a href="{{ url_for('principal') }}" class="botao-voltar">
-  <i class="fa fa-arrow-left"></i>
-</a>
-
-  </body>
-</html>
+    <!-- LADO DIREITO -->
+    <div class="right">
+      <img src="/static/imagens/logo_semfundo.png" alt="Fênix" />
+      <h2>Bem-vindo de volta </h2>
+      <p>Entre na sua conta e aproveite oque o Phoenix Rise pode oferecer!</p>
+    </div>
+  </div>
+</body>

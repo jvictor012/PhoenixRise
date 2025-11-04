@@ -91,7 +91,8 @@ h2 {
   top: 25px;
   right: 40px;
   text-decoration: none;
-  color: beige;
+  color: black;
+  opacity: 80%;
   background: linear-gradient(90deg, #ff751f, #b20837);
   padding: 10px 30px;
   border-radius: 35px;
@@ -132,7 +133,7 @@ h2 {
 }
 
 .titulo_secao2 h1 {
-  font-size: 4rem;
+  font-size: 7rem;
   background: linear-gradient(90deg, #ff751f, #b20837);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

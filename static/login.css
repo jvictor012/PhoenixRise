@@ -1,163 +1,341 @@
-@media (max-width: 600px) {
-  .fundo_do_login {
-    max-width: 95vw; /*para ocupar quase toda tela no celular */
-    padding: 15px;
-  }
-  .logo {
-    width: 150px;
-    left: 50%; /*centraliza horizontalmente */
-    transform: translateX(-50%);
-  }
-  .degrade,
-  .topo {
-    margin-top: 18px;
-  }
+@font-face {
+  font-family: "BM Hanna";
+  src: url("/static/fonte/BMHANNAPro.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
 }
 
-body {
-  background-image: url("/static/imagens/tela_fundo.png");
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  background-color: rgb(0, 0, 0);
-  color: white;
+/* ===== RESET GERAL ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "BM Hanna", sans-serif;
+}
+
+/* ===== FUNDO GERAL ===== */
+body, html {
   height: 100%;
+  background-image: url("/static/imagens/fundo_s2.png");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-button {
-  height: 50%;
-  width: 50%;
-  background-color: #000000;
-  color: #ff5500;
-  padding: 1%;
-  border: none;
-  border-radius: 10px;
+/* ---------- CONTAINER GERAL ---------- */
+.container {
+  display: flex;
+  width: 150vh;
+  max-width: 1500px;
+  height: 80vh;
+  background-color: #111;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(249, 135, 4, 0.697);
+}
+
+/* ---------- LADO ESQUERDO ---------- */
+.left {
+  flex: 1;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 40px;
+}
+
+.left h1 {
   text-align: center;
-}
-
-input[type="text"],
-input[type="email"] {
-  border-radius: 20px; /* ou o valor desejado */
-  padding: 10px;
-  border: 2px solid #000000;
-}
-
-input[type="text"],
-input[type="password"] {
-  border-radius: 20px; /* ou o valor desejado */
-  padding: 10px;
-  border: 2px solid #000000;
-}
-
-.degrade {
-  background: linear-gradient(to right, #b50600, #ffaa00, #e5ff00);
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  background: linear-gradient(60deg, #ff751f, #b20837);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-size: 4em;
-  font-weight: 700;
+  margin: 2rem;
+  margin-bottom: 40px;
 }
 
-.fundo_do_login {
-  max-width: 400px;
-  margin: 40px auto;
-  padding: 32px;
-  border-radius: 25px;
-  box-shadow: 0 4px 20px rgb(0, 0, 0);
-  background: linear-gradient(135deg, #af0034 20%, #ff9100 100%);
-}
-.fundo_do_login label {
-  color: #000000; /* preto */
-  display: block; /* garante que fique acima da caixa */
-  margin-bottom: 2px; /* espaço entre o label e a caixa */
-  font-weight: bold;
+.left p {
+  color: #fff;
+  text-align: center;
+  margin-top: 15px;
 }
 
-.fundo_do_login form {
+/* ---------- LADO DIREITO ---------- */
+.right {
+  flex: 1;
+  background: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  padding: 40px;
+  font-size: 1.3rem;
+}
+
+.right img {
+  width: 250px;
+  max-width: 80%;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  box-shadow: 0 0 25px rgba(255, 117, 31, 0.8);
+   transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.right img:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 20px #ff751f;
+}
+
+.right h2 {
+  font-size: 2rem;
+  margin-top: 10px;
+  color: #fff;
+}
+
+.right p {
+  color: #fff;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 1.1em;
+}
+/* ---------- FORMULÁRIO ---------- */
+form {
   display: flex;
   flex-direction: column;
 }
 
-.fundo_do_login label,
-.fundo_do_login input,
-.fundo_do_login button {
-  margin-bottom: 0.5px;
-  font-size: 1.2em;
+label {
+  color: #fff;
+  font-size: 2em;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
-.fundo_do_login button {
-  background-color: #030000;
-  color: #ff7b00;
-  border: none;
-  padding: 5px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: bolder;
-  margin: 0 auto;
-  display: block;
-}
-
-.fundo_do_login button:hover {
-  background-color: #7d0017;
-  color: #ffa8c8;
-}
-
-.botao-voltar {
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
-  padding: 4px 4px;
-  text-decoration: none;
-  border: none;
-  border-radius: 55px;
-  cursor: pointer;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 7%;
-  transition: background-color 0.2s;
-  position: fixed;
-  top: 5px;
-  left: 5px;
-  font-size: 90%;
-  z-index: 999;
-}
-
-.botao-voltar i {
-  font-size: 2em; /* tamanho da seta */
-  color: #e53129; /* cor da seta */
-  transition: color 0.3s;
-  margin: 20px;
-}
-
-.botao-voltar:hover i {
-  color: #ffaa00;
-}
-
-/*posicionar a logo */
-.topo {
-  position: absolute;
+input {
   width: 100%;
-  display: contents;
+  padding: 10px;
+  border-radius: 15px;
+  border: 2px solid #fff;
+  background: linear-gradient(90deg, rgba(255,117,31,0.7), rgba(178,8,55,0.7));
+  color: black;
+  margin-bottom: 20px;
+  transition: 0.3s;
 }
 
-.logo {
+input::placeholder {
+  color: black;
+  opacity: 0.7;
+  font-size: 1.5em;
+}
+
+
+input:focus {
+  border-color: #ffaa00;
+  box-shadow: 0 0 10px #ffaa00;
+}
+
+/* ---------- BOTÃO LOGIN ---------- */
+button {
   position: relative;
-  left: 70%; /* distância da borda esquerda, n mexer plmds*/
-  width: 300px;
-  height: auto;
+  overflow: hidden;
+  width: 100%;
+  padding: 12px;
+  border-radius: 20px;
+  border: none;
+  background-color: #000;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.5em;
+  cursor: pointer;
 }
 
-.degrade,
-.topo {
+button:hover {
+  background: linear-gradient(90deg, #ff751f, #b20837);
+  color: black;
+  transform: scale(1);
+  opacity: 30%;
+}
+
+
+/* ---------- LINKS ---------- */
+p {
+  color: #fff;
   text-align: center;
+  margin-top: 15px;
+  font-size: 1.5em;
 }
 
 a {
-  color: #ffffff;
-  text-align: center;
-}
-p {
-  color: #000000;
-  text-align: center;
+  background: linear-gradient(60deg, #ff751f, #b20837);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+  font-size: 1.4rem; /* aumenta só o link */
+  font-weight: bold;
+  transition: transform 0.3s ease, text-shadow 0.3s;
 }
 
-h1 {
-  text-align: center;
+a:hover {
+  transform: scale(1.2); /* cresce suavemente */
+  text-shadow: 0 0 10px rgba(189, 18, 18, 0.8);
 }
+
+
+
+/* ---------- BOTÃO VOLTAR ---------- */
+.botao-voltar {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  color: #ff7b00;
+  font-size: 2em;
+  transition: 0.3s;
+  padding: 0.5%;
+  border-radius: 100%;
+  box-shadow: 0 0 25px rgba(255, 117, 31, 0.8);
+}
+
+.botao-voltar:hover {
+  color: #ffaa00;
+  transform: scale(1.1);
+}
+
+/* ---------- RESPONSIVIDADE ---------- */
+/* ---------- RESPONSIVIDADE GERAL ---------- */
+
+/* Tablets (até 1024px) */
+@media (max-width: 1024px) {
+  .container {
+    width: 90%;
+    height: auto;
+  }
+
+  .left h1 {
+    font-size: 3.5rem;
+  }
+
+  label {
+    font-size: 1.5em;
+  }
+
+  input::placeholder {
+    font-size: 1.2em;
+  }
+
+  button {
+    font-size: 1.3em;
+  }
+
+  .right img {
+    width: 200px;
+  }
+}
+
+/* Celulares (até 768px) */
+@media (max-width: 768px) {
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* impede o corte no topo */
+    overflow-y: auto;
+  }
+
+  .container {
+    flex-direction: column-reverse; /* 🔥 mostra o lado direito primeiro */
+    width: 95%;
+    height: auto;
+    margin: 40px 0; /* evita colar nas bordas */
+    box-shadow: 0 0 15px rgba(249, 135, 4, 0.5);
+  }
+
+  .left, .right {
+    width: 100%;
+    padding: 25px;
+    text-align: center;
+  }
+
+  .left h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+
+  label {
+    font-size: 1.4em;
+  }
+
+  input {
+    font-size: 1em;
+    padding: 12px;
+  }
+
+  button {
+    font-size: 1.2em;
+    padding: 10px;
+  }
+
+  .right img {
+    width: 180px;
+    margin-bottom: 15px;
+  }
+
+  .right h2 {
+    font-size: 1.5rem;
+  }
+
+  .right p {
+    font-size: 1rem;
+  }
+
+  .botao-voltar {
+    top: 10px;
+    left: 10px;
+    font-size: 1.8em;
+    padding: 8px;
+    box-shadow: 0 0 15px rgba(255, 117, 31, 0.7);
+  }
+}
+
+/* Celulares muito pequenos (até 480px) */
+@media (max-width: 480px) {
+  .left h1 {
+    font-size: 2.2rem;
+  }
+
+  label {
+    font-size: 1.2em;
+  }
+
+  input::placeholder {
+    font-size: 1em;
+  }
+
+  .right img {
+    width: 150px;
+  }
+
+  button {
+    font-size: 1em;
+  }
+
+  p {
+    font-size: 1.1em;
+  }
+
+  a {
+    font-size: 1.1em;
+  }
+}
+
+
