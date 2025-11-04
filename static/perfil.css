@@ -203,17 +203,4 @@ form {
   text-align: center;
 }
 
-/* ================= Responsivo ================= */
-@media (max-width: 600px) {
-  .conteudo h1 {
-    font-size: 2rem;
-  }
 
-  .conteudo p {
-    font-size: 1rem;
-  }
-
-  .form-campos label {
-    font-size: 14px;
-  }
-}

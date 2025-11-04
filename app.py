@@ -173,6 +173,11 @@ def inicio():
     nome = current_user.nome if current_user.is_authenticated else "Visitante"
     return render_template("home.html", nome=nome)
 
+@app.route("/feed")
+def feed():
+    nome = current_user.nome if current_user.is_authenticated else "Visitante"
+    return render_template("feed.html", nome=nome)
+
 
 @app.route("/perfil", methods=["GET", "POST"])
 @login_required

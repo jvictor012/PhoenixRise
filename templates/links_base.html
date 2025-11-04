@@ -1,0 +1,6 @@
+<!-- links_base.html -->
+<a href="{{ url_for('inicio') }}" class="{% if request.endpoint == 'inicio' %}active{% endif %}">HOME</a>
+<a href="{{ url_for('feed') }}" class="{% if request.endpoint == 'feed' %}active{% endif %}">FEED</a>
+<a href="{{ url_for('fazer_postagem') }}" class="{% if request.endpoint == 'fazer_postagem' %}active{% endif %}">NOVO</a>
+<a href="{{ url_for('mapa_view') }}" class="{% if request.endpoint == 'mapa_view' %}active{% endif %}">EXPLORE</a>
+<a href="{{ url_for('perfil') }}" class="{% if request.endpoint == 'perfil' %}active{% endif %}">PERFIL</a>

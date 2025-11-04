@@ -1,16 +1,76 @@
+/* Reset e fundo da página */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: white;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+/* Header */
+header {
+    height: 80px; /* altura do header */
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Container principal */
 .geral {
-  display: flex;
-  width: 100%;
-  height: 100vh;
-  gap: 1rem;
+    display: flex;
+    height: calc(100% - 80px); /* altura total menos o header */
+    gap: 1rem;
+    padding: 1rem;
+    box-sizing: border-box;
+    overflow: hidden; /* evita que o mapa quebre o layout */
 }
 
-.mapa {
-  width: 70%;
-  height: auto;
-}
-
+/* Sidebar */
 .sidebar {
-  width: 30%;
-  height: auto;
+    width: 200px;
+    display: flex;
+    flex-direction: column; /* alinha os botões verticalmente */
+    align-items: stretch;   /* garante que os botões ocupem toda a largura */
+    gap: 10px;
+}
+
+.sidebar h2 {
+    margin-bottom: 10px;
+}
+.sidebar button {
+    display: block; /* cada botão é um bloco */
+    width: 100%;   /* ocupa toda a largura da sidebar */
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: white;
+    color: BLACK;
+    border: 1px solid #444;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+
+    /* Fonte específica para os botões */
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+
+.sidebar button:hover {
+    background-color: #555;
+}
+
+/* Mapa */
+.mapa {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #111;
+    border-radius: 10px;
+    padding: 10px;
+    height: 120%; /* ocupa todo o espaço restante */
+    box-sizing: border-box;
+    overflow: hidden;
 }
