@@ -2,6 +2,18 @@ import folium
 from folium.plugins import LocateControl, Terminator
 from flask import request
 
+
+quadras = ['Quadra Poliesportiva', 'Quadra de esportes da Garilândia', 'Quadra do Bacural 1', 'Arena Hiper', 'Arena Morais', 'Ginásio de esportes de Apodi']
+coordenadas_quadras = [
+    [-5.632274690348239, -37.80171350910772],
+    [-5.659308325813112, -37.788538498298166],
+    [-5.664379714532668, -37.80992930851204],
+    [-5.644477600704771, -37.80399807877793], 
+    [-5.648769664778595, -37.791917409344826],
+    [-5.661216703028881, -37.797571732595024]
+
+]
+
 academias = ['Academia Top Fitness', 'Foco Academia', 'Academia Prime Core','Soufit', 'Academia Perfomance']
 coordenadas_academias = [
     [-5.663812521428317, -37.80741868034249],
@@ -39,6 +51,12 @@ def gerar_mapa(opcao):
                 popup=nome,
                 icon=folium.Icon(icon='shopping-cart', prefix='fa', color='pink')  
             ).add_to(mapa_local)
+        for nome, coord in zip(quadras, coordenadas_quadras):
+            folium.Marker(
+                location=coord,
+                popup=nome,
+                icon=folium.Icon(icon='shopping-cart', prefix='fa', color='pink')  
+            ).add_to(mapa_local)
         
     if opcao == '1':
         for nome, coord in zip(academias, coordenadas_academias):
@@ -46,6 +64,14 @@ def gerar_mapa(opcao):
                 location=coord,
                 popup=nome,
                 icon=folium.Icon(icon='dumbbell', prefix='fa', color='orange')  
+            ).add_to(mapa_local)
+
+    if opcao == '2':
+        for nome, coord in zip(quadras, coordenadas_quadras):
+            folium.Marker(
+                location=coord,
+                popup=nome,
+                icon=folium.Icon(icon='', prefix='fa', color='pink')  
             ).add_to(mapa_local)
     elif opcao == '4':
         for nome, coord in zip(lojas, coordenadas_lojas):
