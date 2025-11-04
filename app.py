@@ -81,9 +81,9 @@ def cadastro_submit():
             )
             senha_hash_str = senha_hash_bytes.decode("utf-8")
 
-            query = """INSERT INTO usuarios(nome, nome_usuario, data_nascimento, email, senha_hash)
-                       VALUES(%s, %s, %s, %s, %s)"""
-            valores = (nome, nome_usuario, data_nascimento, email, senha_hash_str)
+            query = """INSERT INTO usuarios(nome, nome_usuario, data_nascimento, email, senha_hash, foto_url)
+                       VALUES(%s, %s, %s, %s, %s, %s)"""
+            valores = (nome, nome_usuario, data_nascimento, email, senha_hash_str, None)
 
             id_usuario = executar_comandos(query, valores, retornar_id=True)
             app.logger.info("ID do usuário cadastrado: %s", id_usuario)
@@ -167,7 +167,6 @@ def logout():
 
 
 @app.route("/home", methods=["GET"])
-@login_required
 def inicio():
     # exemplo: usar current_user em vez de session
     nome = current_user.nome if current_user.is_authenticated else "Visitante"
@@ -184,14 +183,28 @@ def feed():
 @app.route("/perfil", methods=["GET", "POST"])
 @login_required
 def perfil():
-    # usa current_user
-    nome_usuario = current_user.nome
-    # podes buscar mais dados do banco se precisares
-    return render_template("perfil.html", nome_usuario=nome_usuario)
+    if request.method == "POST":
+        usuario_id = current_user.id
+        imagem_perfil = request.files['imagem_perfil']
+        image = cloudinary.uploader.upload(imagem_perfil)
+        url_imagem_perfil = image['secure_url']
+        query = '''UPDATE usuarios SET foto_url = %s WHERE id = %s''' #enviando imagem pro bd
+        valores = (url_imagem_perfil, usuario_id)
+
+        executar_comandos(query, valores)
+        # usa current_user
+        nome_usuario = current_user.nome
+        # podes buscar mais dados do banco se precisares
+        return render_template("perfil.html", nome_usuario=nome_usuario)
+    else:
+        usuario_id = current_user.id
+        query = '''SELECT foto_url FROM usuarios WHERE id = %s'''
+        values = (usuario_id,)
+        resultado = executar_comandos(query, values)
+        return render_template("perfil.html", resultado=resultado)
 
 
 @app.route("/mapa")
-@login_required
 def mapa_view():
     opcao = request.args.get('select_mapa')
     mapa_html = gerar_mapa(opcao)
