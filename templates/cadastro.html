@@ -5,18 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Phoenix Rise - cadastro</title>
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Jaro&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
-      rel="stylesheet"
-    />
+    
 
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='exemplo1.css') }}"
+      href="{{ url_for('static', filename='style.css') }}"
     />
 
     <link
@@ -25,9 +18,9 @@
     />
   </head>
   <body>
-    <button id="toggle-theme">Mudar Tema</button>
 
-    <h1>Cadastro</h1>
+    <div class="container">
+      <h1>Cadastro</h1>
     <form action="{{ url_for('cadastro_submit') }}" method="post">
       <label for="nome">Nome Completo:</label>
       <input
@@ -81,42 +74,15 @@
         autocomplete="new-password"
       />
 
-      <br /><br />
-      <p>Esporte mais praticado:</p>
-      <select id="esporte" name="esporte" required>
-        <option value="">Esporte</option>
-        <option value="1">Artes Marciais</option>
-        <option value="2">Basquete</option>
-        <option value="3">Corrida</option>
-        <option value="4">Futsal</option>
-        <option value="5">Futebol</option>
-        <option value="6">Ginástica</option>
-        <option value="7">Hidroginástica</option>
-        <option value="8">Handebol</option>
-        <option value="9">Natação</option>
-      </select>
-      <br /><br />
+      
 
-      {{ mensagem }}
 
       <button type="submit">Cadastrar</button>
     </form>
 
-    <a href="/login">Fazer Login</a>
+    <p>Já tem uma conta? <a href="{{ url_for('login_submit') }}">Faça login</a></p>
 
-    <script>
-      const body = document.body;
-      const toggleBtn = document.getElementById("toggle-theme"); // corrigido
+    </div>
 
-      toggleBtn.addEventListener("click", () => {
-        if (body.classList.contains("dark")) {
-          body.classList.remove("dark");
-          body.classList.add("light");
-        } else {
-          body.classList.remove("light");
-          body.classList.add("dark");
-        }
-      });
-    </script>
   </body>
 </html>

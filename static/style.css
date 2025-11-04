@@ -1,6 +1,9 @@
-/* ====================== */
-/* ======= RODAPÉ ======= */
-/* ====================== */
+@font-face {
+  font-family: "BM Hanna";
+  src: url("/static/fonte/BMHANNAPro.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
 
 .rodape {
   background-color: #242222;        /* fundo escuro */
