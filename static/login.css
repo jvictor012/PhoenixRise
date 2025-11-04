@@ -83,14 +83,11 @@ body, html {
   max-width: 80%;
   height: auto;
   margin-bottom: 20px;
-  border-radius: 50%;
-  box-shadow: 0 0 25px rgba(255, 117, 31, 0.8);
-   transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .right img:hover {
   transform: scale(1.07);
-  box-shadow: 0 0 20px #ff751f;
 }
 
 .right h2 {
@@ -122,17 +119,18 @@ input {
   width: 100%;
   padding: 10px;
   border-radius: 15px;
-  border: 2px solid #fff;
+  border: 2px solid #ffffff96;
   background: linear-gradient(90deg, rgba(255,117,31,0.7), rgba(178,8,55,0.7));
   color: black;
   margin-bottom: 20px;
   transition: 0.3s;
+  font-size: 1rem;
 }
 
 input::placeholder {
   color: black;
   opacity: 0.7;
-  font-size: 1.5em;
+  font-size: 1.1em;
 }
 
 
@@ -146,21 +144,22 @@ button {
   position: relative;
   overflow: hidden;
   width: 100%;
-  padding: 12px;
-  border-radius: 20px;
+  padding: 10px;
+  border-radius: 15px;
   border: none;
   background-color: #000;
   color: #fff;
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: 1.3em;
   cursor: pointer;
 }
 
 button:hover {
   background: linear-gradient(90deg, #ff751f, #b20837);
   color: black;
+  opacity: 90%;
   transform: scale(1);
-  opacity: 30%;
+  border: 2px solid #ffffff96;
 }
 
 
@@ -198,8 +197,6 @@ a:hover {
   font-size: 2em;
   transition: 0.3s;
   padding: 0.5%;
-  border-radius: 100%;
-  box-shadow: 0 0 25px rgba(255, 117, 31, 0.8);
 }
 
 .botao-voltar:hover {
