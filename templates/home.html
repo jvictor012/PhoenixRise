@@ -9,15 +9,28 @@
   <body>
     <header>
       <div class="logo">
-        <img src="/static/imagens/logo_semfundo.png" alt="LOGO PHOENIX RISE" class="logo"/>
+        <img
+          src="/static/imagens/logo_semfundo.png"
+          alt="LOGO PHOENIX RISE"
+          class="logo"
+        />
         <h1 class="degrade">Phoenix Rise</h1>
       </div>
-       
 
       <!-- Incluindo os links corretamente -->
       {% include 'links_base.html' %}
     </header>
 
     <h1>Olá! Bem vindo ao Phoenix Rise!</h1>
+    <div class="feed">
+      {% for post in posts %}
+      <div class="post">
+        <p><strong>Usuário:</strong> {{ post[1] }}</p>
+        <p>{{ post[3] }}</p>
+        <img src="{{ post[0] }}" alt="Post de {{ post[1] }}" />
+        <p>{{ post[2] }}</p>
+      </div>
+      {% endfor %}
+    </div>
   </body>
 </html>

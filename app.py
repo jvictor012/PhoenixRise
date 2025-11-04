@@ -167,11 +167,13 @@ def logout():
 
 
 @app.route("/home", methods=["GET"])
-#@login_required
+@login_required
 def inicio():
     # exemplo: usar current_user em vez de session
     nome = current_user.nome if current_user.is_authenticated else "Visitante"
-    return render_template("home.html", nome=nome)
+    query = '''SELECT url_image, usuario_id, descricao, data_publicacao FROM posts'''
+    posts = executar_comandos(query)
+    return render_template("home.html", nome=nome, posts=posts)
 
 @app.route("/feed")
 def feed():
@@ -189,7 +191,7 @@ def perfil():
 
 
 @app.route("/mapa")
-#@login_required
+@login_required
 def mapa_view():
     opcao = request.args.get('select_mapa')
     mapa_html = gerar_mapa(opcao)
@@ -200,21 +202,29 @@ def mapa_view():
         "mapa.html", nome=nome, mapa_html=mapa_html, titulo=titulo, mensagem=mensagem
     )
 
-@app.route('/fazer_postagem', methods=['GET', 'POST'])
-def fazer_postagem():
-    if request.method == 'POST':
-        imagem = request.files['post_label']
-        descricao = request.form['descricao']
+@app.route('/postagem', methods=['GET'])
+@login_required
 
-        resultado = cloudinary.uploader.upload(imagem)
-        url_imagem = resultado['secure_url']
-
-        query = '''INSERT INTO posts(descricao, url_image) VALUES(%s, %s)'''
-        valores = (descricao, url_imagem)
-        executar_comandos(query, valores)
-
-        return render_template('postagem.html')
+def postagem():
     return render_template('postagem.html')
+
+@app.route('/fazer_postagem', methods=['POST'])
+@login_required
+
+def fazer_postagem():
+    imagem = request.files['post_label']
+    descricao = request.form['descricao']
+
+    resultado = cloudinary.uploader.upload(imagem)
+    url_imagem = resultado['secure_url']
+    usuario_id = current_user.id #pegadno o id do user
+
+    query = '''INSERT INTO posts(descricao, url_image, usuario_id) VALUES(%s, %s, %s)'''
+    valores = (descricao, url_imagem, usuario_id)
+    executar_comandos(query, valores)
+
+    return redirect('/postagem')  # redireciona de volta pra página
+
 
 #@app.route("/login_fake")
 #def login_fake():
