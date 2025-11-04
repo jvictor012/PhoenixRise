@@ -35,3 +35,172 @@ body, html {
   overflow: hidden;
   box-shadow: 0 0 25px rgba(249, 135, 4, 0.697);
 }
+
+.left {
+  flex: 1;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 40px;
+}
+
+.left h1 {
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1.1;
+  background: linear-gradient(60deg, #ff751f, #b20837);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 2rem;
+  margin-bottom: 40px;
+}
+
+.left p {
+  color: #fff;
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* ---------- LADO DIREITO ---------- */
+.right {
+  flex: 1;
+  background: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  padding: 40px;
+  font-size: 1.3rem;
+}
+
+.right img {
+  width: 250px;
+  max-width: 80%;
+  height: auto;
+  margin-bottom: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.right img:hover {
+  transform: scale(1.07);
+}
+
+.right h2 {
+  font-size: 2rem;
+  margin-top: 10px;
+  color: #fff;
+}
+
+.right p {
+  color: #fff;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 1.1em;
+}
+
+/* ---------- FORMULÁRIO ---------- */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  color: #fff;
+  font-size: 2em;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 15px;
+  border: 2px solid #ffffff96;
+  background: linear-gradient(90deg, rgba(255,117,31,0.7), rgba(178,8,55,0.7));
+  color: black;
+  margin-bottom: 20px;
+  transition: 0.3s;
+  font-size: 1rem;
+}
+
+input::placeholder {
+  color: black;
+  opacity: 0.7;
+  font-size: 1.1em;
+}
+
+
+input:focus {
+  border-color: #ffaa00;
+  box-shadow: 0 0 10px #ffaa00;
+}
+
+/* ---------- BOTÃO LOGIN ---------- */
+button {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 10px;
+  border-radius: 15px;
+  border: none;
+  background-color: #000;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.3em;
+  cursor: pointer;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #ff751f, #b20837);
+  color: black;
+  opacity: 90%;
+  transform: scale(1);
+  border: 2px solid #ffffff96;
+}
+
+
+/* ---------- LINKS ---------- */
+p {
+  color: #fff;
+  text-align: center;
+  margin-top: 15px;
+  font-size: 1.5em;
+}
+
+a {
+  background: linear-gradient(60deg, #ff751f, #b20837);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+  font-size: 1.4rem; /* aumenta só o link */
+  font-weight: bold;
+  transition: transform 0.3s ease, text-shadow 0.3s;
+}
+
+a:hover {
+  transform: scale(1.2); /* cresce suavemente */
+  text-shadow: 0 0 10px rgba(189, 18, 18, 0.8);
+}
+
+
+
+/* ---------- BOTÃO VOLTAR ---------- */
+.botao-voltar {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  color: #ff7b00;
+  font-size: 2em;
+  transition: 0.3s;
+  padding: 0.5%;
+}
+
+.botao-voltar:hover {
+  color: #ffaa00;
+  transform: scale(1.1);
+} 
+
