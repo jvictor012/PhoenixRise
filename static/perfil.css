@@ -82,11 +82,14 @@ a:hover {
 
 /* ================= Seções ================= */
 .secao-formulario {
-  padding: 50px 20px;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: black; /* fundo preto */
+  align-items: center;
+  justify-content: center;
 }
 
 .secao-interesses {
@@ -105,10 +108,20 @@ a:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
+}
+
+.foto-usuario {
+  margin: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .foto-usuario img {
   display: flex;
+  align-items: center;
+  justify-content: center;
   width: 50%;
   height: 50%;
   border-radius: 50%;
