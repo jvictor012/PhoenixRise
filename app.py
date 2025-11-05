@@ -93,7 +93,7 @@ def cadastro_submit():
                 valores1 = (id_usuario, esporte)
                 executar_comandos(query1, valores1, retornar_id=False)
 
-            flash("Cadastro efetuado com sucesso! Faça login.", "success")
+            mensagem = "Cadastro efetuado com sucesso! Faça login."
             return redirect(url_for("login_submit"))
         except Exception as e:
             app.logger.exception("Erro ao cadastrar usuário: %s", e)

@@ -157,6 +157,7 @@ input:focus {
 
 /* ---------- BOTÃO LOGIN ---------- */
 button {
+  margin: 1rem 0rem;
   position: relative;
   overflow: hidden;
   width: 100%;
