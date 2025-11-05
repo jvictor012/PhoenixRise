@@ -186,22 +186,25 @@ def perfil():
     if request.method == "POST":
         usuario_id = current_user.id
         imagem_perfil = request.files['imagem_perfil']
+        if imagem_perfil.filename == '':
+            # campo enviado, mas sem arquivo selecionado
+            return redirect(url_for("perfil"))
         image = cloudinary.uploader.upload(imagem_perfil)
         url_imagem_perfil = image['secure_url']
         query = '''UPDATE usuarios SET foto_url = %s WHERE id = %s''' #enviando imagem pro bd
         valores = (url_imagem_perfil, usuario_id)
-
         executar_comandos(query, valores)
-        # usa current_user
-        nome_usuario = current_user.nome
-        # podes buscar mais dados do banco se precisares
-        return render_template("perfil.html", nome_usuario=nome_usuario)
+        return redirect(url_for("perfil"))
     else:
+        nome_usuario = current_user.nome
         usuario_id = current_user.id
-        query = '''SELECT foto_url FROM usuarios WHERE id = %s'''
+        query = '''SELECT foto_url, email FROM usuarios WHERE id = %s'''
         values = (usuario_id,)
         resultado = executar_comandos(query, values)
-        return render_template("perfil.html", resultado=resultado)
+        email = resultado[0][1]
+        foto_url = resultado[0][0] if resultado and resultado[0][0] else None
+
+        return render_template("perfil.html", resultado=foto_url, nome_usuario=nome_usuario, email=email)
 
 
 @app.route("/mapa")

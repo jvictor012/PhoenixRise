@@ -27,18 +27,20 @@
       <section class="secao-formulario">
         <!-- Foto do usuário -->
         <div class="foto-usuario-container">
-          <div class="imagem_perfil">
-            {% if usuario and usuario[0] %}
-            <img src="{{ usuario[0] }}" alt="Imagem de perfil" />
+          <div class="foto-usuario">
+            {% if resultado %}
+            <img src="{{ resultado }}" alt="Imagem de perfil" />
             {% else %}
             <p>No Image</p>
             {% endif %}
           </div>
 
-          <form action="perfil">
-            <label for="{{ url_for('perfil') }}"
-              >Insira sua imagem de perfil</label
-            >
+          <form
+            action="{{ url_for('perfil') }}"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <label for="imagem_perfil">Insira sua imagem de perfil</label>
             <input type="file" name="imagem_perfil" id="imagem_perfil" />
             <button type="submit">Pronto!</button>
           </form>
@@ -47,30 +49,9 @@
         <!-- Formulário de perfil -->
         <form action="{{ url_for('perfil') }}" method="POST">
           <div class="form-campos">
-            <div>
-              <label for="nome">Nome</label>
-              <input type="text" id="nome" name="nome" class="perfil-campo" />
-            </div>
+            <div class="nome">{{ nome_usuario }}</div>
 
-            <div>
-              <label for="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                class="perfil-campo"
-              />
-            </div>
-
-            <div>
-              <label for="senha">Senha</label>
-              <input
-                type="password"
-                id="senha"
-                name="senha"
-                class="perfil-campo"
-              />
-            </div>
+            <div class="email">{{ email }}</div>
           </div>
         </form>
       </section>

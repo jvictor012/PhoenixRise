@@ -10,23 +10,25 @@ def executar_comandos(query, valores=None, fetchone=False, retornar_id=False):
     cursor = conexao.cursor()
 
     cursor.execute(query, valores)
-
     resultado = None
-    if retornar_id:
-        # Caso de INSERT
+
+    # detecta tipo de query
+    comando = query.strip().split()[0].upper()
+
+    if comando == "SELECT":
+        if fetchone:
+            resultado = cursor.fetchone()
+        else:
+            resultado = cursor.fetchall()
+
+    elif comando == "INSERT" and retornar_id:
         conexao.commit()
         resultado = cursor.lastrowid
 
-    elif fetchone:
-        # Caso de SELECT com apenas 1 resultado
-        resultado = cursor.fetchone()
-
     else:
-        # Caso de SELECT com vários resultados
-        resultado = cursor.fetchall()
+        conexao.commit()
 
-    conexao.commit()
     cursor.close()
     conexao.close()
-
     return resultado
+
