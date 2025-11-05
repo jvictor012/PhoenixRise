@@ -113,20 +113,20 @@ form {
 label {
   color: #fff;
   font-size: 2em;
-  margin-bottom: 1px;
+  margin-bottom: 0.1em;
   font-weight: bold;
 }
 
 input {
   width: 100%;
-  padding: 9px;
+  padding: 10px;
   border-radius: 15px;
   border: 2px solid #ffffff96;
   background: linear-gradient(90deg, rgba(255,117,31,0.7), rgba(178,8,55,0.7));
   color: black;
-  margin-bottom: 1.5px;
+  margin-bottom: 0.6em;
   transition: 0.3s;
-  font-size: 1rem;
+  font-size: 1.4rem;
 }
 
 input::placeholder {
