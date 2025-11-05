@@ -97,8 +97,8 @@ def cadastro_submit():
             return redirect(url_for("login_submit"))
         except Exception as e:
             app.logger.exception("Erro ao cadastrar usuário: %s", e)
-            flash("Erro ao cadastrar. Tente novamente.", "danger")
-            return render_template("cadastro.html")
+            erro = "Ocorreu um erro. Por favor, tente novamente!"
+            return render_template("cadastro.html", erro=erro)
 
     return render_template("cadastro.html")
 

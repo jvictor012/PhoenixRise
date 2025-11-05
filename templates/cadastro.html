@@ -18,79 +18,80 @@
 
   <body>
     <div class="container">
-      
       <!-- LADO ESQUERDO (antes era right) -->
       <div class="left">
         <img src="/static/imagens/logo_semfundo.png" alt="Fênix" />
         <h2>Bem-vindo!</h2>
-        <p>Crie sua conta e Conecte-se ao universo fitness com o Phoenix Rise.</p>
+        <p>
+          Crie sua conta e Conecte-se ao universo fitness com o Phoenix Rise.
+        </p>
       </div>
 
       <!-- LADO DIREITO (antes era left) -->
       <div class="right">
         <h1>Cadastro</h1>
-        <form action="{{ url_for('cadastro_submit') }}" method="post">
-          <label for="nome">Nome Completo:</label>
-          <input
-            type="text"
-            id="nome"
-            name="nome"
-            placeholder="Digite o seu nome completo"
-            required
-          />
-          <br /><br />
+        <div class="form_cadastro">
+          <form action="{{ url_for('cadastro_submit') }}" method="post">
+            <label for="nome">Nome Completo:</label>
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              placeholder="Digite o seu nome completo"
+              required
+            />
 
-          <label for="nome_usuario">Nome de Usuário:</label>
-          <input
-            type="text"
-            id="nome_usuario"
-            name="nome_usuario"
-            placeholder="Digite o seu nome de usuário"
-            required
-          />
-          <br /><br />
+            <label for="nome_usuario">Nome de Usuário:</label>
+            <input
+              type="text"
+              id="nome_usuario"
+              name="nome_usuario"
+              placeholder="Digite o seu nome de usuário"
+              required
+            />
 
-          <label for="data_nascimento">Data de Nascimento:</label>
-          <input
-            type="date"
-            id="data_nascimento"
-            name="data_nascimento"
-            required
-            min="1900-01-01"
-            max="2025-12-31"
-          />
-          <br /><br />
+            <label for="data_nascimento">Data de Nascimento:</label>
+            <input
+              type="date"
+              id="data_nascimento"
+              name="data_nascimento"
+              required
+              min="1900-01-01"
+              max="2025-12-31"
+            />
 
-          <label for="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Digite o seu email"
-            required
-          />
-          <br /><br />
+            <label for="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Digite o seu email"
+              required
+            />
 
-          <label for="senha">Senha:</label>
-          <input
-            type="password"
-            id="senha"
-            name="senha"
-            placeholder="Digite a sua senha"
-            required
-            autocomplete="new-password"
-          />
-
-          <button type="submit">Cadastrar</button>
-        </form>
+            <label for="senha">Senha:</label>
+            <input
+              type="password"
+              id="senha"
+              name="senha"
+              placeholder="Digite a sua senha"
+              required
+              autocomplete="new-password"
+            />
+            {% if erro %}
+            <p>{{erro}}</p>
+            <button type="submit">Cadastrar</button>
+            {% else %}
+            <button type="submit">Cadastrar</button>
+            {% endif %}
+          </form>
+        </div>
 
         <p>
           Já tem uma conta?
           <a href="{{ url_for('login_submit') }}">Faça login</a>
         </p>
       </div>
-
     </div>
   </body>
 </html>
-
