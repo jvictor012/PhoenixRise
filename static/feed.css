@@ -1,51 +1,168 @@
-.feed-container {
+@font-face {
+  font-family: "BM Hanna";
+  src: url('/static/fonte/BMHANNAPro.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "BM Hanna", sans-serif;
+}
+
+body {
+  background-color: #0b0b0b;
+  color: #f5f5f5;
+  line-height: 1.6;
+}
+
+/* ===== CABEÇALHO ===== */
+.topo {
+  background: #121212;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 30px;
-  padding: 40px;
+  justify-content: space-between;
+  padding: 15px 50px;
+  border-bottom: 2px solid rgba(255, 117, 31, 0.5);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-.post-card {
-  width: 600px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(255, 117, 31, 0.2);
-  color: white;
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
+.logo img {
+  width: 55px;
+  height: 55px;
+}
+
+.logo h1 {
+  font-size: 26px;
+  background: linear-gradient(90deg, #ff751f, #ffb86c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1.2px;
+}
+
+/* ===== FEED ===== */
+.feed {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.feed h2 {
+  font-size: 2.5rem;
+  text-align: left;
+  background: linear-gradient(90deg, #ff751f, #b20837);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-left: 5px solid;
+  border-image: linear-gradient(180deg, #ff751f, #b20837) 1;
+  padding-left: 0.5rem;
+  margin-bottom: 35px;
+}
+
+/* ===== POST CONTAINER ===== */
+.post-container {
+  margin-bottom: 40px;
+}
+
+/* ===== CABEÇALHO FORA DO BOX ===== */
 .post-header {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 14px;
   margin-bottom: 10px;
+  margin-left: 10px;
 }
 
-.foto-feed {
-  width: 60px;
-  height: 60px;
+.foto-perfil {
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid #ff751f;
+  border: 2px solid rgba(255, 117, 31, 0.8);
 }
 
-.user-info h3 {
-  margin: 0;
-  font-size: 18px;
+.info-usuario .nome-usuario {
+  font-size: 17px;
+  color: #fff;
 }
 
-.data {
-  font-size: 12px;
-  color: #ccc;
+.info-usuario .data {
+  font-size: 13px;
+  color: #888;
 }
 
-.post-imagem {
-  width: 100%;
+/* ===== BOX DO POST ===== */
+.post {
+  background: #161616;
+  border: 1px solid #242424;
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
+  transition: all 0.25s ease;
+}
+
+.post:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 35px rgba(255, 117, 31, 0.2);
+}
+
+/* ===== IMAGEM (3:4 ESTILO INSTAGRAM, MENOR) ===== */
+.imagem-post {
+  width: 80%;              /* reduz o tamanho dentro do post */
+  max-width: 400px;        /* limite máximo */
+  aspect-ratio: 3 / 4;     
+  object-fit: cover;
   border-radius: 10px;
-  margin: 15px 0;
+  margin: 0 auto 10px auto; /* centraliza */
+  display: block;
+  border: 1px solid #2a2a2a;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.imagem-post:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 25px rgba(255, 117, 31, 0.25);
+}
+
+/* ===== NOME E DESCRIÇÃO ===== */
+.info-post {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.nome-dentro {
+  font-size: 16px;
+  color: #ff751f;
 }
 
 .descricao {
-  font-size: 16px;
+  font-size: 15px;
+  color: #ddd;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+/* ===== SEM POSTS ===== */
+.sem-posts {
+  text-align: center;
+  color: #999;
+  font-size: 1.2em;
+  margin-top: 60px;
 }

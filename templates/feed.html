@@ -3,50 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="/static/navbar.css" rel="stylesheet" />
-  <link href="/static/feed.css" rel="stylesheet" />
   <title>Feed - Phoenix Rise</title>
+  <link rel="stylesheet" href="/static/navbar.css" />
+  <link rel="stylesheet" href="/static/feed.css" />
 </head>
 <body>
-  <div class="background">
-    <!-- Navbar -->
-    <header>
-      <div class="logo">
-        <img src="/static/imagens/logo_semfundo.png" alt="LOGO PHOENIX RISE" />
-        <h1 class="degrade">Phoenix Rise</h1>
-      </div>
-      {% include 'links_base.html' %}
-    </header>
+  <header class="topo">
+    <div class="logo">
+      <img src="/static/imagens/logo_semfundo.png" alt="Logo Phoenix Rise" />
+      <h1>Phoenix Rise</h1>
+    </div>
+    {% include 'links_base.html' %}
+  </header>
 
-    <!-- FEED -->
-    <main class="feed-container">
-      {% if posts %}
-        {% for post in posts %}
-        <div class="post-card">
-          <div class="post-header">
-            <img
-              src="{{ post[4] if post[4] else '/static/imagens/default_user.png' }}"
-              alt="foto do usuário"
-              class="foto-feed"
-            />
-            <div class="user-info">
-              <h3>{{ post[3] }}</h3>
-              <p class="data">
-                {{ post[2].strftime('%d/%m/%Y') if post[2] else '' }}
-              </p>
-            </div>
+  <main class="feed">
+    <h2>Feed da Comunidade</h2>
+
+    {% if posts %}
+      {% for post in posts %}
+      <div class="post-container">
+        <!-- Cabeçalho fora da caixa -->
+        <div class="post-header">
+          <img
+            src="{{ post[4] if post[4] else '/static/imagens/default_user.png' }}"
+            alt="foto de perfil"
+            class="foto-perfil"
+          />
+          <div class="info-usuario">
+            <p class="nome-usuario">{{ post[3] }}</p>
+            <p class="data">{{ post[2].strftime('%d/%m/%Y') if post[2] else '' }}</p>
           </div>
+        </div>
 
-          <div class="post-body">
-            <img src="{{ post[1] }}" alt="imagem do post" class="post-imagem" />
+        <!-- Box do post -->
+        <div class="post">
+          {% if post[1] %}
+            <img src="{{ post[1] }}" alt="imagem do post" class="imagem-post" />
+          {% endif %}
+          <div class="descricao-linha">
+            <span class="nome-dentro">{{ post[3] }}</span>
             <p class="descricao">{{ post[0] }}</p>
           </div>
         </div>
-        {% endfor %}
-      {% else %}
-        <p class="sem-posts">Nenhuma postagem encontrada.</p>
-      {% endif %}
-    </main>
-  </div>
+
+
+      </div>
+      {% endfor %}
+    {% else %}
+      <p class="sem-posts">Nenhuma postagem encontrada.</p>
+    {% endif %}
+  </main>
 </body>
 </html>
