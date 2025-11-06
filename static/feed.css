@@ -65,7 +65,7 @@ body {
   background: linear-gradient(90deg, #ff751f, #b20837);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  border-left: 5px solid;
+  border-bottom: 1.5px solid;
   border-image: linear-gradient(180deg, #ff751f, #b20837) 1;
   padding-left: 0.5rem;
   margin-bottom: 35px;
@@ -94,12 +94,12 @@ body {
 }
 
 .info-usuario .nome-usuario {
-  font-size: 17px;
+  font-size: 22px;
   color: #fff;
 }
 
 .info-usuario .data {
-  font-size: 13px;
+  font-size: 15px;
   color: #888;
 }
 
@@ -109,7 +109,6 @@ body {
   border: 1px solid #242424;
   border-radius: 14px;
   padding: 18px;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5);
   transition: all 0.25s ease;
 }
 
@@ -118,38 +117,45 @@ body {
   box-shadow: 0 10px 35px rgba(255, 117, 31, 0.2);
 }
 
+/* ===== POST CONTAINER (Separação entre posts) ===== */
+.post-container {
+  margin-bottom: 40px;
+}
+
+.post-container + .post-container {
+  border-top: 1px solid rgba(255,117,31,0.2);
+  padding-top: 30px;
+  margin-top: 30px;
+}
+
 /* ===== IMAGEM (3:4 ESTILO INSTAGRAM, MENOR) ===== */
 .imagem-post {
-  width: 80%;              /* reduz o tamanho dentro do post */
-  max-width: 400px;        /* limite máximo */
-  aspect-ratio: 3 / 4;     
+  width: 70%;         /* diminuiu de 80% para 70% */
+  max-width: 320px;   /* diminuiu de 400px para 320px */
+  aspect-ratio: 3 / 4;
   object-fit: cover;
   border-radius: 10px;
-  margin: 0 auto 10px auto; /* centraliza */
+  margin: 0 auto 10px auto;
   display: block;
   border: 1px solid #2a2a2a;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.imagem-post:hover {
-  transform: scale(1.02);
-  box-shadow: 0 4px 25px rgba(255, 117, 31, 0.25);
-}
 
-/* ===== NOME E DESCRIÇÃO ===== */
+/* ===== NOME E DESCRIÇÃO NA MESMA LINHA ===== */
 .info-post {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  gap: 10px;
+  gap: 2px;       /* espaço entre nome e descrição */
+  flex-wrap: nowrap; /* impede quebra de linha */
   margin-top: 8px;
 }
 
+
 .nome-dentro {
-  font-size: 16px;
-  color: #ff751f;
+  color:#ff751f;  /* cor do nome do usuário, aqui azul como exemplo */
+  font-weight: 600; /* opcional, deixa o nome mais destacado */
 }
 
 .descricao {
@@ -157,6 +163,7 @@ body {
   color: #ddd;
   line-height: 1.5;
   word-break: break-word;
+  display: inline; /* garante que fique na mesma linha */
 }
 
 /* ===== SEM POSTS ===== */
