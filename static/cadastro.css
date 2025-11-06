@@ -1,3 +1,4 @@
+/* ===== FONT ===== */
 @font-face {
   font-family: "BM Hanna";
   src: url("/static/fonte/BMHANNAPro.ttf") format("truetype");
@@ -27,6 +28,7 @@ html {
 
 /* ---------- CONTAINER GERAL ---------- */
 .container {
+  position: relative;
   display: flex;
   width: 80%;
   height: 80vh;
@@ -59,6 +61,7 @@ html {
   background: linear-gradient(60deg, #ff751f, #8d0000);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  margin: 0.5rem 0 10px;
 }
 
 .right p {
@@ -81,6 +84,7 @@ html {
   justify-content: center;
   color: #fff;
   text-align: center;
+  padding: 40px;
   font-size: 1.3rem;
   align-items: center;
   justify-content: center;
@@ -110,6 +114,7 @@ html {
 .left p {
   color: #fff;
   text-align: center;
+  margin-top: 15px;
   font-size: 1.5em;
 }
 
@@ -169,6 +174,7 @@ button {
   font-weight: bold;
   font-size: 1.3em;
   cursor: pointer;
+  margin-top: 1em;
 }
 
 button:hover {
@@ -208,6 +214,8 @@ a:hover {
 /* ---------- BOTÃO VOLTAR ---------- */
 .botao-voltar {
   position: fixed;
+  top: 15px;
+  left: 15px;
   color: #ff7b00;
   font-size: 2em;
   transition: 0.3s;
@@ -217,4 +225,157 @@ a:hover {
 .botao-voltar:hover {
   color: #ffaa00;
   transform: scale(1.1);
+}
+
+/* ========================================================= */
+/* ===============   RESPONSIVIDADE GERAL   ================= */
+/* ========================================================= */
+
+/* Tablets (até 1024px) */
+@media (max-width: 1024px) {
+  .container {
+    width: 90%;
+    height: auto;
+    flex-direction: column;
+  }
+
+  .left,
+  .right {
+    width: 100%;
+    padding: 40px 20px;
+  }
+
+  .left img {
+    width: 200px;
+  }
+
+  .right h1 {
+    font-size: 3rem;
+  }
+
+  label {
+    font-size: 1.5em;
+  }
+
+  input {
+    font-size: 1em;
+  }
+
+  button {
+    font-size: 1.1em;
+  }
+
+  .left p,
+  .right p {
+    font-size: 1.2em;
+  }
+}
+
+/* Celulares grandes (até 768px) */
+@media (max-width: 768px) {
+  body,
+  html {
+    background-size: cover;
+    align-items: flex-start;
+    padding-top: 30px;
+  }
+
+  .container {
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+  }
+
+  .left img {
+    width: 180px;
+  }
+
+  .left h2 {
+    font-size: 2rem;
+  }
+
+  .right h1 {
+    font-size: 2.5rem;
+  }
+
+  label {
+    font-size: 1.2em;
+  }
+
+  input {
+    font-size: 0.9em;
+    padding: 8px;
+  }
+
+  button {
+    font-size: 1em;
+  }
+
+  p,
+  a {
+    font-size: 1.1em;
+  }
+
+  .botao-voltar {
+    font-size: 1.6em;
+  }
+}
+
+/* Celulares pequenos (até 480px) */
+@media (max-width: 480px) {
+  .container {
+    width: 95%;
+    height: auto;
+    flex-direction: column;
+    box-shadow: 0 0 15px rgba(249, 135, 4, 0.5);
+  }
+
+  .left {
+    padding: 30px 15px;
+  }
+
+  .left img {
+    width: 150px;
+  }
+
+  .left h2 {
+    font-size: 1.8rem;
+  }
+
+  .left p {
+    font-size: 1.1rem;
+  }
+
+  .right {
+    padding: 25px 15px;
+  }
+
+  .right h1 {
+    font-size: 2rem;
+  }
+
+  label {
+    font-size: 1em;
+  }
+
+  input {
+    font-size: 0.9em;
+    padding: 7px;
+  }
+
+  button {
+    font-size: 1em;
+    padding: 9px;
+  }
+
+  p,
+  a {
+    font-size: 1em;
+  }
+
+  .botao-voltar {
+    font-size: 1.4em;
+    top: 10px;
+    left: 10px;
+  }
 }
