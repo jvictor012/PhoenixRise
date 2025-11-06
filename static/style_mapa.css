@@ -33,7 +33,7 @@ html, body {
 .sidebar {
   width: 240px;
   background: rgba(36, 34, 34, 0.9);
-  border: 2px solid #ff751f;
+  border: 1px solid #ff751f;
   border-radius: 15px;
   padding: 1.5rem;
   display: flex;
@@ -74,9 +74,10 @@ html, body {
   transition: all 0.25s ease;
   position: relative;
   overflow: hidden;
-  z-index: 1;
+  z-index: 0; /* fica abaixo do texto e acima do fundo */
 }
 
+/* brilho animado no hover */
 .sidebar button::before {
   content: "";
   position: absolute;
@@ -84,21 +85,26 @@ html, body {
   background: linear-gradient(90deg, #ff751f, #b20837, #ff751f);
   background-size: 300%;
   transition: opacity 0.4s ease;
-  z-index: 0;
+  z-index: 1;
   opacity: 0;
+  mix-blend-mode: screen; /* brilho translúcido */
 }
 
+/* animação do brilho */
 .sidebar button:hover::before {
   opacity: 1;
   animation: brilhoBotao 6s linear infinite;
 }
 
+/* comportamento do hover */
 .sidebar button:hover {
-  color: black;
+  color: #000;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
   transform: translateY(-2px);
   box-shadow: 0 0 12px rgba(255, 117, 31, 0.5);
 }
 
+/* garante que o texto fique sempre visível */
 .sidebar button span {
   position: relative;
   z-index: 2;
@@ -118,7 +124,7 @@ html, body {
   align-items: center;
   background: rgba(20, 20, 20, 0.95);
   border-radius: 15px;
-  border: 2px solid #b20837;
+  border: 1px solid #b20837;
   position: relative;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(178, 8, 55, 0.3);
@@ -151,6 +157,7 @@ html, body {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
 
 /* ======= RESPONSIVIDADE ======= */
 @media (max-width: 768px) {
