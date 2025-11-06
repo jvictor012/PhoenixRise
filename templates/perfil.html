@@ -9,154 +9,148 @@
 </head>
 
 <body>
-<div class="background">
+  <div class="background">
 
-  <!-- Navbar -->
-  <header>
-    <div class="logo">
-      <img src="/static/imagens/logo_semfundo.png" alt="LOGO PHOENIX RISE" />
-      <h1 class="degrade">Phoenix Rise</h1>
-    </div>
-
-    {% include 'links_base.html' %}
-  </header>
-
-  <!-- ==================== SEÇÃO PERFIL ==================== -->
-  <section class="secao-formulario">
-
-    <!-- Foto do usuário -->
-    <div class="foto-usuario-container">
-      <div class="foto-usuario">
-        {% if resultado %}
-          <!-- Se já há imagem no servidor, exibe ela -->
-          <img src="{{ resultado }}" alt="Imagem de perfil" />
-        {% else %}
-          <!-- Caso não tenha imagem, exibe a imagem padrão -->
-          <img src="/static/imagens/user_default.png" alt="Sem foto">
-        {% endif %}
+    <!-- ==================== NAVBAR ==================== -->
+    <header>
+      <div class="logo">
+        <img src="/static/imagens/logo_semfundo.png" alt="LOGO PHOENIX RISE" />
+        <h1 class="degrade">Phoenix Rise</h1>
       </div>
 
-      <form action="{{ url_for('perfil') }}" method="POST" enctype="multipart/form-data" class="form-imagem" id="form-imagem">
-        <!-- botão estilizado para abrir o file picker -->
-        <label for="imagem_perfil" class="botao-file">Escolher imagem</label>
+      {% include 'links_base.html' %}
+    </header>
 
-        <!-- input real escondido -->
-        <input type="file" name="imagem_perfil" id="imagem_perfil" accept="image/*" />
+    <!-- ==================== SEÇÃO PERFIL ==================== -->
+    <section class="secao-formulario">
+      <div class="perfil-container">
+        <div class="perfil-container-inner">
 
-        <!-- Mostra o nome do arquivo apenas quando NÃO houver resultado no servidor.
-             Se já existir 'resultado' (usuário já tem imagem), não renderizamos este span. -->
-        {% if not resultado %}
-          <span id="nome-arquivo">Nenhum arquivo escolhido</span>
-        {% endif %}
+          <!-- FOTO E UPLOAD -->
+          <div class="foto-usuario-container">
+            <div class="foto-usuario">
+              {% if resultado %}
+                <img src="{{ resultado }}" alt="Imagem de perfil" />
+              {% else %}
+                <img src="/static/imagens/user_default.png" alt="Sem foto" />
+              {% endif %}
+            </div>
 
-        <button type="submit" class="btn-salvar">Salvar Imagem</button>
+            <!-- CONTAINER UNIFICADO: INPUT + BOTÕES -->
+            <div class="upload-container">
+              <form action="{{ url_for('perfil') }}" method="POST" enctype="multipart/form-data" class="form-imagem" id="form-imagem">
+                <div class="upload-buttons">
+                  <label for="imagem_perfil" class="botao-file">Escolher Imagem</label>
+                  <button type="submit" class="botao-file">Salvar Imagem</button>
+                </div>
+                <input type="file" name="imagem_perfil" id="imagem_perfil" accept="image/*" />
+                {% if not resultado %}
+                  <span id="nome-arquivo">Nenhum arquivo escolhido</span>
+                {% endif %}
+              </form>
+            </div>
+          </div>
+
+          <!-- FORMULÁRIO DE DADOS DO USUÁRIO -->
+          <form action="{{ url_for('perfil') }}" method="POST" class="form-campos">
+            <div class="input-container">
+              <label for="nome_usuario">NOME</label>
+              <input type="text" name="nome_usuario" id="nome_usuario"
+                     value="{{ nome_usuario }}" readonly />
+            </div>
+
+            <div class="input-container">
+              <label for="email">EMAIL</label>
+              <input type="email" name="email" id="email"
+                     value="{{ email }}" readonly />
+            </div>
+          </form>
+
+        </div> <!-- fecha .perfil-container-inner -->
+      </div> <!-- fecha .perfil-container -->
+    </section>
+
+    <!-- ==================== SEÇÃO DE INTERESSES ==================== -->
+    <section class="secao-interesses">
+      <h2 class="titulo-interesses">MEUS INTERESSES</h2>
+      <h3 class="subtitulo-interesses">Selecione seus interesses</h3>
+
+      <form action="{{ url_for('perfil') }}" method="POST">
+        <div class="opcoes">
+          <label class="opcao">
+            <input type="checkbox" name="interesses" value="Futebol" />
+            <img src="https://images.unsplash.com/photo-1660926655155-8b1f8f9079f5" />
+            <p>FUTEBOL</p>
+          </label>
+
+          <label class="opcao">
+            <input type="checkbox" name="interesses" value="Handebol" />
+            <img src="https://static.todamateria.com.br/upload/ha/nd/handebol-cke.jpg" />
+            <p>HANDEBOL</p>
+          </label>
+
+          <label class="opcao">
+            <input type="checkbox" name="interesses" value="Artes Marciais" />
+            <img src="https://jornalzonasul.com.br/wp-content/uploads/2016/03/Foto-74.jpg" />
+            <p>ARTES MARCIAIS</p>
+          </label>
+
+          <label class="opcao">
+            <input type="checkbox" name="interesses" value="Basquete" />
+            <img src="https://s2.static.brasilescola.uol.com.br/be/2022/08/basquete-feminino.jpg" />
+            <p>BASQUETE</p>
+          </label>
+
+          <label class="opcao">
+            <input type="checkbox" name="interesses" value="Corrida" />
+            <img src="https://img.nsctotal.com.br/wp-content/uploads/2024/06/pessoas-correndo.jpg" />
+            <p>CORRIDA</p>
+          </label>
+
+          <label class="opcao">
+            <input type="checkbox" name="interesses" value="Ginástica" />
+            <img src="https://blog.ciaathletica.com.br/wp-content/uploads/2023/08/Cia-Athletica-Ginastica-de-relaxamento-Autores-Grupo-S2-Marketing-Divulgacao-Cia.jpg" />
+            <p>GINÁSTICA</p>
+          </label>
+
+          <label class="opcao">
+            <input type="checkbox" name="interesses" value="Hidroginástica" />
+            <img src="https://www.oxerbrasil.com.br/wp-content/uploads/2022/09/natacao-misto-fotos-oxer-12-1024x576.jpg.webp" />
+            <p>HIDROGINÁSTICA</p>
+          </label>
+
+          <label class="opcao">
+            <input type="checkbox" name="interesses" value="Natação" />
+            <img src="https://diariodonordeste.verdesmares.com.br/image/contentid/policy:1.3139049:1632325398/shutterstock_793317166_Easy-Resize.com.jpg" />
+            <p>NATAÇÃO</p>
+          </label>
+        </div>
+
+        <button type="submit" class="btn-salvar-interesses">SALVAR INTERESSES</button>
       </form>
-    </div>
+    </section>
 
-    <!-- Informações do usuário -->
-    <div class="dados-usuario">
-      <h2>{{ nome_usuario }}</h2>
-      <p>{{ email }}</p>
-    </div>
+  </div>
 
-  </section>
+  <!-- ==================== SCRIPT ==================== -->
+  <script>
+    const inputFile = document.getElementById("imagem_perfil");
+    const spanNome = document.getElementById("nome-arquivo");
+    const formImagem = document.getElementById("form-imagem");
 
-  <!-- ==================== SEÇÃO DE INTERESSES ==================== -->
-  <section class="secao-interesses">
-    <h2 class="titulo-interesses">Selecione seus interesses</h2>
+    if (inputFile) {
+      inputFile.addEventListener("change", function() {
+        const nome = this.files && this.files.length ? this.files[0].name : "Nenhum arquivo escolhido";
+        if (spanNome) spanNome.textContent = nome;
+      });
+    }
 
-    <form action="{{ url_for('perfil') }}" method="POST">
-      <div class="opcoes">
-
-        <label class="opcao">
-          <input type="checkbox" name="interesses" value="Futebol">
-          <img src="https://images.unsplash.com/photo-1660926655155-8b1f8f9079f5" />
-          <p>FUTEBOL</p>
-        </label>
-
-        <label class="opcao">
-          <input type="checkbox" name="interesses" value="Handebol">
-          <img src="https://static.todamateria.com.br/upload/ha/nd/handebol-cke.jpg" />
-          <p>HANDEBOL</p>
-        </label>
-
-        <label class="opcao">
-          <input type="checkbox" name="interesses" value="Artes Marciais">
-          <img src="https://jornalzonasul.com.br/wp-content/uploads/2016/03/Foto-74.jpg" />
-          <p>ARTES MARCIAIS</p>
-        </label>
-
-        <label class="opcao">
-          <input type="checkbox" name="interesses" value="Basquete">
-          <img src="https://s2.static.brasilescola.uol.com.br/be/2022/08/basquete-feminino.jpg" />
-          <p>BASQUETE</p>
-        </label>
-
-        <label class="opcao">
-          <input type="checkbox" name="interesses" value="Corrida">
-          <img src="https://img.nsctotal.com.br/wp-content/uploads/2024/06/pessoas-correndo.jpg" />
-          <p>CORRIDA</p>
-        </label>
-
-        <label class="opcao">
-          <input type="checkbox" name="interesses" value="Ginástica">
-          <img src="https://blog.ciaathletica.com.br/wp-content/uploads/2023/08/Cia-Athletica-Ginastica-de-relaxamento-Autores-Grupo-S2-Marketing-Divulgacao-Cia.jpg" />
-          <p>GINÁSTICA</p>
-        </label>
-
-        <label class="opcao">
-          <input type="checkbox" name="interesses" value="Hidroginástica">
-          <img src="https://www.oxerbrasil.com.br/wp-content/uploads/2022/09/natacao-misto-fotos-oxer-12-1024x576.jpg.webp" />
-          <p>HIDROGINÁSTICA</p>
-        </label>
-
-        <label class="opcao">
-          <input type="checkbox" name="interesses" value="Natação">
-          <img src="https://diariodonordeste.verdesmares.com.br/image/contentid/policy:1.3139049:1632325398/shutterstock_793317166_Easy-Resize.com.jpg" />
-          <p>NATAÇÃO</p>
-        </label>
-
-      </div>
-
-      <button type="submit" class="btn-salvar-interesses">Salvar Interesses</button>
-    </form>
-  </section>
-
-</div>
-
-<script>
-  // Só roda se o elemento existir (proteção)
-  const inputFile = document.getElementById("imagem_perfil");
-  const spanNome = document.getElementById("nome-arquivo");
-  const formImagem = document.getElementById("form-imagem");
-
-  if (inputFile) {
-    // Quando o usuário escolher um arquivo, atualiza o texto (ou esconde se quiser)
-    inputFile.addEventListener("change", function() {
-      const nome = this.files && this.files.length ? this.files[0].name : null;
-      if (spanNome) {
-        if (nome) {
-          // Mostra o nome do arquivo
-          spanNome.textContent = nome;
-          // Se preferir esconder o span ao invés de mostrar o nome, descomente a linha abaixo:
-          // spanNome.style.display = "none";
-        } else {
-          spanNome.textContent = "Nenhum arquivo escolhido";
-          spanNome.style.display = ""; // volta ao padrão
-        }
-      }
-    });
-  }
-
-  // Antes de submeter, podemos esconder o span para evitar "flash" durante o envio
-  if (formImagem) {
-    formImagem.addEventListener("submit", function() {
-      if (spanNome) {
-        spanNome.style.display = "none";
-      }
-    });
-  }
-</script>
+    if (formImagem) {
+      formImagem.addEventListener("submit", () => {
+        if (spanNome) spanNome.style.display = "none";
+      });
+    }
+  </script>
 
 </body>
 </html>
