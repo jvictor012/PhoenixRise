@@ -19,39 +19,6 @@ body {
   line-height: 1.6;
 }
 
-/* ===== CABEÇALHO ===== */
-.topo {
-  background: #121212;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 15px 50px;
-  border-bottom: 2px solid rgba(255, 117, 31, 0.5);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.logo img {
-  width: 55px;
-  height: 55px;
-}
-
-.logo h1 {
-  font-size: 26px;
-  background: linear-gradient(90deg, #ff751f, #ffb86c);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  letter-spacing: 1.2px;
-}
-
 /* ===== FEED ===== */
 .feed {
   max-width: 700px;
@@ -156,10 +123,11 @@ body {
 .nome-dentro {
   color:#ff751f;  /* cor do nome do usuário, aqui azul como exemplo */
   font-weight: 600; /* opcional, deixa o nome mais destacado */
+  font-size: 18px;
 }
 
 .descricao {
-  font-size: 15px;
+  font-size: 16px;
   color: #ddd;
   line-height: 1.5;
   word-break: break-word;
@@ -172,4 +140,103 @@ body {
   color: #999;
   font-size: 1.2em;
   margin-top: 60px;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+
+/* Para tablets e telas médias */
+@media (max-width: 768px) {
+
+  .feed {
+    margin: 40px auto;
+    padding: 0 15px;
+  }
+
+  .feed h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+  }
+
+  .post {
+    padding: 15px;
+  }
+
+  .imagem-post {
+    width: 80%;
+    max-width: 280px;
+  }
+
+  .info-usuario .nome-usuario {
+    font-size: 20px;
+  }
+
+  .info-usuario .data {
+    font-size: 14px;
+  }
+
+  .nome-dentro {
+    font-size: 16px;
+  }
+
+  .descricao {
+    font-size: 15px;
+  }
+}
+
+/* Para celulares e telas pequenas */
+@media (max-width: 480px) {
+ 
+
+  .logo h1 {
+    font-size: 20px;
+  }
+
+  .feed {
+    margin: 30px auto;
+    padding: 0 10px;
+  }
+
+  .feed h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+
+  .post {
+    padding: 12px;
+  }
+
+  .imagem-post {
+    width: 90%;
+    max-width: 250px;
+  }
+
+  .post-header {
+    gap: 10px;
+  }
+
+  .foto-perfil {
+    width: 45px;
+    height: 45px;
+  }
+
+  .info-usuario .nome-usuario {
+    font-size: 18px;
+  }
+
+  .info-usuario .data {
+    font-size: 12px;
+  }
+
+  .nome-dentro {
+    font-size: 15px;
+  }
+
+  .descricao {
+    font-size: 14px;
+  }
+
+  .info-post {
+    flex-wrap: wrap; /* permite quebrar linha se não couber */
+    gap: 4px;
+  }
 }

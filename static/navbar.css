@@ -81,3 +81,41 @@ a.active {
   margin: 0;
   color: gold;
 }
+
+/* ===== RESPONSIVIDADE DA NAVBAR ===== */
+
+/* Mantém navbar em linha e ajusta elementos em tablets */
+@media (max-width: 768px) {
+  .topo {
+    padding: 12px 20px;
+    gap: 15px;            /* espaço entre logo e itens da navbar */
+  }
+
+  .logo img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .logo h1 {
+    font-size: 20px;
+  }
+}
+
+/* Para celulares, mantém tudo em uma linha, reduz tamanho */
+@media (max-width: 480px) {
+  .topo {
+    padding: 10px 12px;
+    gap: 10px;
+    flex-wrap: nowrap;     /* não deixa quebrar linha */
+    justify-content: space-between;
+  }
+
+  .logo img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .logo h1 {
+    font-size: 10px;
+  }
+}
