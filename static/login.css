@@ -26,6 +26,7 @@ body, html {
 
 /* ---------- CONTAINER GERAL ---------- */
 .container {
+  position: relative;
   display: flex;
   width: 150vh;
   max-width: 1500px;
@@ -33,9 +34,13 @@ body, html {
   background-color: #111;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 0 25px rgba(249, 135, 4, 0.697);
+  transition: 0.4s ease; /* IMPORTANTE para animar */
 }
 
+/* HOVER DO CONTAINER */
+.container:hover {
+  box-shadow: 0 0 35px rgba(249, 135, 4, 0.697); /* brilho ao passar o mouse */
+}
 /* ---------- LADO ESQUERDO ---------- */
 .left {
   flex: 1;

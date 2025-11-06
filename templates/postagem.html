@@ -4,8 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Faça sua postagem</title>
+    <link rel="stylesheet" href="/static/navbar.css">
   </head>
   <body>
+
+    <!-- Navbar -->
+  <header>
+    <div class="logo">
+      <img src="/static/imagens/logo_semfundo.png" alt="LOGO PHOENIX RISE" />
+      <h1 class="degrade">Phoenix Rise</h1>
+    </div>
+
+    {% include 'links_base.html' %}
+  </header>
+  
     <form action="/fazer_postagem" method="POST" enctype="multipart/form-data">
       <label for="post_label">Insira sua imagem:</label>
       <input type="file" id="post_label" name="post_label" required />
