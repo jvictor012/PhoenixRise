@@ -175,9 +175,17 @@ def inicio():
     return render_template("home.html", nome=nome, posts=posts)
 
 @app.route("/feed")
+@login_required
 def feed():
-    nome = current_user.nome if current_user.is_authenticated else "Visitante"
-    return render_template("feed.html", nome=nome)
+    query = """
+        SELECT p.descricao, p.url_image, p.data_publicacao, u.nome_usuario, u.foto_url
+        FROM posts p
+        JOIN usuarios u ON p.usuario_id = u.id
+        ORDER BY p.data_publicacao DESC
+    """
+    posts = executar_comandos(query)
+    return render_template("feed.html", posts=posts)
+
 
 
 @app.route("/perfil", methods=["GET", "POST"])

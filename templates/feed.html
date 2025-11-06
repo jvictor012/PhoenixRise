@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="/static/navbar.css" rel="stylesheet" />
-  <link href="/static/perfil.css" rel="stylesheet" />
+  <link href="/static/feed.css" rel="stylesheet" />
   <title>Feed - Phoenix Rise</title>
 </head>
 <body>
@@ -16,9 +15,38 @@
         <img src="/static/imagens/logo_semfundo.png" alt="LOGO PHOENIX RISE" />
         <h1 class="degrade">Phoenix Rise</h1>
       </div>
-
-      <!-- Incluindo os links corretamente -->
       {% include 'links_base.html' %}
     </header>
+
+    <!-- FEED -->
+    <main class="feed-container">
+      {% if posts %}
+        {% for post in posts %}
+        <div class="post-card">
+          <div class="post-header">
+            <img
+              src="{{ post[4] if post[4] else '/static/imagens/default_user.png' }}"
+              alt="foto do usuário"
+              class="foto-feed"
+            />
+            <div class="user-info">
+              <h3>{{ post[3] }}</h3>
+              <p class="data">
+                {{ post[2].strftime('%d/%m/%Y') if post[2] else '' }}
+              </p>
+            </div>
+          </div>
+
+          <div class="post-body">
+            <img src="{{ post[1] }}" alt="imagem do post" class="post-imagem" />
+            <p class="descricao">{{ post[0] }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      {% else %}
+        <p class="sem-posts">Nenhuma postagem encontrada.</p>
+      {% endif %}
+    </main>
+  </div>
 </body>
 </html>

@@ -1,0 +1,51 @@
+.feed-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 40px;
+}
+
+.post-card {
+  width: 600px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(255, 117, 31, 0.2);
+  color: white;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.foto-feed {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ff751f;
+}
+
+.user-info h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.data {
+  font-size: 12px;
+  color: #ccc;
+}
+
+.post-imagem {
+  width: 100%;
+  border-radius: 10px;
+  margin: 15px 0;
+}
+
+.descricao {
+  font-size: 16px;
+}
