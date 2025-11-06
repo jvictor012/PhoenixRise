@@ -1,76 +1,169 @@
-/* Reset e fundo da página */
+/* ======= ESTILO GERAL (tema laranja/vermelho) ======= */
+
+@font-face {
+  font-family: "BM Hanna";
+  src: url('/static/fonte/BMHANNAPro.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
 html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: #000;
-    color: white;
-    font-family: Arial, sans-serif;
-    box-sizing: border-box;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  color: white;
+  font-family: "BM Hanna", sans-serif;
+  box-sizing: border-box;
 }
 
-/* Header */
-header {
-    height: 80px; /* altura do header */
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    box-sizing: border-box;
-}
 
-/* Container principal */
+
+/* ======= CONTAINER PRINCIPAL ======= */
 .geral {
-    display: flex;
-    height: calc(100% - 80px); /* altura total menos o header */
-    gap: 1rem;
-    padding: 1rem;
-    box-sizing: border-box;
-    overflow: hidden; /* evita que o mapa quebre o layout */
+  display: flex;
+  height: calc(100% - 80px);
+  gap: 1.5rem;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-/* Sidebar */
+/* ======= SIDEBAR ======= */
 .sidebar {
-    width: 200px;
-    display: flex;
-    flex-direction: column; /* alinha os botões verticalmente */
-    align-items: stretch;   /* garante que os botões ocupem toda a largura */
-    gap: 10px;
+  width: 240px;
+  background: rgba(36, 34, 34, 0.9);
+  border: 2px solid #ff751f;
+  border-radius: 15px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 0 0 10px rgba(255, 117, 31, 0.3);
+  transition: transform 0.3s;
+}
+
+.sidebar:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 20px rgba(178, 8, 55, 0.4);
 }
 
 .sidebar h2 {
-    margin-bottom: 10px;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #ff751f, #b20837);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+  border-bottom: 2px solid;
+  border-image: linear-gradient(90deg, #ff751f, #b20837) 1;
+  padding-bottom: 6px;
 }
+
+/* ======= BOTÕES ======= */
 .sidebar button {
-    display: block; /* cada botão é um bloco */
-    width: 100%;   /* ocupa toda a largura da sidebar */
-    padding: 10px;
-    font-size: 14px;
-    cursor: pointer;
-    background-color: white;
-    color: BLACK;
-    border: 1px solid #444;
-    border-radius: 5px;
-    transition: background-color 0.2s;
-
-    /* Fonte específica para os botões */
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  width: 100%;
+  padding: 12px;
+  font-size: 15px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: #fff;
+  background: linear-gradient(145deg, #2a2a2a, #1c1c1c);
+  border: 1px solid #ff751f;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
 }
 
+.sidebar button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #ff751f, #b20837, #ff751f);
+  background-size: 300%;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+  opacity: 0;
+}
+
+.sidebar button:hover::before {
+  opacity: 1;
+  animation: brilhoBotao 6s linear infinite;
+}
 
 .sidebar button:hover {
-    background-color: #555;
+  color: black;
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px rgba(255, 117, 31, 0.5);
 }
 
-/* Mapa */
+.sidebar button span {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes brilhoBotao {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ======= MAPA ======= */
 .mapa {
-    flex: 1;
-    display: flex;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(20, 20, 20, 0.95);
+  border-radius: 15px;
+  border: 2px solid #b20837;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(178, 8, 55, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.mapa:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 25px rgba(255, 117, 31, 0.4);
+}
+
+/* ======= BRILHO ANIMADO NAS BORDAS DO MAPA ======= */
+.mapa::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  border-radius: 15px;
+  background: linear-gradient(90deg, rgba(255, 117, 31, 0.4), rgba(178, 8, 55, 0.4), rgba(255, 117, 31, 0.4));
+  background-size: 300%;
+  animation: brilhoMapa 8s linear infinite;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+@keyframes brilhoMapa {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ======= RESPONSIVIDADE ======= */
+@media (max-width: 768px) {
+  .geral {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
     justify-content: center;
-    align-items: center;
-    background-color: #111;
-    border-radius: 10px;
-    padding: 10px;
-    height: 120%; /* ocupa todo o espaço restante */
-    box-sizing: border-box;
-    overflow: hidden;
+    flex-wrap: wrap;
+  }
+  .sidebar button {
+    flex: 1 1 45%;
+  }
 }
