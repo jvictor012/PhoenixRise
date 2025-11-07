@@ -214,6 +214,33 @@ def perfil():
 
         return render_template("perfil.html", resultado=foto_url, nome_usuario=nome_usuario, email=email)
 
+@app.route("/interesses", methods=["GET", "POST"])
+def interesses():
+    if request.method == 'POST':
+        interesses = request.form.getlist('interesses')
+        usuario_id = current_user.id
+
+        if interesses:
+            for nome_esporte in interesses:
+                query = 'SELECT id_esporte from esportes WHERE nome_esporte = %s'
+                resultado = executar_comandos(query, (nome_esporte,), fetchone=True)
+
+                if resultado:
+                    id_esporte = resultado[0]
+                        # erifica se já existe esse par no banco
+                    query_check = "SELECT * FROM usuario_esporte WHERE id_usuario = %s AND id_esporte = %s"
+                    existe = executar_comandos(query_check, (usuario_id, id_esporte), fetchone=True)
+
+                    # se não existir, insere
+                    if not existe:
+                        query_insert = "INSERT INTO usuario_esporte (id_usuario, id_esporte) VALUES (%s, %s)"
+                        executar_comandos(query_insert, (usuario_id, id_esporte))
+                
+            return redirect(url_for('perfil'))
+
+        return render_template('interesses.html')
+            
+
 
 @app.route("/mapa")
 def mapa_view():
