@@ -1,0 +1,82 @@
+@font-face {
+  font-family: "BM Hanna";
+  src: url("/static/fonte/BMHANNAPro.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "BM Hanna", sans-serif;
+}
+
+body {
+  background-color: #000;
+  color: white;
+  overflow-x: hidden;
+}
+
+main {
+  padding: 40px 20px;
+}
+
+h1, h2 {
+  background: linear-gradient(90deg, #ff751f, #ffb347);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-img {
+  width: 60px;
+  height: auto;
+}
+
+header {
+  background-color: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  border-bottom: 2px solid #ff751f;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+section {
+  margin-top: 50px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  main {
+    padding: 20px;
+  }
+
+  h1, h2 {
+    font-size: 1.6rem;
+  }
+
+  .logo-img {
+    width: 45px;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+}
