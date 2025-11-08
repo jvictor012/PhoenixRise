@@ -18,7 +18,6 @@ html, body {
 }
 
 
-
 /* ======= CONTAINER PRINCIPAL ======= */
 .geral {
   display: flex;
@@ -28,6 +27,7 @@ html, body {
   box-sizing: border-box;
   overflow: hidden;
 }
+
 
 /* ======= SIDEBAR ======= */
 .sidebar {
@@ -60,6 +60,7 @@ html, body {
   padding-bottom: 6px;
 }
 
+
 /* ======= BOTÕES ======= */
 .sidebar button {
   width: 100%;
@@ -74,10 +75,9 @@ html, body {
   transition: all 0.25s ease;
   position: relative;
   overflow: hidden;
-  z-index: 0; /* fica abaixo do texto e acima do fundo */
+  z-index: 0;
 }
 
-/* brilho animado no hover */
 .sidebar button::before {
   content: "";
   position: absolute;
@@ -87,16 +87,14 @@ html, body {
   transition: opacity 0.4s ease;
   z-index: 1;
   opacity: 0;
-  mix-blend-mode: screen; /* brilho translúcido */
+  mix-blend-mode: screen;
 }
 
-/* animação do brilho */
 .sidebar button:hover::before {
   opacity: 1;
   animation: brilhoBotao 6s linear infinite;
 }
 
-/* comportamento do hover */
 .sidebar button:hover {
   color: #000;
   text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
@@ -104,7 +102,6 @@ html, body {
   box-shadow: 0 0 12px rgba(255, 117, 31, 0.5);
 }
 
-/* garante que o texto fique sempre visível */
 .sidebar button span {
   position: relative;
   z-index: 2;
@@ -116,18 +113,18 @@ html, body {
   100% { background-position: 0% 50%; }
 }
 
-/* ======= MAPA ======= */
+
+/* ======= MAPA (PERFEITO E ALINHADO) ======= */
 .mapa {
   flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background: rgba(20, 20, 20, 0.95);
   border-radius: 15px;
   border: 1px solid #b20837;
   position: relative;
-  overflow: hidden;
+  padding: 6px; /* IMPORTANTE: espaço para o brilho */
   box-shadow: 0 0 20px rgba(178, 8, 55, 0.3);
+  overflow: hidden;
+  display: flex;
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -136,26 +133,35 @@ html, body {
   box-shadow: 0 0 25px rgba(255, 117, 31, 0.4);
 }
 
-/* ======= BRILHO ANIMADO NAS BORDAS DO MAPA ======= */
 .mapa::before {
   content: "";
   position: absolute;
-  top: -2px;
-  left: -2px;
-  width: calc(100% + 4px);
-  height: calc(100% + 4px);
+  inset: 0;
   border-radius: 15px;
   background: linear-gradient(90deg, rgba(255, 117, 31, 0.4), rgba(178, 8, 55, 0.4), rgba(255, 117, 31, 0.4));
   background-size: 300%;
   animation: brilhoMapa 8s linear infinite;
-  z-index: 0;
   opacity: 0.4;
+  z-index: -1; /* Mantém o brilho ATRÁS do mapa */
 }
 
 @keyframes brilhoMapa {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+/* Faz o mapa encaixar exatamente sem corte */
+#map {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  display: block;
+}
+
+/* Mantém controles do Leaflet sempre visíveis */
+.leaflet-control-container {
+  z-index: 10 !important;
 }
 
 

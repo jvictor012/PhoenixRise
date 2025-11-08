@@ -96,9 +96,7 @@
               </div>
             </form>
           </div>
-          <!-- fecha .perfil-container-inner -->
         </div>
-        <!-- fecha .perfil-container -->
       </section>
 
       <!-- ==================== SEÇÃO DE INTERESSES ==================== -->
@@ -108,69 +106,55 @@
 
         <form action="{{ url_for('interesses') }}" method="POST">
           <div class="opcoes">
+
             <label class="opcao">
               <input type="checkbox" name="interesses" value="Futebol" />
-              <img
-                src="https://images.unsplash.com/photo-1660926655155-8b1f8f9079f5"
-              />
+              <img src="https://images.unsplash.com/photo-1660926655155-8b1f8f9079f5" />
               <p>FUTEBOL</p>
             </label>
 
             <label class="opcao">
               <input type="checkbox" name="interesses" value="Handebol" />
-              <img
-                src="https://static.todamateria.com.br/upload/ha/nd/handebol-cke.jpg"
-              />
+              <img src="https://static.todamateria.com.br/upload/ha/nd/handebol-cke.jpg" />
               <p>HANDEBOL</p>
             </label>
 
             <label class="opcao">
               <input type="checkbox" name="interesses" value="Artes Marciais" />
-              <img
-                src="https://jornalzonasul.com.br/wp-content/uploads/2016/03/Foto-74.jpg"
-              />
+              <img src="https://jornalzonasul.com.br/wp-content/uploads/2016/03/Foto-74.jpg" />
               <p>ARTES MARCIAIS</p>
             </label>
 
             <label class="opcao">
               <input type="checkbox" name="interesses" value="Basquete" />
-              <img
-                src="https://s2.static.brasilescola.uol.com.br/be/2022/08/basquete-feminino.jpg"
-              />
+              <img src="https://s2.static.brasilescola.uol.com.br/be/2022/08/basquete-feminino.jpg" />
               <p>BASQUETE</p>
             </label>
 
             <label class="opcao">
               <input type="checkbox" name="interesses" value="Corrida" />
-              <img
-                src="https://img.nsctotal.com.br/wp-content/uploads/2024/06/pessoas-correndo.jpg"
-              />
+              <img src="https://img.nsctotal.com.br/wp-content/uploads/2024/06/pessoas-correndo.jpg" />
               <p>CORRIDA</p>
             </label>
 
             <label class="opcao">
               <input type="checkbox" name="interesses" value="Ginástica" />
-              <img
-                src="https://blog.ciaathletica.com.br/wp-content/uploads/2023/08/Cia-Athletica-Ginastica-de-relaxamento-Autores-Grupo-S2-Marketing-Divulgacao-Cia.jpg"
-              />
+              <img src="https://blog.ciaathletica.com.br/wp-content/uploads/2023/08/Cia-Athletica-Ginastica-de-relaxamento-Autores-Grupo-S2-Marketing-Divulgacao-Cia.jpg" />
               <p>GINÁSTICA</p>
             </label>
 
             <label class="opcao">
               <input type="checkbox" name="interesses" value="Hidroginástica" />
-              <img
-                src="https://www.oxerbrasil.com.br/wp-content/uploads/2022/09/natacao-misto-fotos-oxer-12-1024x576.jpg.webp"
-              />
+              <img src="https://www.oxerbrasil.com.br/wp-content/uploads/2022/09/natacao-misto-fotos-oxer-12-1024x576.jpg.webp" />
               <p>HIDROGINÁSTICA</p>
             </label>
 
             <label class="opcao">
               <input type="checkbox" name="interesses" value="Natação" />
-              <img
-                src="https://diariodonordeste.verdesmares.com.br/image/contentid/policy:1.3139049:1632325398/shutterstock_793317166_Easy-Resize.com.jpg"
-              />
+              <img src="https://diariodonordeste.verdesmares.com.br/image/contentid/policy:1.3139049:1632325398/shutterstock_793317166_Easy-Resize.com.jpg" />
               <p>NATAÇÃO</p>
             </label>
+
           </div>
 
           <button type="submit" class="btn-salvar-interesses">
@@ -201,6 +185,21 @@
           if (spanNome) spanNome.style.display = "none";
         });
       }
+
+      /* === SELEÇÃO VISUAL DOS CARDS === */
+      document.querySelectorAll('.opcao').forEach(opcao => {
+        const checkbox = opcao.querySelector('input[type="checkbox"]');
+
+        if (checkbox.checked) {
+          opcao.classList.add('selecionado');
+        }
+
+        opcao.addEventListener('click', () => {
+          checkbox.checked = !checkbox.checked;
+          opcao.classList.toggle('selecionado');
+        });
+      });
     </script>
+
   </body>
 </html>

@@ -5,27 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Faça sua postagem</title>
     <link rel="stylesheet" href="/static/navbar.css">
+    <link href="/static/postagem.css" rel="stylesheet" />
   </head>
   <body>
 
     <!-- Navbar -->
-  <header>
-    <div class="logo">
-      <img src="/static/imagens/logo_semfundo.png" alt="LOGO PHOENIX RISE" />
-      <h1 class="degrade">Phoenix Rise</h1>
-    </div>
+    <header>
+      <div class="logo">
+        <img src="/static/imagens/logo_semfundo.png" alt="LOGO PHOENIX RISE" />
+        <h1 class="degrade">Phoenix Rise</h1>
+      </div>
 
-    {% include 'links_base.html' %}
-  </header>
-  
+      {% include 'links_base.html' %}
+    </header>
+
     <form action="/fazer_postagem" method="POST" enctype="multipart/form-data">
-      <label for="post_label">Insira sua imagem:</label>
-      <input type="file" id="post_label" name="post_label" required />
+      <div>
 
-      <label for="descricao">Insira uma descrição para sua imagem:</label>
-      <input type="text" id="descricao" name="descricao" required />
+        <label for="post_label">Insira sua imagem:</label>
 
-      <button type="submit">Postar</button>
+        <!-- INPUT BONITÃO -->
+        <label class="file-upload">
+          Selecionar imagem
+          <input type="file" id="post_label" name="post_label" required>
+        </label>
+
+        <label for="descricao">Insira uma descrição para sua imagem:</label>
+        <input type="text" id="descricao" name="descricao" required />
+
+        <button type="submit">Postar</button>
+      </div>
     </form>
+
   </body>
 </html>

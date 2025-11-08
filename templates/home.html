@@ -22,23 +22,6 @@
     </header>
 
     <h1>Olá! Bem vindo ao Phoenix Rise!</h1>
-    <div class="feed">
-      {% for post in posts %}
-      <div class="post">
-        <div class="user">
-          <p><strong>Usuário:</strong> {{ post[1] }}</p>
-        </div>
-        <div class="data">
-          <p>{{ post[3] }}</p>
-        </div>
-        <div class="imagem">
-          <img src="{{ post[0] }}" alt="Post de {{ post[1] }}" />
-        </div>
-        <div class="descricao_imagem">
-          <p>{{ post[2] }}</p>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
+  
   </body>
 </html>

@@ -244,70 +244,103 @@ input[readonly] {
 /* ================= Grid de opções ================= */
 .opcoes {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 40px;
-  margin: 20px auto;
-  max-width: 1000px;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 35px;
+  margin: 30px auto;
+  max-width: 900px;
+  padding: 10px;
 }
 
+/* Card de interesse */
 .opcao {
+  background: #111;
+  border-radius: 16px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  cursor: pointer;
   transition: 0.3s;
+  border: 2px solid transparent;
+  box-shadow: 0 0 0 0 rgba(255, 117, 31, 0);
 }
 
-.opcao:hover {
-  transform: scale(1.05);
-}
-
+/* Imagem */
 .opcao img {
   width: 100%;
-  aspect-ratio: 2/3;
+  height: 160px;
   object-fit: cover;
-  border-radius: 15px;
-  border: 2px solid #fff;
+  border-radius: 12px;
+  transition: 0.35s;
 }
 
+/* Nome */
 .opcao p {
-  margin-top: 10px;
+  margin-top: 12px;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: white;
   text-align: center;
 }
 
+/* Hover suave */
+.opcao:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(255, 117, 31, 0.35);
+}
+
+/* Estado quando o usuário seleciona */
+.opcao.selecionado {
+  border: 2px solid transparent;
+  background: linear-gradient(#111, #111) padding-box,
+              linear-gradient(180deg, #ff751f, #b20837) border-box;
+  box-shadow: 0 0 18px rgba(255, 117, 31, 0.55);
+}
+
+/* Efeito suave na imagem quando selecionado */
+.opcao.selecionado img {
+  transform: scale(1.05);
+  border-radius: 14px;
+}
+
 /* ================= Título de interesses ================= */
 .titulo-interesses {
-  font-size: 1.8rem;
-  font-weight: bold;
-  background: linear-gradient(90deg, #ff751f, #b20837);
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(180deg, #ff751f, #b20837);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-align: center;
-  margin-bottom: 40px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  margin: 50px auto 35px;
   position: relative;
-  display: block;
-  width: 100%;
 }
 
-/* Linha decorativa abaixo */
 .titulo-interesses::after {
   content: "";
+  width: 90px;
+  height: 4px;
+  background: linear-gradient(180deg, #ff751f, #b20837);
+  border-radius: 10px;
   display: block;
-  width: 260px;
-  height: 3px;
   margin: 8px auto 0;
-  background: linear-gradient(90deg, #ff751f, #b20837);
-  border-radius: 5px;
 }
 
-/* ================= Botão "Salvar Interesses" ================= */
+/* ================= Botão Salvar ================= */
 .btn-salvar-interesses {
-  margin-top: 20px;
-  width: 200px;
-  align-self: center;
+  margin-top: 40px;
+  font-size: 1.1rem;
+  width: 250px;
+  padding: 12px 22px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #ff751f, #b20837);
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: 0.3s;
 }
+
+.btn-salvar-interesses:hover {
+  transform: scale(1.09);
+  box-shadow: 0 0 18px rgba(255, 117, 31, 0.6);
+}
+
