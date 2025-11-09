@@ -249,9 +249,9 @@ input[readonly] {
 
 .titulo-interesses::after {
   content: "";
-  width: 110px;
-  height: 4px;
-  background: #ff751f;
+  width: 400px;
+  height: 2px;
+  background: #ff271f;
   border-radius: 10px;
   display: block;
   margin: 10px auto 0;
