@@ -1,3 +1,4 @@
+/* ===== FONT ===== */
 @font-face {
   font-family: "BM Hanna";
   src: url("/static/fonte/BMHANNAPro.ttf") format("truetype");
@@ -16,7 +17,7 @@
 /* ===== FUNDO GERAL ===== */
 body, html {
   height: 100%;
-  background-image: url("/static/imagens/fundo_s2.png");
+  background-image: url("/static/imagens/tela_fundo.png");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -31,20 +32,22 @@ body, html {
   width: 150vh;
   max-width: 1500px;
   height: 80vh;
-  background-color: #111;
+  background-color: rgba(0, 0, 0, 0.3); /* transparente com leve escurecimento */
+  backdrop-filter: blur(8px); /* efeito de desfoque no fundo */
   border-radius: 20px;
   overflow: hidden;
-  transition: 0.4s ease; /* IMPORTANTE para animar */
+  transition: 0.4s ease;
 }
 
 /* HOVER DO CONTAINER */
 .container:hover {
-  box-shadow: 0 0 35px rgba(249, 135, 4, 0.697); /* brilho ao passar o mouse */
+  box-shadow: 0 0 35px rgba(249, 4, 4, 0.697); /* brilho ao passar o mouse */
 }
+
 /* ---------- LADO ESQUERDO ---------- */
 .left {
   flex: 1;
-  background-color: #000;
+  background-color: transparent; /* transparente para mostrar o fundo */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -59,8 +62,7 @@ body, html {
   background: linear-gradient(60deg, #ff751f, #b20837);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin: 2rem;
-  margin-bottom: 40px;
+  margin: 2rem 0 40px;
 }
 
 .left p {
@@ -72,7 +74,7 @@ body, html {
 /* ---------- LADO DIREITO ---------- */
 .right {
   flex: 1;
-  background: black;
+  background-color: transparent; /* transparente para mostrar o fundo */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -107,6 +109,7 @@ body, html {
   margin-top: 15px;
   font-size: 1.1em;
 }
+
 /* ---------- FORMULÁRIO ---------- */
 form {
   display: flex;
@@ -115,29 +118,31 @@ form {
 
 label {
   color: #fff;
-  font-size: 2em;
-  margin-bottom: 5px;
+  font-size: 1.2em;
+  margin-bottom: 0.1em;
   font-weight: bold;
 }
-
 input {
   width: 100%;
-  padding: 10px;
-  border-radius: 15px;
-  border: 2px solid #ffffff96;
-  background: linear-gradient(90deg, rgba(255,117,31,0.7), rgba(178,8,55,0.7));
+  padding: 10px 12px;
+  border-radius: 15px; /* mantém arredondado */
+  border: 2px solid #ffffff96; /* mantém contorno semi-transparente */
+  background: linear-gradient(
+    90deg,
+    rgba(255, 117, 31, 0.7),
+    rgba(178, 8, 55, 0.7)
+  ); /* mantém gradiente */
   color: black;
-  margin-bottom: 20px;
-  transition: 0.3s;
-  font-size: 1rem;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  transition: all 0.3s ease; /* suaviza transformações e sombra */
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2); /* leve sombra interna para profundidade */
 }
-
 input::placeholder {
   color: black;
   opacity: 0.7;
   font-size: 1.1em;
 }
-
 
 input:focus {
   border-color: #ffaa00;
@@ -167,13 +172,12 @@ button:hover {
   border: 2px solid #ffffff96;
 }
 
-
 /* ---------- LINKS ---------- */
 p {
   color: #fff;
   text-align: center;
   margin-top: 15px;
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 
 a {
@@ -181,17 +185,15 @@ a {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-decoration: none;
-  font-size: 1.4rem; /* aumenta só o link */
+  font-size: 1rem;
   font-weight: bold;
   transition: transform 0.3s ease, text-shadow 0.3s;
 }
 
 a:hover {
-  transform: scale(1.2); /* cresce suavemente */
+  transform: scale(1.2);
   text-shadow: 0 0 10px rgba(189, 18, 18, 0.8);
 }
-
-
 
 /* ---------- BOTÃO VOLTAR ---------- */
 .botao-voltar {
@@ -210,7 +212,6 @@ a:hover {
 }
 
 /* ---------- RESPONSIVIDADE ---------- */
-/* ---------- RESPONSIVIDADE GERAL ---------- */
 
 /* Tablets (até 1024px) */
 @media (max-width: 1024px) {
@@ -250,15 +251,15 @@ a:hover {
     background-position: center;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* impede o corte no topo */
+    align-items: flex-start;
     overflow-y: auto;
   }
 
   .container {
-    flex-direction: column-reverse; /* 🔥 mostra o lado direito primeiro */
+    flex-direction: column-reverse; /* lado direito aparece primeiro */
     width: 95%;
     height: auto;
-    margin: 40px 0; /* evita colar nas bordas */
+    margin: 40px 0;
     box-shadow: 0 0 15px rgba(249, 135, 4, 0.5);
   }
 
@@ -339,5 +340,3 @@ a:hover {
     font-size: 1.1em;
   }
 }
-
-
