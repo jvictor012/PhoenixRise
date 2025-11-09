@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Mapa - Phoenix Rise</title>
-    <link rel="stylesheet" href="/static/style_mapa.css">
-    <link rel="stylesheet" href="/static/navbar.css">
-</head>
+    <link rel="stylesheet" href="/static/style_mapa.css" />
+    <link rel="stylesheet" href="/static/navbar.css" />
+  </head>
 
-<body>
-
-<header>
-    <div class="logo">
-        <img src="/static/imagens/logo_semfundo.png" alt="LOGO PHOENIX RISE" class="logo">
+  <body>
+    <header>
+      <div class="logo">
+        <img
+          src="/static/imagens/logo_semfundo.png"
+          alt="LOGO PHOENIX RISE"
+          class="logo"
+        />
         <h1 class="degrade">Phoenix Rise</h1>
-    </div>
-    {% include 'links_base.html' %}
-</header>
+      </div>
+      {% include 'links_base.html' %}
+    </header>
 
-<div class="geral">
-    <!-- Sidebar com botões -->
-    <div class="sidebar">
+    <div class="geral">
+      <!-- Sidebar com botões -->
+      <div class="sidebar">
         <h2>ENCONTRE AQUI</h2>
         <form action="/mapa" method="get">
-            <button type="submit" name="select_mapa" value="0">TODOS</button>
-            <button type="submit" name="select_mapa" value="1">ACADEMIAS</button>
-            <button type="submit" name="select_mapa" value="2">QUADRAS</button>
-            <button type="submit" name="select_mapa" value="3">CROSSFIT</button>
-            <button type="submit" name="select_mapa" value="4">LOJAS</button>
+          <button type="submit" name="select_mapa" value="0">TODOS</button>
+          <button type="submit" name="select_mapa" value="1">ACADEMIAS</button>
+          <button type="submit" name="select_mapa" value="2">QUADRAS</button>
+          <button type="submit" name="select_mapa" value="3">CROSSFIT</button>
+          <button type="submit" name="select_mapa" value="4">LOJAS</button>
         </form>
-    </div>
+      </div>
 
-    <!-- Mapa -->
-    <div class="mapa">
-        {{ mapa_html|safe }}
+      <!-- Mapa -->
+      <div class="mapa">{{ mapa_html|safe }}</div>
     </div>
-</div>
-
-</body>
+  </body>
 </html>

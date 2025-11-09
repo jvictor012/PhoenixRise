@@ -1,7 +1,7 @@
 import folium
 from folium.plugins import LocateControl, Terminator
 from flask import request
-
+from database import executar_comandos
 
 quadras = ['Quadra Poliesportiva', 'Quadra de esportes da Garilândia', 'Quadra do Bacural 1', 'Arena Hiper', 'Arena Morais', 'Ginásio de esportes de Apodi']
 coordenadas_quadras = [
@@ -57,6 +57,7 @@ def gerar_mapa(opcao):
                 popup=nome,
                 icon=folium.Icon(icon='shopping-cart', prefix='fa', color='pink')  
             ).add_to(mapa_local)
+        
         
     if opcao == '1':
         for nome, coord in zip(academias, coordenadas_academias):
