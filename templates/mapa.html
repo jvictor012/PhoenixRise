@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <title>Mapa - Phoenix Rise</title>
     <link rel="stylesheet" href="/static/style_mapa.css" />
-    <link rel="stylesheet" href="/static/navbar.css" />
+    <link rel="stylesheet" href="/static/navbar_buscar.css" />
   </head>
 
   <body>
@@ -19,25 +19,45 @@
       </div>
       {% include 'links_base.html' %}
     </header>
-
     <div class="geral">
-      <!-- Sidebar com botões -->
-      <div class="sidebar">
-        <h2>ENCONTRE AQUI</h2>
-        <form action="/mapa" method="get">
-          <button type="submit" name="select_mapa" value="0">TODOS</button>
-          <button type="submit" name="select_mapa" value="1">ACADEMIAS</button>
-          <button type="submit" name="select_mapa" value="2">
-            ACADEMIAS PÚBLICAS
-          </button>
-          <button type="submit" name="select_mapa" value="3">QUADRAS</button>
-          <button type="submit" name="select_mapa" value="4">CROSSFIT</button>
-          <button type="submit" name="select_mapa" value="5">LOJAS</button>
-        </form>
+      <div class="container-mapa">
+        <div class="mapa">
+          <div class="barra-superior">
+            <form action="/mapa" method="get">
+              <button type="submit" name="select_mapa" value="0">TODOS</button>
+              <button type="submit" name="select_mapa" value="1">
+                ACADEMIAS
+              </button>
+              <button type="submit" name="select_mapa" value="2">
+                ACADEMIAS PÚBLICAS
+              </button>
+              <button type="submit" name="select_mapa" value="3">
+                QUADRAS
+              </button>
+              <button type="submit" name="select_mapa" value="4">
+                CROSSFIT
+              </button>
+              <button type="submit" name="select_mapa" value="5">LOJAS</button>
+            </form>
+          </div>
+          <div class="mapinha">{{ mapa_html|safe }}</div>
+        </div>
       </div>
 
-      <!-- Mapa -->
-      <div class="mapa">{{ mapa_html|safe }}</div>
+      <div class="container-side-bar">
+        <div class="side-bar">
+          <div class="container">
+            <div class="title">
+              {%for pesquisa in consulta%}
+              <h1>{{pesquisa[0]}}</h1>
+              <div class="image">
+                <img src="{{pesquisa[8]}}" />
+              </div>
+              {%endfor%}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

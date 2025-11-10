@@ -9,13 +9,13 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 10px 30px;
-  position: sticky;
   top: 0;
   z-index: 1000;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.6);
   border-bottom: none;
   height: 60px;
-  position: relative;
+  position: fixed;
+  width: 100%;
 }
 
 /* Linha com gradiente embaixo do header */

@@ -249,6 +249,13 @@ def mapa_view():
     nome = current_user.nome if current_user.is_authenticated else "Visitante"
     titulo = "Mapa das academias da região"
     mensagem = "Academias da região"
+    query = '''SELECT nome, mensalidade, descricao, cidade, rua, complemento, dias_funcionamento, contato_principal, imagem_url FROM academias'''
+    consulta = executar_comandos(query)
+    if consulta:
+        return render_template(
+        "mapa.html", nome=nome, mapa_html=mapa_html, titulo=titulo, mensagem=mensagem, consulta=consulta
+        )
+
     return render_template(
         "mapa.html", nome=nome, mapa_html=mapa_html, titulo=titulo, mensagem=mensagem
     )
