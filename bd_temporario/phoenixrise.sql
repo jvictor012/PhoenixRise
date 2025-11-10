@@ -3,6 +3,20 @@
 -- =====================================================
 CREATE SCHEMA IF NOT EXISTS phoenixrise;
 USE phoenixrise;
+CREATE TABLE crossfits (
+    id_crossfit INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100),
+    mensalidade DECIMAL(10,2),
+    descricao TEXT,
+    latitude DOUBLE,
+    longitude DOUBLE,
+    cidade VARCHAR(100),
+    rua VARCHAR(100),
+    complemento VARCHAR(100),
+    dias_funcionamento VARCHAR(100),
+    contato_principal VARCHAR(100),
+    imagem_url VARCHAR(255)
+);
 
 -- =====================================================
 -- TABELA: ESPORTES

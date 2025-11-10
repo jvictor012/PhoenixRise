@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Feed - Phoenix Rise</title>
-  <link rel="stylesheet" href="/static/navbar.css" />
-  <link rel="stylesheet" href="/static/feed.css" />
-</head>
-<body>
-  <header class="topo">
-    <div class="logo">
-      <img src="/static/imagens/logo_semfundo.png" alt="Logo Phoenix Rise" />
-      <h1>Phoenix Rise</h1>
-    </div>
-    {% include 'links_base.html' %}
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feed - Phoenix Rise</title>
+    <link rel="stylesheet" href="/static/navbar.css" />
+    <link rel="stylesheet" href="/static/feed.css" />
+  </head>
+  <body>
+    <header class="topo">
+      <div class="logo">
+        <img src="/static/imagens/logo_semfundo.png" alt="Logo Phoenix Rise" />
+        <h1>Phoenix Rise</h1>
+      </div>
+      {% include 'links_base.html' %}
+    </header>
 
-  <main class="feed">
-    <h2>FEED -  os post da comunidade</h2>
+    <main class="feed">
+      <h2>FEED - os post da comunidade</h2>
 
-    {% if posts %}
-      {% for post in posts %}
+      {% if posts %} {% for post in posts %}
       <div class="post-container">
         <!-- Cabeçalho fora da caixa -->
         <div class="post-header">
@@ -31,27 +30,26 @@
           />
           <div class="info-usuario">
             <p class="nome-usuario">{{ post[3] }}</p>
-            <p class="data">{{ post[2].strftime('%d/%m/%Y') if post[2] else '' }}</p>
+            <p class="data">
+              {{ post[2].strftime('%d/%m/%Y') if post[2] else '' }}
+            </p>
           </div>
         </div>
 
         <!-- Box do post -->
         <div class="post">
           {% if post[1] %}
-            <img src="{{ post[1] }}" alt="imagem do post" class="imagem-post" />
+          <img src="{{ post[1] }}" alt="imagem do post" class="imagem-post" />
           {% endif %}
           <div class="descricao-linha">
             <span class="nome-dentro">{{ post[3] }}</span>
             <p class="descricao">{{ post[0] }}</p>
           </div>
         </div>
-
-
       </div>
-      {% endfor %}
-    {% else %}
+      {% endfor %} {% else %}
       <p class="sem-posts">Nenhuma postagem encontrada.</p>
-    {% endif %}
-  </main>
-</body>
+      {% endif %}
+    </main>
+  </body>
 </html>

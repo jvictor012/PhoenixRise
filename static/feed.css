@@ -1,6 +1,6 @@
 @font-face {
   font-family: "BM Hanna";
-  src: url('/static/fonte/BMHANNAPro.ttf') format('truetype');
+  src: url("/static/fonte/BMHANNAPro.ttf") format("truetype");
   font-weight: 900;
   font-style: normal;
 }
@@ -33,7 +33,6 @@ body {
   -webkit-text-fill-color: transparent;
   font-weight: 900; /* opcional, deixa mais destacado */
 }
-
 
 .feed h2 {
   font-size: 2.5rem;
@@ -99,15 +98,15 @@ body {
 }
 
 .post-container + .post-container {
-  border-top: 1px solid rgba(255,117,31,0.2);
+  border-top: 1px solid rgba(255, 117, 31, 0.2);
   padding-top: 30px;
   margin-top: 30px;
 }
 
 /* ===== IMAGEM (3:4 ESTILO INSTAGRAM, MENOR) ===== */
 .imagem-post {
-  width: 70%;         /* diminuiu de 80% para 70% */
-  max-width: 320px;   /* diminuiu de 400px para 320px */
+  width: 70%; /* diminuiu de 80% para 70% */
+  max-width: 320px; /* diminuiu de 400px para 320px */
   aspect-ratio: 3 / 4;
   object-fit: cover;
   border-radius: 10px;
@@ -118,19 +117,17 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-
 /* ===== NOME E DESCRIÇÃO NA MESMA LINHA ===== */
 .info-post {
   display: flex;
   align-items: center;
-  gap: 2px;       /* espaço entre nome e descrição */
+  gap: 2px; /* espaço entre nome e descrição */
   flex-wrap: nowrap; /* impede quebra de linha */
   margin-top: 8px;
 }
 
-
 .nome-dentro {
-  color:#ff751f;  /* cor do nome do usuário, aqui azul como exemplo */
+  color: #ff751f; /* cor do nome do usuário, aqui azul como exemplo */
   font-weight: 600; /* opcional, deixa o nome mais destacado */
   font-size: 18px;
 }
@@ -155,7 +152,6 @@ body {
 
 /* Para tablets e telas médias */
 @media (max-width: 768px) {
-
   .feed {
     margin: 40px auto;
     padding: 0 15px;
@@ -194,8 +190,6 @@ body {
 
 /* Para celulares e telas pequenas */
 @media (max-width: 480px) {
- 
-
   .logo h1 {
     font-size: 20px;
   }
