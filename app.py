@@ -244,25 +244,59 @@ def interesses():
 
 @app.route("/mapa")
 def mapa_view():
-    opcao = request.args.get('select_mapa')
-    mapa_html = gerar_mapa(opcao)
+    opcao = request.args.get('select_mapa', '0')  # 0 = Todos
+
     nome = current_user.nome if current_user.is_authenticated else "Visitante"
-    titulo = "Mapa das academias da região"
-    mensagem = "Academias da região"
-    query = '''SELECT nome, mensalidade, descricao, cidade, rua, complemento, dias_funcionamento, contato_principal, imagem_url FROM academias'''
-    consulta = executar_comandos(query)
-    if consulta:
-        return render_template(
-        "mapa.html", nome=nome, mapa_html=mapa_html, titulo=titulo, mensagem=mensagem, consulta=consulta
-        )
+    titulo = "Mapa esportivo de Apodi"
+    mensagem = "Visualize academias, quadras e lojas esportivas"
+    mapa_html = gerar_mapa(opcao)
+
+    # ======= CONSULTAS =======
+    query_academias = '''
+        SELECT nome, mensalidade, descricao, cidade, rua, complemento, dias_funcionamento, contato_principal, imagem_url 
+        FROM academias
+    '''
+    query_livres = '''
+        SELECT nome, NULL AS mensalidade, NULL AS descricao, cidade, rua, complemento, NULL AS dias_funcionamento, NULL AS contato_principal, imagem_url 
+        FROM academias_livres
+    '''
+    query_quadras = '''
+        SELECT nome, NULL AS mensalidade, NULL AS descricao, cidade, rua, complemento, dias_funcionamento, NULL AS contato_principal, imagem_url 
+        FROM quadras
+    '''
+    query_lojas = '''
+        SELECT nome, NULL AS mensalidade, NULL AS descricao, cidade, rua, complemento, dias_funcionamento, contato_principal, imagem_url 
+        FROM lojas
+    '''
+
+    # ======= ESCOLHER O TIPO =======
+    if opcao == '1':
+        consulta = executar_comandos(query_academias)
+    elif opcao == '2':
+        consulta = executar_comandos(query_livres)
+    elif opcao == '3':
+        consulta = executar_comandos(query_quadras)
+    elif opcao == '4':
+        consulta = executar_comandos(query_lojas)
+    else:  # Todos
+        consulta = []
+        consulta += executar_comandos(query_academias)
+        consulta += executar_comandos(query_livres)
+        consulta += executar_comandos(query_quadras)
+        consulta += executar_comandos(query_lojas)
 
     return render_template(
-        "mapa.html", nome=nome, mapa_html=mapa_html, titulo=titulo, mensagem=mensagem
+        "mapa.html",
+        nome=nome,
+        mapa_html=mapa_html,
+        titulo=titulo,
+        mensagem=mensagem,
+        consulta=consulta
     )
+
 
 @app.route('/postagem', methods=['GET'])
 @login_required
-
 def postagem():
     return render_template('postagem.html')
 

@@ -48,16 +48,48 @@
         <div class="side-bar">
           <div class="container">
             <div class="title">
-              {%for pesquisa in consulta%}
-              <h1>{{pesquisa[0]}}</h1>
-              <div class="image">
-                <img src="{{pesquisa[8]}}" />
+              {% for pesquisa in consulta %}
+              <div class="card">
+                <h2>{{ pesquisa[0] }}</h2>
+                <div class="image">
+                  <img src="{{ pesquisa[8] }}" alt="{{ pesquisa[0] }}" />
+                </div>
+
+                <div class="descricao">
+                  {% if pesquisa[2] %}
+                  <p>{{ pesquisa[2] }}</p>
+                  {% endif %}
+                </div>
+
+                <div class="detalhes">
+                  {% if pesquisa[1] %}
+                  <p>Mensalidade: R$ {{ pesquisa[1] }}</p>
+                  {% endif %}
+                  <p>{{ pesquisa[4] }} - {{ pesquisa[3] }}</p>
+                  <p>{{ pesquisa[5] }}</p>
+                  {% if pesquisa[6] %}
+                  <p>Funcionamento: {{ pesquisa[6] }}</p>
+                  {% endif %} {% if pesquisa[7] %}
+                  <p>Contato: @{{ pesquisa[7] }}</p>
+                  {% endif %}
+                </div>
               </div>
-              {%endfor%}
+              {% endfor %}
             </div>
           </div>
         </div>
       </div>
     </div>
+    <script>
+      document.querySelectorAll(".btn-detalhes button").forEach((botao) => {
+        botao.addEventListener("click", () => {
+          const detalhes = botao.previousElementSibling;
+          detalhes.classList.toggle("ativo");
+          botao.textContent = detalhes.classList.contains("ativo")
+            ? "OCULTAR"
+            : "DETALHES";
+        });
+      });
+    </script>
   </body>
 </html>
