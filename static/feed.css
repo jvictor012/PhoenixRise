@@ -148,6 +148,31 @@ body {
   margin-top: 60px;
 }
 
+
+
+.botao-container {
+  display: flex;
+  justify-content: flex-end; /* alinha para a direita */
+  width: 100%;
+  padding-right: 20px; /* opcional: dá um espaço da borda */
+  margin: 20px 0;
+}
+
+.btn-postar {
+  background-color: #ff751f;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-postar:hover {
+  background-color: #b20837;
+}
+
+
 /* ===== RESPONSIVIDADE ===== */
 
 /* Para tablets e telas médias */
