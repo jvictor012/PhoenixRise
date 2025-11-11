@@ -145,8 +145,10 @@ input::placeholder {
 }
 
 input:focus {
-  border-color: #ffaa00;
-  box-shadow: 0 0 10px #ffaa00;
+  border-color: orangered; /* mantém brilho do foco */
+  box-shadow: 0 0 10px orangered, inset 0 1px 3px rgba(0,0,0,0.2); /* foco + sombra interna */
+  outline: none;
+  transform: scale(1.02); /* leve efeito ao focar */
 }
 
 /* ---------- BOTÃO LOGIN ---------- */
