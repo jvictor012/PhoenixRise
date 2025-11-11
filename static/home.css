@@ -16,36 +16,10 @@ body {
   background-color: #000;
   color: white;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
-main {
-  padding: 40px 20px;
-}
-
-h1, h2 {
-  background: linear-gradient(90deg, #ff751f, #ffb347);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 10px;
-}
-
-p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 20px;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo-img {
-  width: 60px;
-  height: auto;
-}
-
+/* ===== HEADER ===== */
 header {
   background-color: #000;
   display: flex;
@@ -58,25 +32,213 @@ header {
   z-index: 100;
 }
 
-section {
-  margin-top: 50px;
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-/* Responsividade */
+.logo-img {
+  width: 65px;
+}
+
+/* ===== HERO ===== */
+.hero {
+  background: url("/static/imagens/home.png") center/cover no-repeat;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.95));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero-content h1 {
+  margin-bottom: 0.6em;
+  font-size: 3.3em;
+  background: linear-gradient(60deg, #ff751f, #b20837);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-content p {
+  margin: 20px 0 40px;
+  font-size: 1.3rem;
+  color: #eaeaea;
+  line-height: 1.6;
+}
+
+.btn-principal {
+  -webkit-text-fill-color: #000 !important;
+  background-clip: border-box !important;
+  -webkit-background-clip: border-box !important;
+  color: #000 !important;
+  background: linear-gradient(60deg, #ff751f, #b20837);
+  padding: 14px 30px;
+  border-radius: 30em;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.5em;
+  transition: 0.3s ease;
+  opacity: 2;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-principal:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 117, 31, 0.6);
+  border-radius: 30em;
+}
+
+/* ===== BENEFÍCIOS ===== */
+.beneficios {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.benefits-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.benefit {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 117, 31, 0.3);
+  border-radius: 20px;
+  padding: 30px;
+  width: 260px;
+  transition: 0.3s;
+}
+
+.benefit:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px rgba(255, 117, 31, 0.3);
+}
+
+/* ===== COMPETIÇÕES ===== */
+.competicoes {
+  padding: 80px 20px;
+  background: radial-gradient(circle, #111 0%, #000 100%);
+  text-align: center;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  overflow: hidden;
+  width: 320px;
+  transition: 0.4s;
+}
+
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(255, 117, 31, 0.4);
+}
+
+/* ===== DICAS ===== */
+.dicas {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.tips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.tip {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 117, 31, 0.3);
+  width: 260px;
+  padding: 25px;
+  transition: 0.3s;
+}
+
+.tip:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 20px rgba(255, 117, 31, 0.3);
+}
+
+/* ===== CTA FINAL ===== */
+.cta {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(90deg, #ff751f15, #ffb34715);
+  border-top: 2px solid #ff751f30;
+}
+
+.btn-secundario {
+  background: none;
+  color: #ff751f;
+  border: 2px solid #ff751f;
+  padding: 14px 28px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-secundario:hover {
+  background: #ff751f;
+  color: #000;
+}
+
+/* ===== ANIMAÇÕES ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== RESPONSIVIDADE ===== */
 @media (max-width: 768px) {
-  main {
-    padding: 20px;
+  .hero-content h1 {
+    font-size: 2.2rem;
   }
 
-  h1, h2 {
-    font-size: 1.6rem;
+  .benefits-grid,
+  .cards,
+  .tips {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .logo-img {
-    width: 45px;
-  }
-
-  p {
-    font-size: 1rem;
+  .card, .benefit, .tip {
+    width: 90%;
   }
 }

@@ -3,9 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HOME - Phoenix Rise</title>
+    <title>Phoenix Rise — Conecte-se ao seu potencial</title>
 
-    <!-- Estilos -->
     <link rel="stylesheet" href="/static/navbar.css" />
     <link rel="stylesheet" href="/static/home.css" />
   </head>
@@ -13,52 +12,91 @@
   <body>
     <header>
       <div class="logo">
-        <img
-          src="/static/imagens/logo_semfundo.png"
-          alt="LOGO PHOENIX RISE"
-          class="logo-img"
-        />
-        <h1 class="degrade">Phoenix Rise</h1>
+        <img src="/static/imagens/logo_semfundo.png" alt="LOGO PHOENIX RISE" class="logo-img" />
+        <h1>Phoenix Rise</h1>
       </div>
-
-      <!-- Menu de navegação -->
       {% include 'links_base.html' %}
     </header>
 
     <main>
-      <section class="intro">
-        <h1>Phoenix Rise — Comece Sua Jornada Esportiva</h1>
-        <h2>Encontre sua motivação</h2>
-        <p>
-          Todo começo é um desafio, mas você não está sozinho!
-          Aqui, celebramos cada conquista — seja um treino feito, um novo movimento aprendido
-          ou um simples passo em direção ao seu objetivo.
-          <br /><br />
-          ✨ <strong>Dica:</strong> comece com metas pequenas e aumente aos poucos.
-          O importante é continuar evoluindo!
-        </p>
+      <!-- HERO: abertura com energia -->
+      <section class="hero">
+        <div class="overlay"></div>
+        <div class="hero-content">
+          <h1>Encontre. Pratique. Compartilhe. </h1>
+          <p>
+            No <strong>Phoenix Rise</strong>, Acreditamos que toda prática física - seja um esporte ou um hobby - é uma oportunidade de 
+            renascer mais forte. Descubra espaços, eventos e uma comunidade que vive o movimento com paixão.
+          </p>
+          <a href="/feed" class="btn-principal">Explorar Comunidade</a>
+        </div>
       </section>
 
+      <!-- COMPETIÇÕES -->
       <section class="competicoes">
-        <h2>Competições</h2>
-        <p>Copa Alto-Oeste de Handebol – Apodi/RN</p>
-        <p>Outros eventos em breve...</p>
+        <h2>🏆 Em Alta no Mundo Esportivo</h2>
+        <div class="cards">
+          <div class="card">
+            <img src="/static/imagens/handebol.jpg" alt="Handebol" />
+            <h3>Copa Alto-Oeste — Apodi/RN</h3>
+            <p>Competição regional de handebol reunindo grandes talentos do Nordeste.</p>
+          </div>
+
+          <div class="card">
+            <img src="/static/imagens/corrida.jpg" alt="Corrida Phoenix" />
+            <h3>Corrida Phoenix 5K — Mossoró</h3>
+            <p>Prepare-se para sentir a energia das ruas e desafiar seus limites.</p>
+          </div>
+        </div>
       </section>
 
-      <section class="lojas">
-        <h2>Descubra Lojas</h2>
-        <p>Sport Center com promoções imperdíveis em calçados e acessórios fitness.</p>
-        <p>Mais lojas chegando em breve!</p>
+      <!-- BENEFÍCIOS -->
+      <section class="beneficios">
+        <h2>🔥 Lojas em promoção</h2>
+        <div class="benefits-grid">
+          <div class="benefit">
+            <h3>Sport Center</h3>
+            <p>promoções em tênis de corrida da olimpycos corre</p>
+          </div>
+
+          <div class="benefit">
+            <h3>Participe de Competições</h3>
+            <p>Mostre seu potencial e conecte-se com outros atletas.</p>
+          </div>
+
+          <div class="benefit">
+            <img src="/static/imagens/icon_comunidade.png" alt="Comunidade" />
+            <h3>Compartilhe Conquistas</h3>
+            <p>Publique fotos, troque experiências e inspire pessoas.</p>
+          </div>
+        </div>
       </section>
 
-      <section class="prevencao">
-        <h2>Como Evitar Lesões</h2>
-        <p>
-          Alongue-se antes e depois dos treinos, mantenha uma boa postura e respeite os limites
-          do seu corpo. Prevenir é sempre melhor do que tratar!
-        </p>
+      <!-- DICAS -->
+      <section class="dicas">
+        <h2>💡 Dicas para seu Corpo e Mente</h2>
+        <div class="tips">
+          <div class="tip">
+            <h3>🧘 Alongue-se</h3>
+            <p>Previna lesões e aumente sua flexibilidade antes e após os treinos.</p>
+          </div>
+          <div class="tip">
+            <h3>🥗 Alimente-se Bem</h3>
+            <p>Energia e performance vêm de uma boa nutrição e hidratação.</p>
+          </div>
+          <div class="tip">
+            <h3>💤 Descanse</h3>
+            <p>Recuperação é parte do processo. Seu corpo cresce no descanso.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHAMADA FINAL -->
+      <section class="cta">
+        <h2>Faça Parte da Comunidade Phoenix Rise</h2>
+        <p>Conecte-se com quem vive o esporte todos os dias. Seu novo começo começa agora.</p>
+        <a href="/cadastro" class="btn-secundario">Comece Hoje</a>
       </section>
     </main>
   </body>
 </html>
-
