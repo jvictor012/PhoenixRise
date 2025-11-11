@@ -363,13 +363,13 @@ input[readonly] {
       }
 
       
-      .logo h1 {
-  font-size: 2rem; /* AUMENTE AQUI SE QUISER MAIS */
-  font-weight: 900;
-  background-image: linear-gradient(90deg, #ff751f, #b20837);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin: 0;
-  padding: 0;
-  letter-spacing: 1px;
-}
+.logo h1 {
+      font-size: 1.75rem; /* AUMENTE AQUI SE QUISER MAIS */
+      font-weight: 900;
+      background-image: linear-gradient(90deg, #ff751f, #b20837);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0;
+      padding: 0;
+      letter-spacing: 1px;
+    }

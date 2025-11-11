@@ -44,7 +44,7 @@ header {
 
 /* ✅ GRADIENTE NO TEXTO DA LOGO */
 .logo-text {
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 900;
   background: linear-gradient(60deg, #ff751f, #b20837);
   -webkit-background-clip: text;
