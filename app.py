@@ -193,26 +193,40 @@ def feed():
 def perfil():
     if request.method == "POST":
         usuario_id = current_user.id
-        imagem_perfil = request.files['imagem_perfil']
-        if imagem_perfil.filename == '':
-            # campo enviado, mas sem arquivo selecionado
-            return redirect(url_for("perfil"))
-        image = cloudinary.uploader.upload(imagem_perfil)
-        url_imagem_perfil = image['secure_url']
-        query = '''UPDATE usuarios SET foto_url = %s WHERE id = %s''' #enviando imagem pro bd
-        valores = (url_imagem_perfil, usuario_id)
-        executar_comandos(query, valores)
-        return redirect(url_for("perfil"))
-    else:
-        nome_usuario = current_user.nome
-        usuario_id = current_user.id
-        query = '''SELECT foto_url, email FROM usuarios WHERE id = %s'''
-        values = (usuario_id,)
-        resultado = executar_comandos(query, values)
-        email = resultado[0][1]
-        foto_url = resultado[0][0] if resultado and resultado[0][0] else None
 
-        return render_template("perfil.html", resultado=foto_url, nome_usuario=nome_usuario, email=email)
+        imagem_perfil = request.files.get('imagem_perfil')
+        if imagem_perfil and imagem_perfil.filename != '':
+            image = cloudinary.uploader.upload(imagem_perfil)
+            url_imagem_perfil = image['secure_url']
+
+            query = '''UPDATE usuarios SET foto_url = %s WHERE id = %s''' #enviando imagem pro bd
+            valores = (url_imagem_perfil, usuario_id)
+            executar_comandos(query, valores)
+            return redirect(url_for("perfil"))
+        
+        nivel_esportivo = request.form.get('nivel_esportivo')
+        if nivel_esportivo:
+            query = "UPDATE usuarios SET nivel_esportivo = %s WHERE id = %s"
+            executar_comandos(query, (nivel_esportivo, current_user.id))
+            return redirect(url_for("perfil"))
+        
+    nome_usuario = current_user.nome
+    usuario_id = current_user.id
+    query = '''SELECT foto_url, email,nivel_esportivo FROM usuarios WHERE id = %s'''
+    values = (usuario_id,)
+    resultado = executar_comandos(query, values)
+
+    if resultado:
+        foto_url = resultado[0][0] if resultado and resultado[0][0] else None
+        email = resultado[0][1]
+        nivel_esportivo = resultado[0][2]
+    
+    else:
+        foto_url = None
+        email = ""
+        nivel_esportivo = ""
+
+    return render_template("perfil.html", resultado=foto_url, nome_usuario=nome_usuario, email=email, nivel_esportivo=nivel_esportivo)
 
 @app.route("/interesses", methods=["GET", "POST"])
 def interesses():
@@ -316,15 +330,6 @@ def fazer_postagem():
     executar_comandos(query, valores)
 
     return redirect('/postagem')  # redireciona de volta pra página
-
-
-#@app.route("/login_fake")
-#def login_fake():
-#    # rota de teste: cria e loga um user fake
-#    user_fake = User(id=999, nome="Dev Teste", email="teste@fake.com")
-#    login_user(user_fake)
-#    flash("Logado como usuário fake (apenas para teste).", "info")
-#    return redirect(url_for("inicio"))
 
 
 if __name__ == "__main__":
