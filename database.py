@@ -3,8 +3,8 @@ import mysql.connector
 def executar_comandos(query, valores=None, fetchone=False, retornar_id=False):
     conexao = mysql.connector.connect(
         host="localhost",
-        user="root",
-        password="JoãoVictor15",
+        user="phoenix",
+        password="1920eu",
         database="phoenixrise"
     )
     cursor = conexao.cursor()

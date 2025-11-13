@@ -63,6 +63,24 @@
                 <label for="email">EMAIL</label>
                 <input type="email" name="email" id="email" value="{{ email }}" readonly />
               </div>
+
+              <div class="input-container">
+                <label for="nivel">NÍVEL ESPORTIVO</label>
+                {%if nivel_esportivo %}
+                <input type="text" id="nivel" value="{{nivel_esportivo}}" readonly />
+                {%else%}
+                <input type="text" id="nivel" value="Não informado" readonly />
+                {%endif%}
+              </div>
+
+              <div class="input-container">
+                <label for="interesses">INTERESSES</label>
+                {%if interesses %}
+                <textarea id="interesses">{{ interesses | join (', ') }}</textarea>
+                {%else%}
+                <textarea id="interesses">Sem interesses selecionados.</textarea>
+                {%endif%}
+              </div>
             </form>
           </div>
         </div>
@@ -159,6 +177,8 @@
             </label>
 
           </div>
+
+          <button type="submit" class="btn-salvar-interesses">Salvar nível</button>
         </form>
 
       </section>
