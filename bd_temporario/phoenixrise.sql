@@ -56,6 +56,8 @@ CREATE TABLE usuarios (
     foto_url VARCHAR(255)
 );
 
+ALTER TABLE usuarios ADD COLUMN nivel_esportivo VARCHAR(50) DEFAULT NULL;
+
 -- =====================================================
 -- TABELA: USUARIO_ESPORTE (TABELA RELACIONAL)
 -- =====================================================

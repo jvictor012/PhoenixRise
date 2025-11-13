@@ -131,6 +131,38 @@
           </button>
         </form>
       </section>
+
+      <!--================== SEÇÃO DE NÍVEL ESPORTIVO ==================-->
+      <section class="">
+        <h2 class="titulo-interesses">NÍVEL ESPORTIVO</h2>
+        <h3 class="subtitulo-interesses">Selecione seu nível esportivo</h3>
+
+        <form action="{{ url_for('perfil') }}" method="post">
+          <div class="opcoes">
+
+            <label class="opcao">
+              <p>Iniciante</p>
+              <input type="radio" name="nivel_esportivo" value="Iniciante" 
+              {% if nivel_esportivo == 'Iniciante' %}checked{% endif %}/>
+            </label>
+
+            <label class="opcao">
+              <p>Intermediário</p>
+              <input type="radio" name="nivel_esportivo" value="Intermediário" 
+              {% if nivel_esportivo == 'Intermediário' %}checked{% endif %}/>
+            </label>
+
+            <label class="opcao">
+              <p>Avançado</p>
+              <input type="radio" name="nivel_esportivo" value="Avançado" 
+              {% if nivel_esportivo == 'Avançado' %}checked{% endif %}/>
+            </label>
+
+          </div>
+        </form>
+
+      </section>
+
     </div>
 
     <!-- ==================== SCRIPT ==================== -->
