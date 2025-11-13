@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <title>Mapa - Phoenix Rise</title>
     <link rel="stylesheet" href="/static/style_mapa.css" />
-    <link rel="stylesheet" href="/static/navbar_buscar.css" />
+    <link rel="stylesheet" href="/static/navbar.css" />
   </head>
 
   <body>
@@ -23,7 +23,7 @@
       <div class="container-mapa">
         <div class="mapa">
           <div class="barra-superior">
-            <form action="/mapa" method="get">
+            <form action="/mapa" class="form" method="get">
               <button type="submit" name="select_mapa" value="0">TODOS</button>
               <button type="submit" name="select_mapa" value="1">
                 ACADEMIAS
@@ -50,34 +50,24 @@
             <div class="title">
               {% for pesquisa in consulta %}
               <div class="card">
-                <h2>{{ pesquisa[0] }}</h2>
+                <h2>{{ pesquisa[0] }} - {{ pesquisa[9] }}</h2>
                 <div class="image">
                   <img src="{{ pesquisa[8] }}" alt="{{ pesquisa[0] }}" />
                 </div>
-
-                <div class="descricao">
-                  {% if pesquisa[2] %}
-                  <p>{{ pesquisa[2] }}</p>
-                  {% endif %}
-                </div>
-
-                <div class="detalhes">
-                  {% if pesquisa[1] %}
-                  <p>Mensalidade: R$ {{ pesquisa[1] }}</p>
-                  {% endif %}
+                <footer>
                   <p>{{ pesquisa[4] }} - {{ pesquisa[3] }}</p>
-                  <p>{{ pesquisa[5] }}</p>
-                  {% if pesquisa[6] %}
-                  <p>Funcionamento: {{ pesquisa[6] }}</p>
-                  {% endif %} {% if pesquisa[7] %}
-                  <p>Contato: @{{ pesquisa[7] }}</p>
-                  {% endif %}
-                </div>
+                </footer>
+
+                <div class="line"></div>
               </div>
+
               {% endfor %}
             </div>
           </div>
         </div>
+        <footer class="footer">
+          <p>PHOENIX RISE</p>
+        </footer>
       </div>
     </div>
     <script>

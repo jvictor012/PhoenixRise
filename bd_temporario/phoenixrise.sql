@@ -18,6 +18,12 @@ CREATE TABLE crossfits (
     imagem_url VARCHAR(255)
 );
 
+INSERT INTO crossfits 
+(nome, mensalidade, descricao, latitude, longitude, cidade, rua, complemento, dias_funcionamento, contato_principal, imagem_url)
+VALUES
+('Box 268', 100.00, 'Ambiente acolhedor e treinos intensos que desafiam seus limites a cada sessão.', -5.6637686874536435, -37.797927135515195, 'Apodi', 'R. Margarida de Freitas', 'Próximo à Telecab Apodi', 'Seg-Sex(16h-20h)', 'boxblack268', "https://res.cloudinary.com/drdezhuko/image/upload/v1762633977/bmclcrv8jt1v3zmh4xkv.png"),
+('Box 405', 100.00, 'Equipamentos bem preservados e um ambiente bem equipado para que você tenha uma boa experiencia de treino.', -5.654361294960643, -37.79971965554447, 'Apodi', 'R. Joaquim de Moura', 'Próximo à ProSup Apodi', 'Seg-Sex(6h-21h) Sab(6h-21h)', 'box_405', "https://res.cloudinary.com/drdezhuko/image/upload/v1762633850/cncpiff4qnysvg643uqb.png");
+
 -- =====================================================
 -- TABELA: ESPORTES
 -- =====================================================

@@ -244,52 +244,60 @@ def interesses():
 
 @app.route("/mapa")
 def mapa_view():
-    opcao = request.args.get('select_mapa', '0')  # 0 = Todos
+    opcao = request.args.get('select_mapa', '0')  # '0' = Todos
 
     nome = current_user.nome if current_user.is_authenticated else "Visitante"
-    titulo = "Mapa esportivo de Apodi"
     mensagem = "Visualize academias, quadras e lojas esportivas"
     mapa_html = gerar_mapa(opcao)
 
-    # ======= CONSULTAS =======
-    query_academias = '''
-        SELECT nome, mensalidade, descricao, cidade, rua, complemento, dias_funcionamento, contato_principal, imagem_url 
-        FROM academias
-    '''
-    query_livres = '''
-        SELECT nome, NULL AS mensalidade, NULL AS descricao, cidade, rua, complemento, NULL AS dias_funcionamento, NULL AS contato_principal, imagem_url 
-        FROM academias_livres
-    '''
-    query_quadras = '''
-        SELECT nome, NULL AS mensalidade, NULL AS descricao, cidade, rua, complemento, dias_funcionamento, NULL AS contato_principal, imagem_url 
-        FROM quadras
-    '''
-    query_lojas = '''
-        SELECT nome, NULL AS mensalidade, NULL AS descricao, cidade, rua, complemento, dias_funcionamento, contato_principal, imagem_url 
-        FROM lojas
-    '''
+    # ======= CONSULTAS DISPONÍVEIS =======
+    consultas = {
+        '1': ('ACADEMIAS', '''
+            SELECT nome, mensalidade, descricao, cidade, rua, complemento, dias_funcionamento, contato_principal, imagem_url 
+            FROM academias
+        '''),
+        '2': ('ACADEMIAS LIVRES', '''
+            SELECT nome, NULL AS mensalidade, NULL AS descricao, cidade, rua, complemento, NULL AS dias_funcionamento, NULL AS contato_principal, imagem_url 
+            FROM academias_livres
+        '''),
+        '3': ('QUADRAS', '''
+            SELECT nome, NULL AS mensalidade, NULL AS descricao, cidade, rua, complemento, dias_funcionamento, NULL AS contato_principal, imagem_url 
+            FROM quadras
+        '''),
+        '4': ('CROSSFITS', '''
+            SELECT nome, mensalidade, descricao, cidade, rua, complemento, dias_funcionamento, contato_principal, imagem_url 
+            FROM crossfits
+        '''),
+        '5': ('LOJAS', '''
+            SELECT nome, NULL AS mensalidade, NULL AS descricao, cidade, rua, complemento, dias_funcionamento, contato_principal, imagem_url 
+            FROM lojas
+        ''')
+    }
+
+    consulta = [] # Inicializa a lista de resultados vazia
 
     # ======= ESCOLHER O TIPO =======
-    if opcao == '1':
-        consulta = executar_comandos(query_academias)
-    elif opcao == '2':
-        consulta = executar_comandos(query_livres)
-    elif opcao == '3':
-        consulta = executar_comandos(query_quadras)
-    elif opcao == '4':
-        consulta = executar_comandos(query_lojas)
-    else:  # Todos
-        consulta = []
-        consulta += executar_comandos(query_academias)
-        consulta += executar_comandos(query_livres)
-        consulta += executar_comandos(query_quadras)
-        consulta += executar_comandos(query_lojas)
+    if opcao in consultas:
+        tipo, query = consultas[opcao]
+        resultados = executar_comandos(query) # Use 'resultados' para clareza
+        for r_tupla in resultados:
+            # Converte a tupla em lista, adiciona o tipo e adiciona na lista final 'consulta'
+            r_lista = list(r_tupla)
+            r_lista.append(tipo)
+            consulta.append(r_lista) 
+    else: # Opção '0' = Todos
+        for tipo, query in consultas.values():
+            resultados = executar_comandos(query)
+            for r_tupla in resultados:
+                # Converte a tupla em lista, adiciona o tipo e adiciona na lista final 'consulta'
+                r_lista = list(r_tupla)
+                r_lista.append(tipo)
+                consulta.append(r_lista)
 
     return render_template(
         "mapa.html",
         nome=nome,
         mapa_html=mapa_html,
-        titulo=titulo,
         mensagem=mensagem,
         consulta=consulta
     )
