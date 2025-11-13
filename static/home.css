@@ -580,13 +580,232 @@ header {
 }
 
 /* ===== RESPONSIVIDADE ===== */
-@media (max-width: 768px) {
+/* ===================== */
+/* 🎯 RESPONSIVIDADE GERAL */
+/* ===================== */
+
+@media (max-width: 1200px) {
+  .hero-content h1 {
+    font-size: 2.8em;
+  }
+
+  .dica-imagem img {
+    width: 70%;
+  }
+
+  .benefit,
+  .card {
+    width: 280px;
+  }
+}
+
+@media (max-width: 992px) {
+  /* HERO */
+  .hero-content img {
+    width: 30%;
+  }
+
+  .hero-content h1 {
+    font-size: 2.6em;
+  }
+
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+
+  /* DICA DE OURO */
+  .dica-de-ouro {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .dica-texto {
+    max-width: 700px;
+    text-align: center;
+  }
+
+  .dica-texto h2::after {
+    margin: 10px auto;
+  }
+
+  .dica-imagem img {
+    width: 80%;
+  }
+
+  /* COMPETIÇÕES E BENEFÍCIOS */
+  .cards,
+  .benefits-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+  }
+
+  .card,
+  .benefit {
+    width: 45%;
+  }
+
+  /* ===================== */
+  /* 🏆 DESAFIOS / PÓDIO */
+  /* ===================== */
   .ranking {
     flex-direction: column;
     align-items: center;
+    gap: 20px;
   }
+
   .posicao {
+    width: 85%;
     transform: none !important;
+    margin: 0;
+  }
+
+  .posicao.destaque {
     width: 90%;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* HEADER */
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .logo-text {
+    font-size: 1.5rem;
+  }
+
+  /* HERO */
+  .hero {
+    height: 80vh;
+    padding: 0 15px;
+  }
+
+  .hero-content img {
+    width: 45%;
+  }
+
+  .hero-content h1 {
+    font-size: 2.3em;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  /* BENEFÍCIOS */
+  .benefits-grid {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .benefit {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  /* COMPETIÇÕES */
+  .cards {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .card {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  /* DICAS */
+  .tips {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .tip {
+    width: 90%;
+  }
+
+  /* DICA DE OURO */
+  .dica-de-ouro {
+    padding: 60px 20px;
+  }
+
+  .dica-texto h2 {
+    font-size: 2rem;
+  }
+
+  .dica-imagem img {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  /* ===================== */
+  /* 🏆 DESAFIOS / PÓDIO */
+  /* ===================== */
+  .ranking {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .posicao {
+    width: 85%;
+    transform: none !important;
+  }
+
+  .posicao.destaque {
+    width: 90%;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* HERO */
+  .hero {
+    height: 75vh;
+  }
+
+  .hero-content img {
+    width: 50%;
+  }
+
+  .hero-content h1 {
+    font-size: 1.8em;
+  }
+
+  .hero-content p {
+    font-size: 0.95rem;
+  }
+
+  .scroll-hint p {
+    font-size: 1rem;
+  }
+
+  /* TÍTULOS */
+  .titulo-secao,
+  .titulo-beneficios,
+  .titulo-dicas,
+  .titulo-desafios {
+    font-size: 1.5rem;
+  }
+
+  /* ===================== */
+  /* 🏆 DESAFIOS / PÓDIO */
+  /* ===================== */
+  .descricao-desafio {
+    font-size: 1rem;
+  }
+
+  .posicao {
+    width: 95%;
+    transform: none !important;
+  }
+
+  .posicao.destaque {
+    width: 100%;
+    transform: none !important;
   }
 }
