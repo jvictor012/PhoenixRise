@@ -54,7 +54,7 @@ header {
 
 /* ===== HERO ===== */
 .hero {
-  background: url("/static/imagens/home.png") center/cover no-repeat;
+  background: url("/static/imagens/fundo_esporte.png") center/cover no-repeat;
   height: 90vh;
   display: flex;
   align-items: center;
@@ -78,6 +78,12 @@ header {
   animation: fadeIn 1.5s ease-in-out;
 }
 
+.hero img {
+  width: 23%;
+  height: auto;
+  z-index: 2;
+}
+
 .hero-content h1 {
   margin-bottom: 0.6em;
   font-size: 3.3em;
@@ -87,61 +93,131 @@ header {
 }
 
 .hero-content p {
-  margin: 20px 0 40px;
+  margin: 20px 0 30px;
   font-size: 1.3rem;
   color: #eaeaea;
   line-height: 1.6;
 }
 
-.btn-principal {
-  -webkit-text-fill-color: #000 !important;
-  background-clip: border-box !important;
-  -webkit-background-clip: border-box !important;
-  color: #000 !important;
-  background: linear-gradient(60deg, #ff751f, #b20837);
-  padding: 14px 30px;
-  border-radius: 30em;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.5em;
-  transition: 0.3s ease;
-  opacity: 2;
-  transition: transform 0.3s, box-shadow 0.3s;
+/* ===== SCROLL HINT ===== */
+.scroll-hint {
+  animation: pulse 2s infinite;
 }
 
-.btn-principal:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(255, 117, 31, 0.6);
-  border-radius: 30em;
+.scroll-hint p {
+  font-size: 1.2rem;
+  color: #ff751f;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.8;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(5px);
+  }
 }
 
 /* ===== BENEFÍCIOS ===== */
 .beneficios {
   padding: 80px 20px;
   text-align: center;
+  background: radial-gradient(circle at top, #111 0%, #000 100%);
 }
 
+/* 🔥 título */
+.titulo-beneficios {
+  font-size: 2rem;
+  margin-top: 1em;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, #ffb347, #ff751f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1.5px;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.titulo-beneficios::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #ff751f, #b20837);
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+/* layout dos cards */
 .benefits-grid {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 40px;
-  margin-top: 40px;
 }
 
+/* ✨ estilo dos cards */
 .benefit {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 117, 31, 0.3);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 117, 31, 0.4);
   border-radius: 20px;
-  padding: 30px;
-  width: 260px;
-  transition: 0.3s;
+  padding: 35px 25px;
+  width: 280px;
+  transition: 0.4s;
+  backdrop-filter: blur(5px);
 }
 
 .benefit:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 25px rgba(255, 117, 31, 0.3);
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 0 30px rgba(255, 117, 31, 0.35);
 }
+
+/* 🔸 título e texto */
+.benefit h3 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  color: #fff;
+  background: linear-gradient(90deg, #ff751f, #b20837);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 1.5px;
+}
+
+.benefit p {
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* ======= ÍCONES (imagens pequenas) ======= */
+.benefit .icone {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  border: 0.1em solid #ffffffc5;
+  background: radial-gradient(circle, rgba(255,117,31,0.5), rgba(178,8,55,0.4));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  
+}
+
+.benefit .icone img {
+  width: 5.5em;
+  height: 5.5em;
+  object-fit: contain;
+  filter: drop-shadow(0 0 5px rgba(255,117,31,0.5));
+}
+
 
 /* ===== COMPETIÇÕES ===== */
 .competicoes {
@@ -150,105 +226,367 @@ header {
   text-align: center;
 }
 
+.titulo-secao {
+  font-size: 2.2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+  background: linear-gradient(90deg,#ffb347, #ff751f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  position: relative;
+}
+
+.titulo-secao::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #ff751f, #b20837);
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+
 .cards {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 40px;
+  flex-wrap: wrap; /* permite quebrar linha se faltar espaço */
+  justify-content: center; /* centraliza os cards */
+  gap: 30px; /* espaçamento entre eles */
 }
 
 .card {
   background: rgba(255, 255, 255, 0.06);
   border-radius: 20px;
   overflow: hidden;
-  width: 320px;
+  width: 320px; /* todos com o mesmo tamanho */
   transition: 0.4s;
+  text-align: left;
 }
 
 .card img {
   width: 100%;
   height: 220px;
   object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 18px 15px 10px;
+  background: linear-gradient(90deg, #ff751f, #b20837);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.card p {
+  color: #ccc;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0 15px 25px;
+}
+
+.card:hover img {
+  transform: scale(1.08);
 }
 
 .card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 25px rgba(255, 117, 31, 0.4);
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px rgba(255, 117, 31, 0.35);
+}
+
+/* ===== link DENTRO DO CARD ===== */
+.link-card {
+  color: #ff751f;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.link-card:hover {
+  color: #b20837;
+  text-decoration: underline;
 }
 
 /* ===== DICAS ===== */
 .dicas {
   padding: 80px 20px;
   text-align: center;
+  background: radial-gradient(circle at top, #111 0%, #000 100%);
+  animation: fadeIn 1s ease;
 }
 
+/* 🔥 título */
+.titulo-dicas {
+  font-size: 2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #ffb347, #ff751f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 15px rgba(255, 117, 31, 0.3);
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.titulo-dicas::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 3px;
+  background: linear-gradient(90deg, #ff751f, #b20837);
+  margin: 15px auto 0;
+  border-radius: 2px;
+}
+
+/* 🔹 layout dos cards */
 .tips {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;
+  gap: 40px;
   margin-top: 40px;
 }
 
+/* 💫 cards */
 .tip {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
-  border: 1px solid rgba(255, 117, 31, 0.3);
-  width: 260px;
-  padding: 25px;
-  transition: 0.3s;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 117, 31, 0.4);
+  width: 280px;
+  padding: 30px 25px;
+  transition: 0.4s ease;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 15px rgba(255, 117, 31, 0.1);
+  animation: floatUp 1.2s ease both;
 }
 
+/* ✨ hover */
 .tip:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 6px 20px rgba(255, 117, 31, 0.3);
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 0 30px rgba(255, 117, 31, 0.35);
 }
 
-/* ===== CTA FINAL ===== */
-.cta {
-  text-align: center;
-  padding: 100px 20px;
-  background: linear-gradient(90deg, #ff751f15, #ffb34715);
-  border-top: 2px solid #ff751f30;
+/* 🔸 título e texto */
+.tip h3 {
+  font-size: 1.3rem;
+  color: #fff; /* mantém o texto branco */
+  margin-bottom: 10px;
 }
 
-.btn-secundario {
-  background: none;
-  color: #ff751f;
-  border: 2px solid #ff751f;
-  padding: 14px 28px;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
+.tip p {
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
-.btn-secundario:hover {
-  background: #ff751f;
-  color: #000;
-}
-
-/* ===== ANIMAÇÕES ===== */
+/* ✨ animações */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(40px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes floatUp {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== DICA DE OURO ===== */
+.dica-de-ouro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  padding: 100px 8%;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1b1b1b 100%);
+  color: #fff;
+  flex-wrap: wrap;
+}
+
+/* Texto à esquerda */
+.dica-texto {
+  flex: 1;
+  max-width: 500px;
+  animation: fadeInLeft 0.8s ease forwards;
+}
+
+.dica-texto h2 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #ffb347, #ff751f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.dica-texto h2::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #ff751f, #b20837);
+  margin-top: 10px;
+  border-radius: 2px;
+}
+
+.dica-texto p {
+  font-size: 1.1rem;
+  color: #ccc;
+  line-height: 1.8;
+}
+
+.dica-texto strong {
+  background: linear-gradient(90deg, #ffb347, #ff751f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Imagem grande à direita */
+.dica-imagem {
+  flex: 1.3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInRight 0.8s ease forwards;
+}
+
+.dica-imagem img {
+  width: 50%;
+  max-width: 650px;
+  border-radius: 25px;
+  border: 2px solid rgba(255, 117, 31, 0.4);
+  box-shadow: 0 0 40px rgba(255, 117, 31, 0.25);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.dica-imagem img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 60px rgba(255, 117, 31, 0.5);
+}
+
+/* ===== DESAFIOS ===== */
+.desafios {
+  background: linear-gradient(200deg, #0b0b0b, #050505ef);
+  color: #fff;
+  text-align: center;
+  padding: 100px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.titulo-desafios {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+  color: #ff971f;
+  font-weight: 800;
+}
+
+.desafios strong {
+  color: #ffb347;
+}
+
+.descricao-desafio {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 60px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+/* ===== RANKING EM FORMATO DE PÓDIO ===== */
+.ranking {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 35px;
+  position: relative;
+  margin-bottom: 40px;
+}
+
+/* Cartões dos participantes */
+.posicao {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 117, 31, 0.3);
+  border-radius: 20px;
+  padding: 30px 20px;
+  width: 230px;
+  transition: 0.3s ease;
+  backdrop-filter: blur(4px);
+  text-align: center;
+  box-shadow: 0 0 15px rgba(255, 117, 31, 0.15);
+}
+
+/* Alturas simulando o pódio */
+.posicao:nth-child(1) { /* 2º lugar - esquerda */
+  transform: translateY(30px);
+}
+.posicao:nth-child(2) { /* 1º lugar - centro */
+  transform: translateY(30px);
+}
+.posicao:nth-child(3) { /* 3º lugar - direita */
+  transform: translateY(30px);
+}
+
+.posicao:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 0 25px rgba(255, 117, 31, 0.4);
+}
+
+.posicao .numero {
+  display: block;
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.posicao h3 {
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.posicao p {
+  color: #ddd;
+  font-size: 1rem;
+}
+
+/* Destaque do primeiro lugar */
+.posicao.destaque {
+  background: linear-gradient(145deg, rgba(255,117,31,0.4), rgba(178,8,55,0.3));
+  border: 1px solid rgba(255,117,31,0.6);
+  box-shadow: 0 0 25px rgba(255,117,31,0.4);
+  transform: scale(1.05) translateY(-25px);
+}
+
+/* ===== TEXTO FINAL ===== */
+.desafios p:last-of-type {
+  margin-top: 40px;
+  font-size: 1.1rem;
+  color: #fcfcfc;
+}
+
+.desafios strong:last-of-type {
+  color: #ffb347;
+}
+
 /* ===== RESPONSIVIDADE ===== */
 @media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2.2rem;
-  }
-
-  .benefits-grid,
-  .cards,
-  .tips {
+  .ranking {
     flex-direction: column;
     align-items: center;
   }
-
-  .card, .benefit, .tip {
+  .posicao {
+    transform: none !important;
     width: 90%;
   }
 }

@@ -14,7 +14,7 @@
       <div class="logo">
         <img src="/static/imagens/logo_semfundo.png" alt="LOGO PHOENIX RISE" class="logo-img" />
         
-        <!-- ✅ ADICIONAMOS A CLASSE -->
+        <!--  ADICIONAMOS A CLASSE -->
         <h1 class="logo-text">PHOENIX RISE</h1>
       </div>
       {% include 'links_base.html' %}
@@ -22,83 +22,180 @@
 
     <main>
       <!-- HERO: abertura com energia -->
-      <section class="hero">
-        <div class="overlay"></div>
-        <div class="hero-content">
-          <h1>Encontre. Pratique. Compartilhe. </h1>
-          <p>
-            No <strong>Phoenix Rise</strong>, Acreditamos que toda prática física - seja um esporte ou um hobby - é uma oportunidade de 
-            renascer mais forte. Descubra espaços, eventos e uma comunidade que vive o movimento com paixão.
-          </p>
-          <a href="/feed" class="btn-principal">Explorar Comunidade</a>
+    <section class="hero">
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <img src="/static/imagens/logo_semfundo.png" alt="Fênix" />
+        <h1>Encontre. Pratique. Compartilhe.</h1>
+        <p>
+          No <strong>Phoenix Rise</strong>, acreditamos que toda prática física - seja um esporte ou um hobby -
+          é uma oportunidade de renascer mais forte. Descubra espaços, eventos e uma comunidade que vive o movimento com paixão.
+        </p>
+        <div class="scroll-hint">
+          <p>⬇️ Role para baixo e descubra o que nossa plataforma preparou para você</p>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- COMPETIÇÕES -->
+     <!-- COMPETIÇÕES -->
       <section class="competicoes">
-        <h2>🏆 Em Alta no Mundo Esportivo</h2>
+        <h2 class="titulo-secao">🏆 Em Alta no Mundo Esportivo</h2>
+
+
         <div class="cards">
           <div class="card">
-            <img src="/static/imagens/handebol.jpg" alt="Handebol" />
-            <h3>Copa Alto-Oeste — Apodi/RN</h3>
-            <p>Competição regional de handebol reunindo grandes talentos do Nordeste.</p>
+            <img src="/static/imagens/copaoeste.png" alt="Handebol" />
+            <h3>III COPA OESTE DE HANDEBOL — APODI/RN</h3>
+            <p>
+              Nos dias 29 e 30 de novembro, o Ginásio Vilson Custódio Diogenes será palco de grandes jogos,
+              com diversas categorias e R$ 6.000,00 em premiação.
+            </p>
+            <p>
+              <a href="https://www.instagram.com/p/DNqWLRdR_bf/?igsh=MWc1bGpubTVmeW50cQ==" 
+                class="link-card" target="_blank">
+                🔗 Clique para saber mais
+              </a>
+            </p>
           </div>
 
           <div class="card">
-            <img src="/static/imagens/corrida.jpg" alt="Corrida Phoenix" />
-            <h3>Corrida Phoenix 5K — Mossoró</h3>
-            <p>Prepare-se para sentir a energia das ruas e desafiar seus limites.</p>
+            <img src="/static/imagens/corrida_gaspec.png" alt="Corrida Phoenix" />
+            <h3>CORRIDA BENEFICENTE DO GASPEC - 2025</h3>
+            <p>
+              O evento tem como objetivo promover a saúde, assim como captação de recursos para a manutenção da Instituição.
+            </p>
+            <a href="https://www.instagram.com/p/DQb36wyEeQv/?igsh=MTIycTBiYjJwejl4eg==" 
+              class="link-card" target="_blank">
+              🔗 Clique para saber mais
+            </a>
+          </div>
+
+          <div class="card">
+            <img src="/static/imagens/corrida_igreja.png" alt="Corrida Imaculada" />
+            <h3>5ª CORRIDA DA IMACULADA CONCEIÇÃO</h3>
+            <p>
+              No dia 07 de dezembro ocorrerá a 5ª Corrida da Imaculada Conceição, com categorias feminina e masculina,
+              além de camisa e medalha de participação.
+            </p>
+            <a href="https://www.instagram.com/p/DQmbyEkkZp1/?igsh=Ynlwb2NuMG9sajQ3" 
+              class="link-card" target="_blank">
+              🔗 Clique para saber mais
+            </a>
           </div>
         </div>
       </section>
+
 
       <!-- BENEFÍCIOS -->
       <section class="beneficios">
-        <h2>🔥 Lojas em promoção</h2>
+        <h2 class="titulo-beneficios">🔥 Lojas em promoção</h2>
         <div class="benefits-grid">
+          
           <div class="benefit">
+            <div class="icone">
+              <img src="/static/imagens/tenis_c4.png" alt="Ícone tenis" />
+            </div>
             <h3>Sport Center</h3>
-            <p>promoções em tênis de corrida da olimpycos corre</p>
+            <p>Promoção imperdível: Tênis de corrida <strong>Olympikus Corre 4</strong> com super desconto!</p>
           </div>
 
           <div class="benefit">
-            <h3>Participe de Competições</h3>
-            <p>Mostre seu potencial e conecte-se com outros atletas.</p>
+            <div class="icone">
+              <img src="/static/imagens/WHEY(1).png" alt="Ícone whey" />
+            </div>
+            <h3>Meu Suplemento</h3>
+            <p>Suplemento certo para seu treino: <strong>Whey Protein DUX</strong> com 50% de desconto!</p>
           </div>
 
           <div class="benefit">
-            <img src="/static/imagens/icon_comunidade.png" alt="Comunidade" />
-            <h3>Compartilhe Conquistas</h3>
-            <p>Publique fotos, troque experiências e inspire pessoas.</p>
+            <div class="icone">
+              <img src="/static/imagens/conjunto.png" alt="Ícone whey" />
+            </div>
+            <h3>Fit Closet Apodi</h3>
+            <p>30% OFF em <strong>conjuntos esportivos</strong> - mova-se com estilo e conforto!</p>
           </div>
         </div>
       </section>
 
-      <!-- DICAS -->
-      <section class="dicas">
-        <h2>💡 Dicas para seu Corpo e Mente</h2>
-        <div class="tips">
-          <div class="tip">
-            <h3>🧘 Alongue-se</h3>
-            <p>Previna lesões e aumente sua flexibilidade antes e após os treinos.</p>
-          </div>
-          <div class="tip">
-            <h3>🥗 Alimente-se Bem</h3>
-            <p>Energia e performance vêm de uma boa nutrição e hidratação.</p>
-          </div>
-          <div class="tip">
-            <h3>💤 Descanse</h3>
-            <p>Recuperação é parte do processo. Seu corpo cresce no descanso.</p>
-          </div>
+     <section class="dicas">
+      <h2 class="titulo-dicas">💡 Dicas para seu Corpo e Mente</h2>
+      <div class="tips">
+        <div class="tip">
+          <h3>🧘 Alongue-se</h3>
+          <p>Previna lesões e aumente sua flexibilidade antes e após os treinos.</p>
         </div>
-      </section>
+        <div class="tip">
+          <h3>🥗 Alimente-se Bem</h3>
+          <p>Energia e performance vêm de uma boa nutrição e hidratação.</p>
+        </div>
+        <div class="tip">
+          <h3>💤 Descanse</h3>
+          <p>Recuperação é parte do processo. Seu corpo cresce no descanso.</p>
+        </div>
+      </div>
+    </section>
 
-      <!-- CHAMADA FINAL -->
-      <section class="cta">
-        <h2>Faça Parte da Comunidade Phoenix Rise</h2>
-        <p>Conecte-se com quem vive o esporte todos os dias. Seu novo começo começa agora.</p>
-        <a href="/cadastro" class="btn-secundario">Comece Hoje</a>
-      </section>
+    <!-- DICA DE OURO -->
+    <section class="dica-de-ouro">
+      <div class="dica-texto">
+        <h2>💎 Dica de Ouro</h2>
+        <p>
+          O <strong>treino cardiovascular</strong> é um dos maiores aliados da sua saúde.
+          Ele melhora o condicionamento físico, fortalece o coração, acelera o metabolismo
+          e ainda libera endorfina — o hormônio do bem-estar.  
+          Confira na imagem ao lado os principais <strong>benefícios do cardio!</strong>
+        </p>
+
+        <p>👉 Quer se aprofundar?</p>
+        <a href="https://blog.flowing.com.br/o-que-e-treino-cardio" 
+          target="_blank" rel="noopener" class="link-cardio">
+          🔗 Saiba mais sobre o treino cardio.
+        </a>
+      </div>
+
+      <div class="dica-imagem">
+        <img src="/static/imagens/cardio.jpeg" alt="Benefícios do Cardio" />
+      </div>
+    </section>
+
+    <!-- DESAFIOS -->
+    <section class="desafios">
+      <h2 class="titulo-desafios"> ! Desafio Phoenix do mês !</h2>
+      <p class="descricao-desafio">
+        Supere seus limites: desafie-se a correr <strong>3 km por dia</strong> entre <strong>1º e 31 de novembro</strong> e conquiste seu lugar 
+        no ranking da comunidade! Use a hashtag <strong>#DesafioDaPhoenix</strong> e mostre sua evolução para todo mundo ver. 🏃🔥 veja o ranking atual:
+      </p>
+
+
+      <div class="ranking">
+        <div class="posicao">
+          <span class="numero">🥈 2º</span>
+          <h3>João Victor</h3>
+          <p>Tempo: <strong>23min 09s</strong></p>
+        </div>
+
+        <div class="posicao destaque">
+          <span class="numero">🥇 1º</span>
+          <h3>Mariana Alves</h3>
+          <p>Tempo: <strong>22min 15s</strong></p>
+        </div>
+
+        <div class="posicao">
+          <span class="numero">🥉 3º</span>
+          <h3>Drika Grazielly</h3>
+          <p>Tempo: <strong>25min 44s</strong></p>
+        </div>
+      </div>
+
+      <p>
+        🚀 Quer entrar no ranking? <strong>Fique ligado no próximo desafio!</strong>
+      </p>
+    </section>
+
+
+
+
+
     </main>
   </body>
 </html>
