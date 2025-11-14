@@ -2,13 +2,81 @@
 
 body {
   background: #000;
-  margin: 0;
-  padding: 0;
   font-family: "Poppins", sans-serif;
   color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+header.topo #profile_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  margin: 1rem;
+}
+
+header.topo #profile_icon img {
+  width: 100%;
+  height: 100%;
+  color: #ffffff;
+}
+
+header.topo {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
+  background-color: #181818;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 1000;
+  position: relative;
+  box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.6);
+  height: 4rem;
+}
+
+header.topo::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.2rem;
+  background: linear-gradient(90deg, #ff751f, #b20837);
+  pointer-events: none;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo img {
+  height: 3rem;
+  width: 3rem;
+  object-fit: contain;
+}
+
+.logo-text {
+  font-size: 1.4rem;
+  margin: 0;
+  font-weight: bold;
+  background-image: linear-gradient(90deg, #ff751f, #b20837);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+header.topo a {
+  font-size: 1rem;
+  font-weight: bold;
+  background-image: linear-gradient(90deg, #ff751f, #b20837);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 form {
@@ -113,9 +181,53 @@ button:hover {
   box-shadow: 0 0 18px rgba(255, 117, 31, 0.6);
 }
 
-/* Navbar fixa */
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
+@media (max-width: 750px) {
+  header.topo {
+    display: flex;
+    justify-content: space-around;
+    height: 4rem;
+  }
+  header.topo a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 5px;
+    text-decoration: none;
+  }
+
+  header.topo #profile_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    margin: 0.25rem;
+  }
+
+  .logo-text {
+    display: flex;
+    font-size: 0.9rem;
+    margin: 0;
+    font-weight: bold;
+    background-image: linear-gradient(90deg, #ff751f, #b20837);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo img {
+    height: 2rem;
+    width: 2rem;
+    object-fit: contain;
+  }
 }

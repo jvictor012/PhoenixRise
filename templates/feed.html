@@ -4,29 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Feed - Phoenix Rise</title>
-    <link rel="stylesheet" href="/static/navbar.css" />
     <link rel="stylesheet" href="/static/feed.css" />
   </head>
   <body>
     <header class="topo">
       <div class="logo">
-        <img src="/static/imagens/logo_semfundo.png" alt="Logo Phoenix Rise" />
-        <h1>PHOENIX RISE</h1>
+        <img src="/static/imagens/logo_semfundo.png" alt="LOGO PHOENIX RISE" />
+        <h1 class="logo-text">PHOENIX RISE</h1>
       </div>
       {% include 'links_base.html' %}
     </header>
 
     <!-- ===== NOVO BOTÃO PARA IR À PÁGINA DE POSTAGEM ===== -->
-            <div class="botao-container">
-              <a href="{{ url_for('postagem') }}" class="btn-postar">✍️ Fazer uma Postagem</a>
-            </div>
-
+    <div class="botao-container">
+      <a href="{{ url_for('postagem') }}" class="btn-postar"
+        >✍️ Fazer uma Postagem</a
+      >
+    </div>
 
     <main class="feed">
       <h2>FEED - os post da comunidade</h2>
-
-  
-
 
       {% if posts %} {% for post in posts %}
       <div class="post-container">

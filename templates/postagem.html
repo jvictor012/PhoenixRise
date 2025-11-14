@@ -4,30 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Faça sua postagem</title>
-    <link rel="stylesheet" href="/static/navbar.css">
+    <link rel="stylesheet" href="/static/navbar.css" />
     <link href="/static/postagem.css" rel="stylesheet" />
   </head>
   <body>
-
-    <!-- Navbar -->
-    <header>
+    <!-- HEADER PADRONIZADO -->
+    <header class="topo">
       <div class="logo">
-        <img src="/static/imagens/logo_semfundo.png" alt="Logo">
-        <h1 class="degrade">PHOENIX RISE</h1>
+        <img src="/static/imagens/logo_semfundo.png" alt="LOGO PHOENIX RISE" />
+        <h1 class="logo-text">PHOENIX RISE</h1>
       </div>
-
       {% include 'links_base.html' %}
     </header>
 
     <form action="/fazer_postagem" method="POST" enctype="multipart/form-data">
       <div>
-
         <label for="post_label">Insira sua imagem:</label>
 
         <!-- INPUT BONITÃO -->
         <label class="file-upload">
           Selecionar imagem
-          <input type="file" id="post_label" name="post_label" required>
+          <input type="file" id="post_label" name="post_label" required />
         </label>
 
         <label for="descricao">Insira uma descrição para sua imagem:</label>
@@ -37,9 +34,7 @@
         <div class="botao-postar-container">
           <button type="submit">Postar</button>
         </div>
-
       </div>
     </form>
-
   </body>
 </html>

@@ -20,7 +20,75 @@ h2 {
   align-items: start;
   width: 100%;
   height: 100vh;
-  overflow: hidden; /* DESKTOP = Mantido */
+  overflow: hidden;
+}
+
+header.topo #profile_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  margin: 1rem;
+}
+
+header.topo #profile_icon img {
+  width: 100%;
+  height: 100%;
+  color: #ffffff;
+}
+
+header.topo {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  width: 100%;
+  background-color: #181818;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 1000;
+  position: relative;
+  box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.6);
+  height: 4rem;
+}
+
+header.topo::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.2rem;
+  background: linear-gradient(90deg, #ff751f, #b20837);
+  pointer-events: none;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo img {
+  height: 3rem;
+  width: 3rem;
+  object-fit: contain;
+}
+
+.logo-text {
+  font-size: 1.4rem;
+  margin: 0;
+  font-weight: bold;
+  background-image: linear-gradient(90deg, #ff751f, #b20837);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+header.topo a {
+  font-size: 1rem;
+  font-weight: bold;
+  background-image: linear-gradient(90deg, #ff751f, #b20837);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .container-side-bar {
@@ -177,14 +245,13 @@ button {
 .icons img {
   color: #ffffff;
 }
-/* ============================================
-   TELAS MÉDIAS — TABLETS
-   ============================================ */
+
+/* TELEFONES GRANDES E TABLETS */
 @media (max-width: 1024px) {
   .geral {
     flex-direction: column;
     height: auto;
-    overflow: visible; /* libera apenas no tablet */
+    overflow: visible;
   }
 
   .container-mapa,
@@ -203,10 +270,8 @@ button {
   }
 }
 
-/* ============================================
-   TELAS PEQUENAS — CELULARES
-   ============================================ */
-@media (max-width: 768px) {
+/* CELULARES */
+@media (max-width: 750px) {
   body {
     overflow: visible;
     height: 100%;
@@ -214,7 +279,7 @@ button {
 
   .geral {
     flex-direction: column;
-    overflow: visible; /* DESLIGA hidden no celular */
+    overflow: visible;
     align-items: center;
     height: auto;
   }
@@ -248,15 +313,15 @@ button {
   }
 
   button {
-    padding: 0.6rem 1rem; /* maior área clicável */
-    font-size: 1rem; /* fonte maior */
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
     display: flex;
     align-items: center;
     gap: 5px;
   }
 
   .icons {
-    width: 22px; /* aumenta o ícone pra combinar */
+    width: 22px;
     height: 22px;
   }
 
@@ -274,11 +339,58 @@ button {
   .image img {
     width: 100%;
   }
+
+  header.topo {
+    display: flex;
+    justify-content: space-around;
+    height: 4rem;
+  }
+  header.topo a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 5px;
+    text-decoration: none;
+  }
+
+  header.topo #profile_icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    margin: 0.25rem;
+  }
+
+  .logo-text {
+    display: flex;
+    font-size: 0.9rem;
+    margin: 0;
+    font-weight: bold;
+    background-image: linear-gradient(90deg, #ff751f, #b20837);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo img {
+    height: 2rem;
+    width: 2rem;
+    object-fit: contain;
+  }
 }
 
-/* ============================================
-   TELAS MUITO PEQUENAS — 360px
-   ============================================ */
+/* MUITO PEQUENOS */
 @media (max-width: 400px) {
   button {
     font-size: 0.7rem;
