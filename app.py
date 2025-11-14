@@ -191,42 +191,67 @@ def feed():
 @app.route("/perfil", methods=["GET", "POST"])
 @login_required
 def perfil():
+    usuario_id = current_user.id
+    nome_usuario = current_user.nome
+
     if request.method == "POST":
-        usuario_id = current_user.id
-
-        imagem_perfil = request.files.get('imagem_perfil')
-        if imagem_perfil and imagem_perfil.filename != '':
-            image = cloudinary.uploader.upload(imagem_perfil)
-            url_imagem_perfil = image['secure_url']
-
-            query = '''UPDATE usuarios SET foto_url = %s WHERE id = %s''' #enviando imagem pro bd
-            valores = (url_imagem_perfil, usuario_id)
-            executar_comandos(query, valores)
-            return redirect(url_for("perfil"))
         
+        #upload da imagem
+        if 'imagem_perfil' in request.files:
+            imagem_perfil = request.files.get('imagem_perfil')
+            if imagem_perfil and imagem_perfil.filename != '':
+                image = cloudinary.uploader.upload(imagem_perfil)
+                url_imagem_perfil = image['secure_url']
+
+                query = '''UPDATE usuarios SET foto_url = %s WHERE id = %s''' #enviando imagem pro bd
+                executar_comandos(query, (url_imagem_perfil, usuario_id))
+                return redirect(url_for("perfil"))
+        
+        #atualização do nivel esportivo
         nivel_esportivo = request.form.get('nivel_esportivo')
         if nivel_esportivo:
             query = "UPDATE usuarios SET nivel_esportivo = %s WHERE id = %s"
             executar_comandos(query, (nivel_esportivo, current_user.id))
             return redirect(url_for("perfil"))
         
-    nome_usuario = current_user.nome
-    usuario_id = current_user.id
-    query = '''SELECT foto_url, email,nivel_esportivo FROM usuarios WHERE id = %s'''
-    values = (usuario_id,)
-    resultado = executar_comandos(query, values)
+        #atualização dos interesses
+        interesses_selecionados = request.form.getlist('interesses')
+        if interesses_selecionados:
+            for nome_esporte in interesses_selecionados:
+                query = "SELECT id_esporte FROM esportes WHERE nome_esporte = %s"
+                resultado = executar_comandos(query, (nome_esporte,), fetchone=True)
 
-    if resultado:
-        foto_url = resultado[0][0] if resultado and resultado[0][0] else None
-        email = resultado[0][1]
-        nivel_esportivo = resultado[0][2]
-    
+                if resultado:
+                    id_esporte = resultado[0]
+                    query_check = "SELECT * FROM usuario_esporte WHERE id_usuario = %s AND id_esporte = %s"
+                    existe = executar_comandos(query_check, (usuario_id, id_esporte), fetchone=True)
+
+                    if not existe:
+                        query_insert = "INSERT INTO usuario_esporte (id_usuario, id_esporte) VALUES(%s, %s)"
+                        executar_comandos(query_insert, (usuario_id, id_esporte))
+            return redirect(url_for("perfil"))
+        
+        #coleta de dados so usuário
+    query = "SELECT nome_usuario, email, foto_url, nivel_esportivo FROM usuarios WHERE id = %s"
+    usuario = executar_comandos(query, (usuario_id,), fetchone=True)
+
+    if usuario:
+        nome_usuario, email, foto_url, nivel_esportivo = usuario
+
     else:
-        foto_url = None
-        email = ""
-        nivel_esportivo = ""
+        nome_usuario, email, foto_url, nivel_esportivo = "", "", None, ""
 
-    return render_template("perfil.html", resultado=foto_url, nome_usuario=nome_usuario, email=email, nivel_esportivo=nivel_esportivo)
+    #busca de interesses associados ao usuário
+    query_interesses = '''
+    SELECT e.nome_esporte
+    FROM usuario_esporte ue
+    JOIN esportes e ON ue.id_esporte = e.id_esporte        
+    WHERE ue.id_usuario = %s
+    '''
+    interesses_usuario = executar_comandos(query_interesses, (usuario_id,))
+    interesses_lista = [i[0] for i in interesses_usuario] if interesses_usuario else []
+
+    return render_template("perfil.html", resultado=foto_url, nome_usuario=nome_usuario, email=email, nivel_esportivo=nivel_esportivo, interesses=interesses_lista)
 
 @app.route("/interesses", methods=["GET", "POST"])
 def interesses():

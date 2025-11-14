@@ -57,6 +57,8 @@ CREATE TABLE usuarios (
 );
 
 ALTER TABLE usuarios ADD COLUMN nivel_esportivo VARCHAR(50) DEFAULT NULL;
+ALTER TABLE usuarios ADD COLUMN interesses TEXT;
+
 
 -- =====================================================
 -- TABELA: USUARIO_ESPORTE (TABELA RELACIONAL)

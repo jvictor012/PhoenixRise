@@ -88,6 +88,24 @@
                   readonly
                 />
               </div>
+
+              <div class="input-container">
+                <label for="nivel">NÍVEL ESPORTIVO</label>
+                {%if nivel_esportivo %}
+                <input type="text" id="nivel" value="{{nivel_esportivo}}" readonly />
+                {%else%}
+                <input type="text" id="nivel" value="Não informado" readonly />
+                {%endif%}
+              </div>
+
+              <div class="input-container">
+                <label for="interesses">INTERESSES</label>
+                {%if interesses %}
+                <textarea id="interesses">{{ interesses | join (', ') }}</textarea>
+                {%else%}
+                <textarea id="interesses">Sem interesses selecionados.</textarea>
+                {%endif%}
+              </div>
             </form>
           </div>
         </div>
@@ -196,6 +214,8 @@
               nivel_esportivo == 'Avançado' %}checked{% endif %}/>
             </label>
           </div>
+
+          <button type="submit" class="btn-salvar-interesses">Salvar nível</button>
         </form>
       </section>
     </div>
