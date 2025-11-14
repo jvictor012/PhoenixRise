@@ -80,22 +80,20 @@
               {% for pesquisa in consulta %}
               <div class="card">
                 <h2>{{ pesquisa[0] }} - {{ pesquisa[9] }}</h2>
-
                 <div class="image">
                   <img src="{{ pesquisa[8] }}" alt="{{ pesquisa[0] }}" />
                 </div>
-
                 <footer>
                   <p>{{ pesquisa[4] }} - {{ pesquisa[3] }}</p>
                 </footer>
 
                 <div class="line"></div>
               </div>
+
               {% endfor %}
             </div>
           </div>
         </div>
-
         <footer class="footer">
           <p>PHOENIX RISE</p>
         </footer>
