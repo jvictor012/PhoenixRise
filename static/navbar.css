@@ -29,6 +29,15 @@ header::after {
   pointer-events: none;
 }
 
+#profile_icon {
+  width: auto;
+  height: 90%;
+}
+#profile_icon img {
+  width: 100%;
+  height: 100%;
+}
+
 a {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-weight: bold;

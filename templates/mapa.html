@@ -19,31 +19,60 @@
       </div>
       {% include 'links_base.html' %}
     </header>
+
     <div class="geral">
       <div class="container-mapa">
         <div class="mapa">
+          <!-- BARRA DE FILTROS -->
           <div class="barra-superior">
             <form action="/mapa" class="form" method="get">
               <button type="submit" name="select_mapa" value="0">TODOS</button>
+
               <button type="submit" name="select_mapa" value="1">
+                <img
+                  class="icons"
+                  src="/static/icons/dumbell.png"
+                  alt="Academias"
+                />
                 ACADEMIAS
               </button>
+
               <button type="submit" name="select_mapa" value="2">
+                <img
+                  class="icons"
+                  src="/static/icons/dumbell.png"
+                  alt="Academias públicas"
+                />
                 ACADEMIAS PÚBLICAS
               </button>
+
               <button type="submit" name="select_mapa" value="3">
+                <img class="icons" src="/static/icons/fire.png" alt="Quadras" />
                 QUADRAS
               </button>
+
               <button type="submit" name="select_mapa" value="4">
+                <img
+                  class="icons"
+                  src="/static/icons/energy.png"
+                  alt="Crossfit"
+                />
                 CROSSFIT
               </button>
-              <button type="submit" name="select_mapa" value="5">LOJAS</button>
+
+              <button type="submit" name="select_mapa" value="5">
+                <img class="icons" src="/static/icons/cart.png" alt="Lojas" />
+                LOJAS
+              </button>
             </form>
           </div>
+
+          <!-- MAPA -->
           <div class="mapinha">{{ mapa_html|safe }}</div>
         </div>
       </div>
 
+      <!-- SIDE BAR -->
       <div class="container-side-bar">
         <div class="side-bar">
           <div class="container">
@@ -51,27 +80,31 @@
               {% for pesquisa in consulta %}
               <div class="card">
                 <h2>{{ pesquisa[0] }} - {{ pesquisa[9] }}</h2>
+
                 <div class="image">
                   <img src="{{ pesquisa[8] }}" alt="{{ pesquisa[0] }}" />
                 </div>
+
                 <footer>
                   <p>{{ pesquisa[4] }} - {{ pesquisa[3] }}</p>
                 </footer>
 
                 <div class="line"></div>
               </div>
-
               {% endfor %}
             </div>
           </div>
         </div>
+
         <footer class="footer">
           <p>PHOENIX RISE</p>
         </footer>
       </div>
     </div>
+
+    <!-- SCRIPT (não vai quebrar se não houver .btn-detalhes mais) -->
     <script>
-      document.querySelectorAll(".btn-detalhes button").forEach((botao) => {
+      document.querySelectorAll(".btn-detalhes button")?.forEach((botao) => {
         botao.addEventListener("click", () => {
           const detalhes = botao.previousElementSibling;
           detalhes.classList.toggle("ativo");

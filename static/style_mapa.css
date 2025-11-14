@@ -3,7 +3,7 @@ body {
   color: #fff;
   margin: 0;
   font-family: "BM Hanna", sans-serif;
-  overflow: hidden; /* Mantido para desktop/telas grandes */
+  height: 100vh;
 }
 
 h2 {
@@ -20,7 +20,7 @@ h2 {
   align-items: start;
   width: 100%;
   height: 100vh;
-  overflow: hidden;
+  overflow: hidden; /* DESKTOP = Mantido */
 }
 
 .container-side-bar {
@@ -37,6 +37,7 @@ h2 {
   gap: 20px;
   padding: 20px;
 }
+
 .card {
   margin: 1rem 0rem;
   background: #181818;
@@ -96,7 +97,7 @@ footer i {
 }
 
 .container-mapa {
-  width: 70%;
+  width: 65%;
   height: 90%;
   display: flex;
   justify-content: start;
@@ -135,16 +136,16 @@ footer i {
 .barra-superior {
   display: flex;
   width: 100%;
-  height: 6%;
+  height: auto;
   align-content: center;
-  justify-content: space-between;
+  justify-content: center;
   z-index: 1;
+  padding-bottom: 8px;
 }
 
 .form {
   display: flex;
   width: 100%;
-  height: 100%;
   align-items: center;
   justify-content: space-between;
   background-color: #1e1e1e;
@@ -159,7 +160,132 @@ button {
   border-radius: 10px;
   background: linear-gradient(90deg, #ff751f, #b20837);
   transition: 0.3s;
-  width: 15%;
-  height: 100%;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.icons {
+  width: 22px;
+  height: 22px;
+  margin-right: 6px;
+}
+
+.icons img {
+  color: #ffffff;
+}
+/* ============================================
+   TELAS MÉDIAS — TABLETS
+   ============================================ */
+@media (max-width: 1024px) {
+  .geral {
+    flex-direction: column;
+    height: auto;
+    overflow: visible; /* libera apenas no tablet */
+  }
+
+  .container-mapa,
+  .container-side-bar {
+    width: 100%;
+    height: auto;
+  }
+
+  .mapinha {
+    height: 400px;
+  }
+
+  button {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* ============================================
+   TELAS PEQUENAS — CELULARES
+   ============================================ */
+@media (max-width: 768px) {
+  body {
+    overflow: visible;
+    height: 100%;
+  }
+
+  .geral {
+    flex-direction: column;
+    overflow: visible; /* DESLIGA hidden no celular */
+    align-items: center;
+    height: auto;
+  }
+
+  .container-mapa {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+  }
+
+  .mapinha {
+    height: 300px;
+  }
+
+  .barra-superior {
+    justify-content: start;
+    overflow-x: auto;
+    padding: 5px 0;
+    scrollbar-width: none;
+  }
+
+  .barra-superior::-webkit-scrollbar {
+    display: none;
+  }
+
+  .form {
+    width: max-content;
+    gap: 10px;
+    padding: 5px 10px;
+    border-radius: 14px;
+  }
+
+  button {
+    padding: 0.6rem 1rem; /* maior área clicável */
+    font-size: 1rem; /* fonte maior */
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .icons {
+    width: 22px; /* aumenta o ícone pra combinar */
+    height: 22px;
+  }
+
+  .container-side-bar {
+    height: auto;
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  .card {
+    margin: 0.5rem 0;
+    padding: 4%;
+  }
+
+  .image img {
+    width: 100%;
+  }
+}
+
+/* ============================================
+   TELAS MUITO PEQUENAS — 360px
+   ============================================ */
+@media (max-width: 400px) {
+  button {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .mapinha {
+    height: 250px;
+  }
 }
