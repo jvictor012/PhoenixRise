@@ -186,8 +186,8 @@ header.topo a {
 .titulo-beneficios::after {
   content: "";
   display: block;
-  width: 100px;
-  height: 4px;
+  width: 600px;
+  height: 2px;
   background: linear-gradient(90deg, #ff751f, #b20837);
   margin: 15px auto 0;
   border-radius: 2px;
@@ -283,8 +283,8 @@ header.topo a {
 .titulo-secao::after {
   content: "";
   display: block;
-  width: 100px;
-  height: 4px;
+  width: 600px;
+  height: 2px;
   background: linear-gradient(90deg, #ff751f, #b20837);
   margin: 15px auto 0;
   border-radius: 2px;
@@ -376,8 +376,8 @@ header.topo a {
 .titulo-dicas::after {
   content: "";
   display: block;
-  width: 120px;
-  height: 3px;
+  width: 600px;
+  height: 2px;
   background: linear-gradient(90deg, #ff751f, #b20837);
   margin: 15px auto 0;
   border-radius: 2px;
@@ -480,8 +480,8 @@ header.topo a {
 .dica-texto h2::after {
   content: "";
   display: block;
-  width: 100px;
-  height: 4px;
+  width: 400px;
+  height: 2px;
   background: linear-gradient(90deg, #ff751f, #b20837);
   margin-top: 10px;
   border-radius: 2px;
