@@ -18,12 +18,14 @@
     <!-- ===== NOVO BOTÃO PARA IR À PÁGINA DE POSTAGEM ===== -->
     <div class="botao-container">
       <a href="{{ url_for('postagem') }}" class="btn-postar"
-        >✍️ Fazer uma Postagem</a
+        >Fazer uma Postagem</a
       >
     </div>
 
     <main class="feed">
       <h2>FEED - os post da comunidade</h2>
+
+    
 
       {% if posts %} {% for post in posts %}
       <div class="post-container">

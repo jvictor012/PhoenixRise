@@ -19,6 +19,13 @@ body {
   line-height: 1.6;
 }
 
+
+body {
+  background: url("/static/imagens/home.png") no-repeat center center fixed;
+  background-size: cover;
+  color: #f5f5f5;
+  line-height: 1.6;
+}
 header.topo #profile_icon {
   display: flex;
   align-items: center;
@@ -38,7 +45,7 @@ header.topo {
   font-family: "BM Hanna", sans-serif;
   font-size: 1rem;
   width: 100%;
-  background-color: #181818;
+  background-color: #000000;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -88,6 +95,7 @@ header.topo a {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 /* ===== FEED ===== */
 .feed {
   max-width: 700px;
@@ -97,7 +105,7 @@ header.topo a {
 
 .feed h2 {
   font-size: 2.5rem;
-  text-align: left;
+  text-align: center;
   background: linear-gradient(90deg, #ff751f, #b20837);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -109,8 +117,8 @@ header.topo a {
 .feed h2::after {
   content: "";
   display: block;
-  width: 300px;
-  height: 4px;
+  width: 600px;
+  height: 2px;
   background: linear-gradient(90deg, #ff751f, #b20837);
   margin: 15px auto 0;
   border-radius: 2px;
@@ -175,8 +183,8 @@ header.topo a {
 
 /* ===== IMAGEM (3:4 ESTILO INSTAGRAM, MENOR) ===== */
 .imagem-post {
-  width: 70%; /* diminuiu de 80% para 70% */
-  max-width: 320px; /* diminuiu de 400px para 320px */
+  width: 70%;
+  max-width: 320px;
   aspect-ratio: 3 / 4;
   object-fit: cover;
   border-radius: 10px;
@@ -191,14 +199,14 @@ header.topo a {
 .info-post {
   display: flex;
   align-items: center;
-  gap: 2px; /* espaço entre nome e descrição */
-  flex-wrap: nowrap; /* impede quebra de linha */
+  gap: 2px;
+  flex-wrap: nowrap;
   margin-top: 8px;
 }
 
 .nome-dentro {
-  color: #ff751f; /* cor do nome do usuário, aqui azul como exemplo */
-  font-weight: 600; /* opcional, deixa o nome mais destacado */
+  color: #ff751f;
+  font-weight: 600;
   font-size: 18px;
 }
 
@@ -207,7 +215,7 @@ header.topo a {
   color: #ddd;
   line-height: 1.5;
   word-break: break-word;
-  display: inline; /* garante que fique na mesma linha */
+  display: inline;
 }
 
 /* ===== SEM POSTS ===== */
@@ -220,29 +228,37 @@ header.topo a {
 
 .botao-container {
   display: flex;
-  justify-content: flex-end; /* alinha para a direita */
+  justify-content: flex-end;
   width: 100%;
-  padding-right: 20px; /* opcional: dá um espaço da borda */
+  padding-right: 20px;
   margin: 20px 0;
 }
 
+/* ===== NOVO BOTÃO ESTILIZADO ===== */
 .btn-postar {
-  background-color: #ff751f;
-  padding: 10px 20px;
-  border-radius: 8px;
+  background: linear-gradient(90deg, #ff751f, #b20837);
+  padding: 6px 16px;
+  border-radius: 10px;
   text-decoration: none;
   color: #fff;
   font-weight: bold;
-  transition: 0.3s;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  box-shadow: 0 0 8px rgba(255, 117, 31, 0.4),
+              0 0 15px rgba(178, 8, 55, 0.4);
+  transition: 0.3s ease;
 }
 
 .btn-postar:hover {
-  background-color: #b20837;
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 0 15px rgba(255, 117, 31, 0.7),
+              0 0 25px rgba(178, 8, 55, 0.7);
 }
+
 
 /* ===== RESPONSIVIDADE ===== */
 
-/* Para tablets e telas médias */
+/* Tablets */
 @media (max-width: 768px) {
   .feed {
     margin: 40px auto;
@@ -279,79 +295,30 @@ header.topo a {
     font-size: 15px;
   }
 
-  /* HEADER */
   header.topo #profile_icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 3rem;
     height: 3rem;
-    margin: 1rem;
-  }
-
-  header.topo #profile_icon img {
-    width: 100%;
-    height: 100%;
-    color: #ffffff;
   }
 
   header.topo {
-    font-family: "BM Hanna", sans-serif;
     font-size: 0.5rem;
-    width: 100%;
-    background-color: #181818;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    z-index: 1000;
-    position: relative;
-    box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.6);
-    height: 4rem;
-  }
-
-  header.topo::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 0.2rem;
-    background: linear-gradient(90deg, #ff751f, #b20837);
-    pointer-events: none;
-  }
-
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
   }
 
   .logo img {
     height: 1rem;
     width: 1rem;
-    object-fit: contain;
   }
 
   .logo-text {
     font-size: 0.9rem;
-    margin: 0;
-    font-weight: bold;
-    background-image: linear-gradient(90deg, #ff751f, #b20837);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: 0.05rem;
   }
 
   header.topo a {
     font-size: 0.7rem;
-    font-weight: bold;
-    background-image: linear-gradient(90deg, #ff751f, #b20837);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
   }
 }
 
-/* Para celulares e telas pequenas */
+/* Celulares */
 @media (max-width: 480px) {
   .logo h1 {
     font-size: 20px;
@@ -402,7 +369,7 @@ header.topo a {
   }
 
   .info-post {
-    flex-wrap: wrap; /* permite quebrar linha se não couber */
+    flex-wrap: wrap;
     gap: 4px;
   }
 }

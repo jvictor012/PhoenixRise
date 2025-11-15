@@ -8,6 +8,14 @@ body {
   height: 100vh;
 }
 
+body {
+  background: url("/static/imagens/home.png") no-repeat center center fixed;
+  background-size: cover;
+  color: #f5f5f5;
+  line-height: 1.6;
+}
+
+
 h2 {
   background: linear-gradient(60deg, #ff751f, #b20837);
   -webkit-background-clip: text;
@@ -44,7 +52,7 @@ header.topo #profile_icon img {
 header.topo {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   width: 100%;
-  background-color: #181818;
+  background-color: #000000;
   display: flex;
   align-items: center;
   justify-content: space-around;
