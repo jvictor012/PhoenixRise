@@ -17,6 +17,7 @@ body {
   color: white;
   overflow-x: hidden;
   scroll-behavior: smooth;
+   overflow: hidden;
 }
 
 /* ===== HEADER ===== */
