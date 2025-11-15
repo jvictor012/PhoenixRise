@@ -1,34 +1,33 @@
-import mysql.connector
+import sqlite3
+
+DB_PATH = "phoenixrise.db"  # seu arquivo
 
 def executar_comandos(query, valores=None, fetchone=False, retornar_id=False):
-    conexao = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="JoãoVictor15",
-        database="phoenixrise"
-    )
-    cursor = conexao.cursor()
+    try:
+        conn = sqlite3.connect(DB_PATH)
+        conn.row_factory = sqlite3.Row  # permite acessar colunas por nome
+        cur = conn.cursor()
 
-    cursor.execute(query, valores)
-    resultado = None
-
-    # detecta tipo de query
-    comando = query.strip().split()[0].upper()
-
-    if comando == "SELECT":
-        if fetchone:
-            resultado = cursor.fetchone()
+        if valores:
+            cur.execute(query, valores)
         else:
-            resultado = cursor.fetchall()
+            cur.execute(query)
 
-    elif comando == "INSERT" and retornar_id:
-        conexao.commit()
-        resultado = cursor.lastrowid
+        if retornar_id:
+            conn.commit()
+            return cur.lastrowid
 
-    else:
-        conexao.commit()
+        if fetchone:
+            resultado = cur.fetchone()
+        else:
+            resultado = cur.fetchall()
 
-    cursor.close()
-    conexao.close()
-    return resultado
+        conn.commit()
+        return resultado
 
+    except Exception as e:
+        print("ERRO SQLITE:", e)
+        return None
+
+    finally:
+        conn.close()
