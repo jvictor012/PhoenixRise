@@ -11,7 +11,6 @@
     <header class="topo">
       <div class="logo">
         <img src="/static/imagens/logo_semfundo.png" alt="LOGO PHOENIX RISE" />
-        <h1 class="logo-text">PHOENIX RISE</h1>
       </div>
       {% include 'links_base.html' %}
     </header>
@@ -92,7 +91,12 @@
               <div class="input-container">
                 <label for="nivel">NÍVEL ESPORTIVO</label>
                 {%if nivel_esportivo %}
-                <input type="text" id="nivel" value="{{nivel_esportivo}}" readonly />
+                <input
+                  type="text"
+                  id="nivel"
+                  value="{{nivel_esportivo}}"
+                  readonly
+                />
                 {%else%}
                 <input type="text" id="nivel" value="Não informado" readonly />
                 {%endif%}
@@ -101,9 +105,13 @@
               <div class="input-container">
                 <label for="interesses">INTERESSES</label>
                 {%if interesses %}
-                <textarea id="interesses">{{ interesses | join (', ') }}</textarea>
+                <textarea id="interesses">
+{{ interesses | join (', ') }}</textarea
+                >
                 {%else%}
-                <textarea id="interesses">Sem interesses selecionados.</textarea>
+                <textarea id="interesses">
+Sem interesses selecionados.</textarea
+                >
                 {%endif%}
               </div>
             </form>
@@ -215,7 +223,9 @@
             </label>
           </div>
 
-          <button type="submit" class="btn-salvar-interesses">Salvar nível</button>
+          <button type="submit" class="btn-salvar-interesses">
+            Salvar nível
+          </button>
         </form>
       </section>
     </div>

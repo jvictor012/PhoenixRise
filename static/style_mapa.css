@@ -3,7 +3,9 @@ body {
   color: #fff;
   margin: 0;
   font-family: "BM Hanna", sans-serif;
-  overflow: hidden; /* Mantido para desktop/telas grandes */
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100vh;
 }
 
 h2 {
@@ -19,9 +21,9 @@ h2 {
   justify-content: end;
   align-items: start;
   width: 100%;
-  height: 100vh;
-  overflow: hidden;
-<<<<<<< HEAD
+  min-height: 100vh;
+  height: auto;
+  overflow: visible;
 }
 
 header.topo #profile_icon {
@@ -46,8 +48,9 @@ header.topo {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  z-index: 1000;
-  position: relative;
+  z-index: 999;
+  position: sticky;
+  top: 0;
   box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.6);
   height: 4rem;
 }
@@ -90,8 +93,6 @@ header.topo a {
   background-image: linear-gradient(90deg, #ff751f, #b20837);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-=======
->>>>>>> d710f6c964e68285d749c527dcfc5177049bf3b6
 }
 
 .container-side-bar {
@@ -108,6 +109,7 @@ header.topo a {
   gap: 20px;
   padding: 20px;
 }
+
 .card {
   margin: 1rem 0rem;
   background: #181818;
@@ -167,11 +169,13 @@ footer i {
 }
 
 .container-mapa {
-  width: 70%;
-  height: 90%;
+  width: 65%;
+  height: 100vh;
+  min-height: 400px;
   display: flex;
   justify-content: start;
   align-items: start;
+  padding: 1rem;
 }
 
 .mapa {
@@ -180,7 +184,7 @@ footer i {
   justify-content: start;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: auto;
   padding: 1rem;
 }
 
@@ -197,8 +201,10 @@ footer i {
 }
 
 .mapinha {
-  height: 80%;
   width: 100%;
+  height: 60vh;
+  max-height: 600px;
+  min-height: 250px;
   border-radius: 0% 0px 20px 20px;
   overflow: hidden;
 }
@@ -230,7 +236,6 @@ button {
   border-radius: 10px;
   background: linear-gradient(90deg, #ff751f, #b20837);
   transition: 0.3s;
-<<<<<<< HEAD
   padding: 0.5rem 1rem;
   display: flex;
   gap: 8px;
@@ -249,7 +254,6 @@ button {
   color: #ffffff;
 }
 
-/* TELEFONES GRANDES E TABLETS */
 @media (max-width: 1024px) {
   .geral {
     flex-direction: column;
@@ -264,7 +268,7 @@ button {
   }
 
   .mapinha {
-    height: 400px;
+    height: 50vh;
   }
 
   button {
@@ -273,7 +277,6 @@ button {
   }
 }
 
-/* CELULARES */
 @media (max-width: 750px) {
   body {
     overflow: visible;
@@ -289,12 +292,24 @@ button {
 
   .container-mapa {
     width: 100%;
-    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
     padding: 0;
   }
 
+  .mapa {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    width: 90%;
+    height: auto;
+  }
   .mapinha {
-    height: 300px;
+    height: 40vh;
   }
 
   .barra-superior {
@@ -316,7 +331,7 @@ button {
   }
 
   button {
-    padding: 0.6rem 1rem;
+    padding: 0;
     font-size: 1rem;
     display: flex;
     align-items: center;
@@ -344,10 +359,10 @@ button {
   }
 
   header.topo {
-    display: flex;
     justify-content: space-around;
     height: 4rem;
   }
+
   header.topo a {
     display: flex;
     align-items: center;
@@ -360,30 +375,13 @@ button {
   }
 
   header.topo #profile_icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 2rem;
     height: 2rem;
     margin: 0.25rem;
   }
 
   .logo-text {
-    display: flex;
     font-size: 0.9rem;
-    margin: 0;
-    font-weight: bold;
-    background-image: linear-gradient(90deg, #ff751f, #b20837);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
   .logo img {
@@ -393,7 +391,6 @@ button {
   }
 }
 
-/* MUITO PEQUENOS */
 @media (max-width: 400px) {
   button {
     font-size: 0.7rem;
@@ -403,9 +400,4 @@ button {
   .mapinha {
     height: 250px;
   }
-=======
-  width: 15%;
-  height: 100%;
-  padding: 0.5rem;
->>>>>>> d710f6c964e68285d749c527dcfc5177049bf3b6
 }
