@@ -307,8 +307,8 @@ header.topo a {
   }
 
   .logo img {
-    height: 1rem;
-    width: 1rem;
+    height: 2rem;
+    width: 2rem;
   }
 
   .logo-text {
@@ -316,7 +316,7 @@ header.topo a {
   }
 
   header.topo a {
-    font-size: 0.7rem;
+    font-size: 1rem;
   }
 }
 

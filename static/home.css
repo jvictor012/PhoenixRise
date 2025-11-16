@@ -819,6 +819,9 @@ header.topo a {
   /* DICAS */
   .tips {
     flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 30px;
   }
 
@@ -828,15 +831,55 @@ header.topo a {
 
   /* DICA DE OURO */
   .dica-de-ouro {
-    padding: 60px 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    height: min-content;
+    margin: 0;
+    padding: 3rem 0rem;
   }
 
+  .dica-texto {
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
   .dica-texto h2 {
     font-size: 2rem;
+    text-align: center;
+  }
+  .dica-texto p {
+    width: 80%;
+    text-align: start;
+  }
+  .ask {
+    margin-top: 1rem;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .ask p {
+    text-align: center;
   }
 
-  .dica-imagem img {
+  .dica-imagem {
+    display: flex;
     width: 100%;
+    height: min-content;
+    align-items: center;
+    justify-content: center;
+  }
+  .dica-imagem img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
     max-width: 400px;
   }
 
@@ -857,6 +900,18 @@ header.topo a {
   .posicao.destaque {
     width: 90%;
     transform: none !important;
+  }
+
+  .titulo-secao::after,
+  .titulo-beneficios::after,
+  .titulo-dicas::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #ff751f, #b20837);
+    margin: 15px auto 0;
+    border-radius: 2px;
   }
 }
 
