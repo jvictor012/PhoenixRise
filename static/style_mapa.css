@@ -339,7 +339,7 @@ button {
   }
 
   button {
-    padding: 0;
+    padding: 1;
     font-size: 1rem;
     display: flex;
     align-items: center;
