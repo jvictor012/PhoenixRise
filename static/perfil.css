@@ -410,6 +410,16 @@ input[readonly] {
     height: auto;
   }
 
+  .opcoes {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
   .logo h1 {
     font-size: 1.5rem;
   }
@@ -528,5 +538,9 @@ input[readonly] {
   .btn-salvar-interesses,
   .btn-salvar-nivel {
     width: 90%;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
   }
 }
