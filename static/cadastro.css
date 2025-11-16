@@ -137,7 +137,7 @@ input {
   margin-bottom: 15px;
   font-size: 1.2rem;
   transition: all 0.3s ease; /* suaviza transformações e sombra */
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2); /* leve sombra interna para profundidade */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2); /* leve sombra interna para profundidade */
 }
 
 input::placeholder {
@@ -148,7 +148,7 @@ input::placeholder {
 
 input:focus {
   border-color: orangered; /* mantém brilho do foco */
-  box-shadow: 0 0 10px orangered, inset 0 1px 3px rgba(0,0,0,0.2); /* foco + sombra interna */
+  box-shadow: 0 0 10px orangered, inset 0 1px 3px rgba(0, 0, 0, 0.2); /* foco + sombra interna */
   outline: none;
   transform: scale(1.02); /* leve efeito ao focar */
 }
